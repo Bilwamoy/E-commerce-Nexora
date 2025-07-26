@@ -1,13 +1,13 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
+  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "frontend/.next",
   "framework": "nextjs",
   "installCommand": "echo 'Using custom build command'",
   "devCommand": "cd frontend && npm run dev",
-  "regions": ["bom1"],
+  "regions": ["iad1"],
   "functions": {
     "frontend/app/api/**/*.ts": {
-      "maxDuration": 30
+      "runtime": "nodejs18.x"
     }
   },
   "headers": [
@@ -15,24 +15,20 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
           "key": "X-Frame-Options",
           "value": "DENY"
         },
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         },
         {
           "key": "Referrer-Policy",
           "value": "origin-when-cross-origin"
         },
         {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=()"
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
         }
       ]
     },
@@ -42,10 +38,6 @@
         {
           "key": "Content-Type",
           "value": "application/xml"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400"
         }
       ]
     },
@@ -55,10 +47,6 @@
         {
           "key": "Content-Type",
           "value": "text/plain"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400"
         }
       ]
     },
@@ -86,8 +74,12 @@
   ],
   "rewrites": [
     {
-      "source": "/sitemap.xml",
-      "destination": "/api/sitemap"
+      "source": "/api/(.*)",
+      "destination": "/frontend/app/api/$1"
     }
-  ]
+  ],
+  "env": {
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "NODE_ENV": "production"
+  }
 } 
