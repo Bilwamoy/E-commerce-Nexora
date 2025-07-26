@@ -7,6 +7,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   
+  // Disable SWC to avoid download issues
+  swcMinify: false,
+  
   // Image optimization
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com'],
