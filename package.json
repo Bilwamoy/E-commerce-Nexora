@@ -1,0 +1,29 @@
+{
+  "name": "nexora-ecommerce",
+  "version": "1.0.0",
+  "description": "Nexora - Premium Electronics & Lifestyle Store",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start",
+    "lint": "cd frontend && npm run lint",
+    "install-all": "npm install && cd frontend && npm install"
+  },
+  "keywords": [
+    "nextjs",
+    "ecommerce",
+    "electronics",
+    "vercel",
+    "seo"
+  ],
+  "author": "Nexora Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+} 
