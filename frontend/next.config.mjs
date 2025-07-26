@@ -7,8 +7,21 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   
-  // Disable SWC to avoid download issues
+  // Completely disable SWC to avoid download issues
   swcMinify: false,
+  
+  // Disable SWC compilation
+  experimental: {
+    forceSwcTransforms: false,
+    swcTraceProfiling: false,
+    optimizePackageImports: ['lucide-react'],
+  },
+  
+  // Use webpack instead of SWC
+  webpack: (config, { isServer }) => {
+    // Add any webpack configurations here if needed
+    return config;
+  },
   
   // Image optimization
   images: {
@@ -20,11 +33,6 @@ const nextConfig = {
 
   // Compression
   compress: true,
-
-  // Performance optimizations (disabled critters for now)
-  experimental: {
-    optimizePackageImports: ['lucide-react'],
-  },
 
   // Headers for security and performance
   async headers() {
