@@ -1,0 +1,2466 @@
+[
+  {
+    "id": 1,
+    "name": "AuraGlow lamps model 32 sunny",
+    "slug": "lamp glow",
+    "category": "Trending",
+    "image": "https://cdn.dummyjson.com/product-images/12/1.jpg",
+    "price": 52032,
+    "originalPrice": 9999,
+    "rating": 4.7,
+    "reviews": 2340,
+    "features": [],
+    "description": "The AuraGlow Smart Lamp is a revolutionary ambient lighting solution that transforms any room. With over 16 million colors and various dynamic scenes, you can create the perfect atmosphere for any mood or occasion. It syncs seamlessly with your music, creating a captivating light show that moves to the beat.",
+    "user_manual": "1. Unbox and plug in the AuraGlow lamp. 2. Download the 'AuraHome' app from the App Store or Google Play. 3. Connect the lamp to your 2.4GHz Wi-Fi network via the app. 4. Control the lamp using the app or link it to your Alexa or Google Home account for voice commands. 5. Explore different modes like 'Music Sync' and 'Scene Select' for an immersive experience.",
+    "offers": {
+      "bank": "10% Instant Discount on HDFC Cards"
+    },
+    "specs": {
+      "brand": "LuminaTech"
+    },
+    "relatedSlugs": [
+      "soundcore-liberty-air-4",
+      "insta-pot-duo-plus"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "SoundCore Liberty Air 4",
+    "slug": "soundcore-liberty-air-4",
+    "category": "Trending",
+    "image": "https://cdn.dummyjson.com/product-images/12/1.jpg",
+    "price": 7499,
+    "originalPrice": 9999,
+    "rating": 4.7,
+    "reviews": 2340,
+    "features": [],
+    "description": "Experience pure, uninterrupted audio with the SoundCore Liberty Air 4. Featuring advanced Active Noise Cancellation and custom-tuned 11mm drivers, these earbuds deliver breathtaking sound. The ergonomic design ensures a secure and comfortable fit for all-day listening.",
+    "user_manual": "1. Charge the earbuds in the case before first use. 2. Open the case to automatically enter pairing mode. Select 'SoundCore Liberty Air 4' in your device's Bluetooth settings. 3. Tap the right earbud twice to play/pause, and the left earbud twice to toggle ANC. 4. Customize controls and EQ settings in the SoundCore app.",
+    "offers": {
+      "emi": "No Cost EMI starting at ₹625/month"
+    },
+    "specs": {
+      "brand": "Anker"
+    },
+    "relatedSlugs": [
+      "auraglow-smart-lamp-gen-3",
+      "insta-pot-duo-plus"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "InstaPot Duo Plus 9-in-1",
+    "slug": "insta-pot-duo-plus",
+    "category": "Trending",
+    "image": "https://cdn.dummyjson.com/product-images/27/1.jpg",
+    "price": 12999,
+    "originalPrice": 15999,
+    "rating": 4.9,
+    "reviews": 8910,
+    "features": [],
+    "description": "The InstaPot Duo Plus is your all-in-one kitchen solution. It functions as a pressure cooker, slow cooker, rice cooker, steamer, sauté pan, yogurt maker, and more. With 15 one-touch smart programs, cooking delicious meals has never been easier or faster.",
+    "user_manual": "1. Ensure the sealing ring is properly fitted inside the lid. 2. Add ingredients and liquid to the inner pot. 3. Close the lid, set the steam release to 'Sealing'. 4. Select a smart program and adjust time if needed. 5. Once cooking is complete, perform a quick or natural pressure release as per the recipe.",
+    "offers": {},
+    "specs": {
+      "brand": "InstaPot"
+    },
+    "relatedSlugs": [
+      "auraglow-smart-lamp-gen-3",
+      "soundcore-liberty-air-4"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Kindle Paperwhite Signature",
+    "slug": "kindle-paperwhite-signature-11th-gen",
+    "category": "Bestsellers",
+    "image": "https://cdn.dummyjson.com/product-images/8/1.jpg",
+    "price": 17999,
+    "originalPrice": 17999,
+    "rating": 4.9,
+    "reviews": 12543,
+    "features": [],
+    "description": "The ultimate reading experience. The Kindle Paperwhite Signature Edition features a large 6.8” display, a warm adjustable light, and weeks of battery life. With 32 GB of storage, you can carry thousands of books with you. It's also waterproof, so you can read worry-free at the beach or in the bath.",
+    "user_manual": "1. Charge the Kindle using the provided USB-C cable or a compatible Qi wireless charger. 2. Connect to Wi-Fi to register your Amazon account and browse the Kindle Store. 3. Tap the right side of the screen to turn the page forward, and the left side to go back. 4. Adjust brightness and warmth by tapping the top of the screen and selecting 'Settings'.",
+    "offers": {
+      "cashback": "5% back with Amazon Pay ICICI card"
+    },
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "sony-wh-1000xm5-headphones",
+      "logitech-mx-master-3s"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Sony WH-1000XM5 Headphones",
+    "slug": "sony-wh-1000xm5-headphones",
+    "category": "Bestsellers",
+    "image": "https://cdn.dummyjson.com/product-images/7/1.jpg",
+    "price": 29990,
+    "originalPrice": 34990,
+    "rating": 4.8,
+    "reviews": 7654,
+    "features": [],
+    "description": "Immerse yourself in sound with the Sony WH-1000XM5. Powered by two processors and eight microphones, these headphones offer our best-ever noise cancellation. The new lightweight design and soft-fit leather provide exceptional comfort for hours of listening.",
+    "user_manual": "1. Power on the headphones by holding the power button. 2. Enter pairing mode by holding the power button for 5 seconds. Select 'WH-1000XM5' in your device's Bluetooth settings. 3. Use the touch panel on the right earcup to control music and calls. 4. Download the Sony Headphones Connect app to customize settings and update firmware.",
+    "offers": {
+      "bank": "₹2000 Instant Discount on select cards"
+    },
+    "specs": {
+      "brand": "Sony"
+    },
+    "relatedSlugs": [
+      "kindle-paperwhite-signature-11th-gen",
+      "logitech-mx-master-3s"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Logitech MX Master 3S",
+    "slug": "logitech-mx-master-3s",
+    "category": "Bestsellers",
+    "image": "https://cdn.dummyjson.com/product-images/9/1.jpg",
+    "price": 10995,
+    "originalPrice": 10995,
+    "rating": 4.9,
+    "reviews": 9876,
+    "features": [],
+    "description": "The ultimate performance mouse, remastered. The Logitech MX Master 3S offers remarkable precision, performance, and comfort. With Quiet Clicks and an 8,000 DPI sensor that tracks on virtually any surface, it's designed for creators and coders who demand the best.",
+    "user_manual": "1. Connect the mouse via the Logi Bolt USB receiver or Bluetooth. 2. Install the Logi Options+ software to customize buttons, set tracking speed, and enable Flow. 3. The top scroll wheel switches between ratchet and free-spin modes automatically. 4. The thumb wheel allows for horizontal scrolling. Use the gesture button by holding it and moving the mouse.",
+    "offers": {},
+    "specs": {
+      "brand": "Logitech"
+    },
+    "relatedSlugs": [
+      "kindle-paperwhite-signature-11th-gen",
+      "sony-wh-1000xm5-headphones"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Pixel 8 Pro",
+    "slug": "google-pixel-8-pro",
+    "category": "Mobiles",
+    "image": "https://cdn.dummyjson.com/product-images/2/1.jpg",
+    "price": 106999,
+    "originalPrice": 113999,
+    "rating": 4.7,
+    "reviews": 450,
+    "features": [],
+    "description": "The most powerful Pixel yet. The Google Pixel 8 Pro is engineered with the new Tensor G3 chip for cutting-edge photo and video features and smarter ways to help. The fully upgraded camera system offers pro-level controls, a 5x telephoto lens, and AI-powered editing tools like Magic Editor.",
+    "user_manual": "1. Insert your SIM card into the tray. 2. Power on the device and follow the on-screen setup guide to transfer data from your old phone. 3. Explore the camera app to use features like Pro controls, Night Sight, and Best Take. 4. Use the 'Circle to Search' feature by long-pressing the home bar and circling anything on your screen.",
+    "offers": {
+      "exchange": "Up to ₹10,000 off on exchange"
+    },
+    "specs": {
+      "brand": "Google"
+    },
+    "relatedSlugs": [
+      "samsung-galaxy-s24-ultra",
+      "oneplus-12"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Samsung Galaxy S24 Ultra",
+    "slug": "samsung-galaxy-s24-ultra",
+    "category": "Mobiles",
+    "image": "https://cdn.dummyjson.com/product-images/3/1.jpg",
+    "price": 129999,
+    "originalPrice": 134999,
+    "rating": 4.8,
+    "reviews": 890,
+    "features": [],
+    "description": "Welcome to the era of mobile AI. With the Samsung Galaxy S24 Ultra, you can unleash new levels of creativity, productivity, and possibility. Circle to Search, get real-time translations on a call, and edit your photos like a pro with Photo Assist—all powered by Galaxy AI. The new titanium frame and 200MP camera set a new standard for flagship phones.",
+    "user_manual": "1. Use the S Pen to write, draw, and navigate. Press the S Pen button to access Air Command. 2. To use 'Circle to Search', long-press the home button and circle an object on the screen. 3. Access AI features in the Gallery app to edit photos with Generative Edit. 4. Use the 'Live Translate' feature during phone calls for real-time voice translation.",
+    "offers": {
+      "bank": "₹5000 Instant Discount on HDFC Bank"
+    },
+    "specs": {
+      "brand": "Samsung"
+    },
+    "relatedSlugs": [
+      "google-pixel-8-pro",
+      "oneplus-12"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "OnePlus 12",
+    "slug": "oneplus-12",
+    "category": "Mobiles",
+    "image": "https://cdn.dummyjson.com/product-images/4/1.jpg",
+    "price": 64999,
+    "originalPrice": 69999,
+    "rating": 4.6,
+    "reviews": 1120,
+    "features": [],
+    "description": "Smooth Beyond Belief. The OnePlus 12 redefines flagship performance with the latest Snapdragon 8 Gen 3 processor and a stunning 2K 120Hz display. The 4th Generation Hasselblad Camera for Mobile captures breathtaking images, while the 100W SUPERVOOC charging powers up your device in minutes.",
+    "user_manual": "1. Use the included 100W SUPERVOOC charger for the fastest charging speeds. 2. Slide the Alert Slider on the side of the phone to switch between Silent, Vibrate, and Ring modes. 3. Explore the Hasselblad camera modes, including Portrait Mode and Master Mode for professional-grade photos. 4. Customize your experience in OxygenOS settings.",
+    "offers": {},
+    "specs": {
+      "brand": "OnePlus"
+    },
+    "relatedSlugs": [
+      "google-pixel-8-pro",
+      "samsung-galaxy-s24-ultra"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "The Alchemist",
+    "slug": "the-alchemist-paulo-coelho",
+    "category": "Books",
+    "image": "https://cdn.dummyjson.com/product-images/26/1.jpg",
+    "price": 250,
+    "originalPrice": 399,
+    "rating": 4.9,
+    "reviews": 25000,
+    "features": [],
+    "description": "Paulo Coelho's enchanting novel has inspired a devoted following around the world. This story, dazzling in its simplicity and wisdom, is about an Andalusian shepherd boy named Santiago who travels from his homeland in Spain to the Egyptian desert in search of a treasure buried near the Pyramids. It is a testament to the transforming power of our dreams.",
+    "user_manual": "1. Find a quiet, comfortable place to read. 2. Allow yourself to be immersed in Santiago's journey. 3. Reflect on the story's themes of destiny, perseverance, and listening to one's heart. 4. Share the book with a friend who might need inspiration.",
+    "offers": {
+      "deal": "Part of 'Buy 2 Get 1 Free' offer"
+    },
+    "specs": {
+      "brand": "HarperCollins"
+    },
+    "relatedSlugs": [
+      "atomic-habits-james-clear",
+      "ikigai-the-japanese-secret"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Atomic Habits",
+    "slug": "atomic-habits-james-clear",
+    "category": "Books",
+    "image": "https://cdn.dummyjson.com/product-images/27/1.jpg",
+    "price": 450,
+    "originalPrice": 799,
+    "rating": 4.9,
+    "reviews": 32000,
+    "features": [],
+    "description": "No matter your goals, Atomic Habits offers a proven framework for improving--every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.",
+    "user_manual": "1. Read one chapter at a time and try to implement its core lesson. 2. Use the 'Four Laws of Behavior Change' (Make it Obvious, Attractive, Easy, Satisfying) to build new habits. 3. Start with small, 'atomic' habits that are easy to maintain. 4. Track your progress using a habit tracker.",
+    "offers": {},
+    "specs": {
+      "brand": "Penguin Random House"
+    },
+    "relatedSlugs": [
+      "the-alchemist-paulo-coelho",
+      "ikigai-the-japanese-secret"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Ikigai: The Japanese Secret",
+    "slug": "ikigai-the-japanese-secret",
+    "category": "Books",
+    "image": "https://cdn.dummyjson.com/product-images/28/1.jpg",
+    "price": 350,
+    "originalPrice": 599,
+    "rating": 4.7,
+    "reviews": 18000,
+    "features": [],
+    "description": "The Japanese secret to a long and happy life. This book introduces you to the Japanese concept of 'ikigai'—the happiness of always being busy. It explores the secrets of the world's longest-living people in Okinawa, Japan, and provides practical tools to help you discover your own ikigai.",
+    "user_manual": "1. Read the book to understand the concept of ikigai. 2. Reflect on the four intersecting circles: what you love, what you are good at, what the world needs, and what you can be paid for. 3. Find your own ikigai by identifying the intersection of these four elements in your life. 4. Incorporate the '10 rules of ikigai' into your daily routine.",
+    "offers": {},
+    "specs": {
+      "brand": "Penguin Books"
+    },
+    "relatedSlugs": [
+      "the-alchemist-paulo-coelho",
+      "atomic-habits-james-clear"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "LG C3 OLED 65-Inch 4K TV",
+    "slug": "lg-c3-oled-65-inch-4k-tv",
+    "category": "TV",
+    "image": "https://cdn.dummyjson.com/product-images/96/1.jpg",
+    "price": 159990,
+    "originalPrice": 219990,
+    "rating": 4.9,
+    "reviews": 3100,
+    "features": [],
+    "description": "Immerse yourself in cinematic perfection with the LG C3 OLED TV. Its self-lit pixels deliver perfect blacks, infinite contrast, and over a billion colors, making every scene breathtakingly realistic. The α9 AI Processor Gen6 enhances picture and sound, while the 120Hz refresh rate ensures smooth motion for gaming and sports.",
+    "user_manual": "1. Attach the stand or mount the TV on a wall. 2. Connect the power cord and your input devices (HDMI, etc.). 3. Power on the TV and follow the on-screen setup guide to connect to Wi-Fi. 4. Use the Magic Remote to navigate the webOS interface, point, click, or use voice commands to open apps like Netflix and Prime Video.",
+    "offers": {
+      "bank": "₹7500 Instant Discount on ICICI Bank Credit Card"
+    },
+    "specs": {
+      "brand": "LG"
+    },
+    "relatedSlugs": [
+      "samsung-frame-qled-55-inch",
+      "sony-bravia-x90l-75-inch"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Sony Bravia X90L 75-Inch TV",
+    "slug": "sony-bravia-x90l-75-inch",
+    "category": "TV",
+    "image": "https://cdn.dummyjson.com/product-images/97/1.jpg",
+    "price": 229990,
+    "originalPrice": 289990,
+    "rating": 4.8,
+    "reviews": 1980,
+    "features": [],
+    "description": "Experience intelligent TV processing with the Sony Bravia X90L. The Cognitive Processor XR understands how humans see and hear to provide intense contrast and natural colors. Full Array LED technology provides stunning realism, while Google TV brings all your favorite content together in one place.",
+    "user_manual": "1. Assemble the stand and place the TV on a stable surface. 2. Connect to power and external devices. 3. Follow the Google TV setup process, signing in with your Google account. 4. Use the voice remote to search for movies, shows, or control smart home devices. 5. Calibrate gaming settings in the 'Game Menu' for an optimized PS5 experience.",
+    "offers": {
+      "emi": "No Cost EMI up to 12 months"
+    },
+    "specs": {
+      "brand": "Sony"
+    },
+    "relatedSlugs": [
+      "lg-c3-oled-65-inch-4k-tv",
+      "samsung-frame-qled-55-inch"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Samsung The Frame QLED 55-Inch",
+    "slug": "samsung-frame-qled-55-inch",
+    "category": "TV",
+    "image": "https://cdn.dummyjson.com/product-images/98/1.jpg",
+    "price": 85990,
+    "originalPrice": 124990,
+    "rating": 4.7,
+    "reviews": 2150,
+    "features": [],
+    "description": "More than just a TV, The Frame is a work of art. When you're not watching your favorite shows in stunning QLED 4K, Art Mode transforms the screen into a beautiful canvas, displaying world-class art or your own photos with a glare-free matte finish. Customizable bezels allow it to blend seamlessly with your home decor.",
+    "user_manual": "1. Mount the TV flush to the wall using the included Slim Fit Wall Mount. 2. Attach your chosen customizable bezel (sold separately). 3. Connect the One Connect Box, which houses all your ports, via the single, near-invisible cable. 4. In the Smart Hub, navigate to 'Art Mode' to select artwork from the Art Store or upload your own photos.",
+    "offers": {},
+    "specs": {
+      "brand": "Samsung"
+    },
+    "relatedSlugs": [
+      "lg-c3-oled-65-inch-4k-tv",
+      "sony-bravia-x90l-75-inch"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Dell XPS 15 Laptop",
+    "slug": "dell-xps-15-laptop-2025",
+    "category": "Computers",
+    "image": "https://cdn.dummyjson.com/product-images/7/1.jpg",
+    "price": 189990,
+    "originalPrice": 225990,
+    "rating": 4.8,
+    "reviews": 850,
+    "features": [],
+    "description": "Unleash your creativity with the Dell XPS 15. Engineered for performance, it packs a powerful Intel Core i7 processor and NVIDIA RTX graphics into a stunningly slim design. The vibrant 3.5K OLED touch display brings your content to life with incredible detail and color, making it the perfect tool for creators, designers, and professionals.",
+    "user_manual": "1. Unbox and connect the USB-C power adapter to charge the device. 2. Press the power button to start the initial Windows 11 setup. 3. Connect to Wi-Fi and sign in with your Microsoft account. 4. Use the Dell Update utility to ensure all drivers and firmware are up to date. 5. Explore Dell PremierColor to calibrate the display for your specific workflow.",
+    "offers": {
+      "bank": "₹5000 cashback on American Express cards"
+    },
+    "specs": {
+      "brand": "Dell"
+    },
+    "relatedSlugs": [
+      "apple-macbook-air-m3",
+      "hp-spectre-x360-14"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Apple MacBook Air M3",
+    "slug": "apple-macbook-air-m3",
+    "category": "Computers",
+    "image": "https://cdn.dummyjson.com/product-images/6/1.png",
+    "price": 114900,
+    "originalPrice": 114900,
+    "rating": 4.9,
+    "reviews": 1500,
+    "features": [],
+    "description": "Supercharged by the M3 chip, the MacBook Air is the perfect blend of power and portability. It flies through demanding tasks, from photo editing to gaming, while remaining completely silent thanks to its fanless design. The stunning Liquid Retina display and all-day battery life make it the ideal laptop for work, play, and everything in between.",
+    "user_manual": "1. Open the lid to power on the MacBook Air. 2. Follow the macOS Setup Assistant to configure your language, Wi-Fi, and Apple ID. 3. Use Migration Assistant during setup to transfer data from an old Mac or PC. 4. Charge the device using the MagSafe 3 port or either of the two Thunderbolt / USB 4 ports. 5. Explore System Settings to customize your trackpad, display, and other preferences.",
+    "offers": {
+      "deal": "Student discount available"
+    },
+    "specs": {
+      "brand": "Apple"
+    },
+    "relatedSlugs": [
+      "dell-xps-15-laptop-2025",
+      "hp-spectre-x360-14"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "HP Spectre x360 14",
+    "slug": "hp-spectre-x360-14",
+    "category": "Computers",
+    "image": "https://cdn.dummyjson.com/product-images/8/1.jpg",
+    "price": 159990,
+    "originalPrice": 179990,
+    "rating": 4.7,
+    "reviews": 650,
+    "features": [],
+    "description": "Adapt to any task with the incredibly versatile HP Spectre x360 14. Its 360-degree hinge lets you switch from laptop to tablet mode in an instant. The powerful Intel Core Ultra 7 processor handles demanding applications with ease, while the 2.8K OLED touchscreen delivers stunning visuals for both work and entertainment.",
+    "user_manual": "1. Charge the laptop using the included USB-C charger. 2. Power on and complete the Windows 11 setup. 3. Rotate the screen 360 degrees to switch between laptop, tent, stand, and tablet modes. 4. Use the included HP Stylus Pen for drawing, writing, or navigating in tablet mode. 5. Press the webcam kill switch on the side for instant privacy.",
+    "offers": {},
+    "specs": {
+      "brand": "HP"
+    },
+    "relatedSlugs": [
+      "dell-xps-15-laptop-2025",
+      "apple-macbook-air-m3"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Nike Air Zoom Pegasus 41",
+    "slug": "nike-air-zoom-pegasus-41",
+    "category": "Men's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/56/1.jpg",
+    "price": 11895,
+    "originalPrice": 11895,
+    "rating": 4.8,
+    "reviews": 3200,
+    "features": [],
+    "description": "The workhorse with wings returns. The Nike Air Zoom Pegasus 41 delivers a springy, responsive ride for your daily runs. The new ReactX foam midsole is lighter and more responsive than ever, while dual Air Zoom units provide an energized feel underfoot. The breathable engineered mesh upper keeps your feet cool and comfortable, mile after mile.",
+    "user_manual": "1. Select the correct size for a snug but comfortable fit. 2. Lace the shoes securely to lock your heel in place. 3. Best used for road running, from daily training to long-distance races. 4. After use, clean with a soft brush and mild soap; air dry away from direct heat. Do not machine wash.",
+    "offers": {},
+    "specs": {
+      "brand": "Nike"
+    },
+    "relatedSlugs": [
+      "levis-501-original-fit-jeans",
+      "tommy-hilfiger-polo-shirt"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Levi's 501 Original Fit Jeans",
+    "slug": "levis-501-original-fit-jeans",
+    "category": "Men's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/51/1.jpg",
+    "price": 4599,
+    "originalPrice": 5999,
+    "rating": 4.7,
+    "reviews": 8900,
+    "features": [],
+    "description": "The timeless icon. The Levi's 501 Original is the blueprint for every pair of jeans in existence. With its classic straight leg and signature button fly, this jean has been a symbol of individual expression for generations. Made from durable, non-stretch cotton denim that molds to your body over time.",
+    "user_manual": "1. Choose your waist and length for the perfect fit. 2. For raw denim, consider sizing up and soaking before the first wear to shrink to fit. 3. Wash inside out with cold water and similar colors to preserve the indigo dye. 4. Tumble dry on low or hang dry to minimize shrinkage and extend the life of the jeans.",
+    "offers": {
+      "deal": "Flat 20% off"
+    },
+    "specs": {
+      "brand": "Levi's"
+    },
+    "relatedSlugs": [
+      "nike-air-zoom-pegasus-41",
+      "tommy-hilfiger-polo-shirt"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Tommy Hilfiger Polo Shirt",
+    "slug": "tommy-hilfiger-polo-shirt",
+    "category": "Men's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/52/1.jpg",
+    "price": 3599,
+    "originalPrice": 4999,
+    "rating": 4.6,
+    "reviews": 4500,
+    "features": [],
+    "description": "A preppy classic for any wardrobe. This Tommy Hilfiger polo shirt is crafted from soft, breathable organic cotton pique for all-day comfort. It features a regular fit, a classic two-button placket, and the iconic embroidered flag logo on the chest for a signature touch.",
+    "user_manual": "1. Select your preferred size and color. 2. Machine wash cold with like colors. 3. Tumble dry on low heat. 4. Iron on a medium setting if needed, avoiding the embroidered logo. Do not bleach or dry clean.",
+    "offers": {},
+    "specs": {
+      "brand": "Tommy Hilfiger"
+    },
+    "relatedSlugs": [
+      "nike-air-zoom-pegasus-41",
+      "levis-501-original-fit-jeans"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Vero Moda Floral Midi Dress",
+    "slug": "vero-moda-floral-midi-dress",
+    "category": "Women's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/41/1.jpg",
+    "price": 2499,
+    "originalPrice": 3999,
+    "rating": 4.5,
+    "reviews": 1200,
+    "features": [],
+    "description": "Effortlessly chic and perfect for sunny days. This midi dress from Vero Moda features a beautiful all-over floral print on a lightweight, flowy viscose fabric. The flattering V-neckline, short puff sleeves, and adjustable tie-waist create a feminine silhouette that's perfect for brunches, picnics, or casual outings.",
+    "user_manual": "1. Choose the size that best fits your measurements. 2. Use the tie-waist belt to cinch the dress for a more defined shape. 3. Machine wash on a gentle cycle with cold water. 4. Hang to dry to maintain the fabric's shape and prevent wrinkles. Iron on low heat if necessary.",
+    "offers": {
+      "deal": "50% off"
+    },
+    "specs": {
+      "brand": "Vero Moda"
+    },
+    "relatedSlugs": [
+      "zara-high-waisted-trousers",
+      "mango-leather-crossbody-bag"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Zara High-Waisted Trousers",
+    "slug": "zara-high-waisted-trousers",
+    "category": "Women's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/46/1.jpg",
+    "price": 3290,
+    "originalPrice": 3290,
+    "rating": 4.6,
+    "reviews": 2500,
+    "features": [],
+    "description": "A modern wardrobe essential. These high-waisted trousers from Zara offer a sophisticated and polished look. The straight-leg cut elongates the silhouette, while the front darts provide a tailored finish. Versatile enough to be dressed up for the office or down for a casual weekend look.",
+    "user_manual": "1. Select your size based on waist and hip measurements. 2. Pair with a blouse for a formal look or a simple t-shirt for a casual style. 3. Machine wash cold. 4. Iron on a medium setting or steam to remove wrinkles. Refer to the garment's care label for specific instructions.",
+    "offers": {},
+    "specs": {
+      "brand": "Zara"
+    },
+    "relatedSlugs": [
+      "vero-moda-floral-midi-dress",
+      "mango-leather-crossbody-bag"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Mango Leather Crossbody Bag",
+    "slug": "mango-leather-crossbody-bag",
+    "category": "Women's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/47/1.jpg",
+    "price": 3990,
+    "originalPrice": 4990,
+    "rating": 4.7,
+    "reviews": 980,
+    "features": [],
+    "description": "The perfect accessory for any outfit. This crossbody bag from Mango is crafted from high-quality bovine leather for a luxurious feel and lasting durability. Its compact yet spacious design features a secure magnetic flap closure and an inner zipped pocket to keep your essentials organized. The adjustable strap allows for comfortable, hands-free wear.",
+    "user_manual": "1. Adjust the strap to your desired length for shoulder or crossbody wear. 2. To clean, wipe with a dry cotton cloth. 3. Do not use water, soap, or solvents. 4. Store in the included dust bag when not in use to protect the leather from scratches and dust.",
+    "offers": {},
+    "specs": {
+      "brand": "Mango"
+    },
+    "relatedSlugs": [
+      "vero-moda-floral-midi-dress",
+      "zara-high-waisted-trousers"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Echo Dot (5th Gen)",
+    "slug": "amazon-echo-dot-5th-gen",
+    "category": "Echo & Alexa",
+    "image": "https://cdn.dummyjson.com/product-images/21/1.png",
+    "price": 5499,
+    "originalPrice": 5499,
+    "rating": 4.7,
+    "reviews": 45000,
+    "features": [],
+    "description": "Our best-sounding Echo Dot yet. Enjoy clearer vocals, deeper bass, and vibrant sound in any room. Ask Alexa to play music, set alarms, answer questions, or control your compatible smart home devices. With a built-in temperature sensor, you can create routines to automatically turn on your smart fan when the room gets too warm.",
+    "user_manual": "1. Plug in the Echo Dot. 2. Download and open the Alexa app on your smartphone. 3. Follow the in-app instructions to connect the device to your Wi-Fi network. 4. Say 'Alexa' to wake the device, followed by your command, such as 'Alexa, play today's hits'.",
+    "offers": {
+      "deal": "Get a smart bulb for ₹99"
+    },
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "echo-show-8",
+      "fire-tv-stick-4k-max"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Echo Show 8 (3rd Gen)",
+    "slug": "amazon-echo-show-8-3rd-gen",
+    "category": "Echo & Alexa",
+    "image": "https://cdn.dummyjson.com/product-images/22/1.jpg",
+    "price": 13999,
+    "originalPrice": 13999,
+    "rating": 4.6,
+    "reviews": 15000,
+    "features": [],
+    "description": "Entertainment and help at a glance. The Echo Show 8 features an 8-inch HD touchscreen and spatial audio for an immersive viewing experience. Make video calls with the centered 13 MP camera, stream your favorite shows, or manage your smart home with your voice or a simple tap. The home screen is customizable to show your photos, calendars, and news.",
+    "user_manual": "1. Plug in the Echo Show 8. 2. The device will guide you through connecting to Wi-Fi and signing into your Amazon account. 3. Say 'Alexa, show me my photos' or 'Alexa, play The Boys on Prime Video'. 4. Swipe from the right to access smart home controls. Use the physical camera shutter for privacy.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "amazon-echo-dot-5th-gen",
+      "fire-tv-stick-4k-max"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Echo Pop",
+    "slug": "amazon-echo-pop",
+    "category": "Echo & Alexa",
+    "image": "https://cdn.dummyjson.com/product-images/23/1.jpg",
+    "price": 4999,
+    "originalPrice": 4999,
+    "rating": 4.5,
+    "reviews": 8500,
+    "features": [],
+    "description": "Big sound, compact size. The Echo Pop is a compact smart speaker with full sound that's perfect for bedrooms and small spaces. Small enough to blend in and mighty enough to stand out. Ask Alexa to play music, audiobooks, and podcasts from your favorite providers like Amazon Music, Apple Music, Spotify, and more.",
+    "user_manual": "1. Plug in the Echo Pop. 2. Open the Alexa app on your phone and tap 'Devices' > '+' to add a new device. 3. Follow the on-screen instructions to connect to Wi-Fi. 4. Start by saying 'Alexa, what's the weather?' or 'Alexa, set a 10-minute timer'.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "amazon-echo-dot-5th-gen",
+      "echo-show-8"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Nespresso VertuoPlus Coffee Maker",
+    "slug": "nespresso-vertuoplus-coffee-maker",
+    "category": "Home & Kitchen",
+    "image": "https://cdn.dummyjson.com/product-images/91/1.jpg",
+    "price": 18990,
+    "originalPrice": 24990,
+    "rating": 4.8,
+    "reviews": 6700,
+    "features": [],
+    "description": "Experience the perfect cup of coffee every time with the Nespresso VertuoPlus. Its intelligent Centrifusion™ technology reads the barcode on each capsule to brew the perfect cup, adjusting everything from temperature to cup size. With a single touch, you can create exceptional coffee with a smooth, generous crema.",
+    "user_manual": "1. Fill the water tank with fresh water. 2. Turn on the machine and wait for the light to become steady. 3. Insert a Nespresso Vertuo capsule and close the head. 4. Place a cup under the spout and press the button. The machine will automatically brew the correct size. 5. Eject the used capsule by lifting the head.",
+    "offers": {
+      "deal": "Includes a complimentary set of 12 capsules"
+    },
+    "specs": {
+      "brand": "Nespresso"
+    },
+    "relatedSlugs": [
+      "dyson-v12-detect-slim-vacuum",
+      "philips-airfryer-hd9252"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Dyson V12 Detect Slim Vacuum",
+    "slug": "dyson-v12-detect-slim-vacuum",
+    "category": "Home & Kitchen",
+    "image": "https://cdn.dummyjson.com/product-images/92/1.jpg",
+    "price": 58900,
+    "originalPrice": 62900,
+    "rating": 4.9,
+    "reviews": 4200,
+    "features": [],
+    "description": "The most powerful, lightweight cordless vacuum. The Dyson V12 Detect Slim is engineered with a precisely-angled laser that makes invisible dust visible on hard floors. A piezo sensor continuously sizes and counts dust particles, automatically increasing suction power when needed for a truly deep clean.",
+    "user_manual": "1. Fully charge the battery before first use. 2. Attach your desired cleaner head or tool. 3. Press the red button on top of the handle to start cleaning; no need to hold the trigger. 4. The LCD screen shows what's been sucked up in real-time. 5. To empty the bin, push the red lever to hygienically eject dust and debris.",
+    "offers": {},
+    "specs": {
+      "brand": "Dyson"
+    },
+    "relatedSlugs": [
+      "nespresso-vertuoplus-coffee-maker",
+      "philips-airfryer-hd9252"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Philips Airfryer HD9252/90",
+    "slug": "philips-airfryer-hd9252",
+    "category": "Home & Kitchen",
+    "image": "https://cdn.dummyjson.com/product-images/93/1.jpg",
+    "price": 8999,
+    "originalPrice": 11995,
+    "rating": 4.7,
+    "reviews": 15000,
+    "features": [],
+    "description": "Enjoy healthy food that's crispy on the outside and tender on the inside. The Philips Airfryer uses Rapid Air Technology to fry your favorite foods with little to no added oil. Its unique 'starfish' design swirls hot air to create delicious foods with up to 90% less fat. Fry, bake, grill, roast and even reheat!",
+    "user_manual": "1. Place the Airfryer on a stable, heat-resistant surface. 2. Place the ingredients in the basket and slide it into the Airfryer. 3. Use the digital touchscreen to select a preset program or manually set the temperature and time. 4. Press the start button. Shake the basket halfway through cooking for even results. 5. The Airfryer will beep when cooking is complete.",
+    "offers": {
+      "bank": "5% cashback on select cards"
+    },
+    "specs": {
+      "brand": "Philips"
+    },
+    "relatedSlugs": [
+      "nespresso-vertuoplus-coffee-maker",
+      "dyson-v12-detect-slim-vacuum"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "LEGO Star Wars Millennium Falcon",
+    "slug": "lego-star-wars-millennium-falcon-75192",
+    "category": "Toys & Games",
+    "image": "https://cdn.dummyjson.com/product-images/86/1.jpg",
+    "price": 79999,
+    "originalPrice": 84999,
+    "rating": 5,
+    "reviews": 1250,
+    "features": [],
+    "description": "The ultimate LEGO Star Wars Millennium Falcon has landed! With 7,541 pieces, this is one of the largest LEGO models ever created. This amazing interpretation of Han Solo’s unforgettable Corellian freighter has all the details that Star Wars fans of any age could wish for, including intricate exterior detailing, upper and lower quad laser cannons, and a detailed cockpit.",
+    "user_manual": "1. Open the box and organize the numbered bags. 2. Follow the detailed, step-by-step instruction booklet. It is recommended to build in sections. 3. Build the internal frame first, then attach the exterior hull panels. 4. Assemble the minifigures and interior sections like the main hold and cockpit. 5. This is a complex build recommended for experienced LEGO builders.",
+    "offers": {},
+    "specs": {
+      "brand": "LEGO"
+    },
+    "relatedSlugs": [
+      "catan-board-game",
+      "nerf-n-strike-elite-disruptor"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Catan Board Game",
+    "slug": "catan-board-game",
+    "category": "Toys & Games",
+    "image": "https://cdn.dummyjson.com/product-images/87/1.jpg",
+    "price": 3499,
+    "originalPrice": 4299,
+    "rating": 4.8,
+    "reviews": 22000,
+    "features": [],
+    "description": "Embark on a quest to settle the isle of Catan! In Catan, players try to be the dominant force on the island by building settlements, cities, and roads. On each turn, dice are rolled to determine what resources the island produces. Players collect these resources—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.",
+    "user_manual": "1. Set up the hexagonal tiles to form the island of Catan as shown in the rulebook. 2. Each player places two small houses (settlements) and two roads on the board. 3. On your turn, roll the dice to determine which hexes produce resources. 4. Collect resource cards and trade with other players to get the resources you need. 5. Use resources to build roads, settlements, and cities, or buy Development Cards. The first player to reach 10 Victory Points wins.",
+    "offers": {},
+    "specs": {
+      "brand": "Catan Studio"
+    },
+    "relatedSlugs": [
+      "lego-star-wars-millennium-falcon-75192",
+      "nerf-n-strike-elite-disruptor"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Michelin Primacy Tour A/S Tire",
+    "slug": "michelin-primacy-tour-as-tire",
+    "category": "Automotive",
+    "image": "https://cdn.dummyjson.com/product-images/81/1.jpg",
+    "price": 15999,
+    "originalPrice": 17999,
+    "rating": 4.8,
+    "reviews": 7500,
+    "features": [],
+    "description": "The Michelin Primacy Tour A/S is the ultimate all-season tire for luxury touring vehicles. It offers a quiet, comfortable ride, exceptional wet and dry braking performance, and long-lasting tread life. The advanced tread compound ensures confident handling in all weather conditions, from summer heat to light snow.",
+    "user_manual": "1. Ensure the tire size matches your vehicle's specifications. 2. Professional installation is highly recommended for proper balancing and alignment. 3. Maintain the recommended tire pressure (PSI) as indicated on your vehicle's door jamb sticker. 4. Rotate tires every 5,000-7,000 miles to ensure even wear and maximize lifespan.",
+    "offers": {
+      "deal": "Free installation on a set of 4"
+    },
+    "specs": {
+      "brand": "Michelin"
+    },
+    "relatedSlugs": [
+      "bosch-icon-wiper-blade",
+      "meguiars-ultimate-car-wash"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Bosch ICON Wiper Blade",
+    "slug": "bosch-icon-wiper-blade",
+    "category": "Automotive",
+    "image": "https://cdn.dummyjson.com/product-images/82/1.jpg",
+    "price": 2499,
+    "originalPrice": 2999,
+    "rating": 4.8,
+    "reviews": 18500,
+    "features": [],
+    "description": "Experience superior visibility in any weather with the Bosch ICON wiper blade. Its beam design with an asymmetrical spoiler provides consistent, streak-free wiping performance. The patented rubber technology ensures a long life and a clean, quiet wipe. Easy to install with the pre-installed vehicle-specific adapter.",
+    "user_manual": "1. Select the correct blade length for your vehicle's make and model. 2. Lift the wiper arm away from the windshield. 3. Press the release tab on the old wiper blade and slide it off the wiper arm. 4. Slide the new Bosch ICON blade onto the arm until it clicks securely into place. 5. Gently lower the arm back onto the windshield.",
+    "offers": {},
+    "specs": {
+      "brand": "Bosch"
+    },
+    "relatedSlugs": [
+      "michelin-primacy-tour-as-tire",
+      "meguiars-ultimate-car-wash"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Meguiar's Ultimate Car Wash",
+    "slug": "meguiars-ultimate-car-wash",
+    "category": "Automotive",
+    "image": "https://cdn.dummyjson.com/product-images/83/1.jpg",
+    "price": 1299,
+    "originalPrice": 1599,
+    "rating": 4.9,
+    "reviews": 25000,
+    "features": [],
+    "description": "Give your car a brilliant shine with Meguiar's Ultimate Wash & Wax. This hybrid carnauba/polymer wax protection formula gently cleans the paint while leaving behind a deep, glossy, just-waxed shine. The rich sudsing action safely lifts dirt and grime without stripping previously applied wax.",
+    "user_manual": "1. For best results, wash your car in a shaded area when the surface is cool. 2. Rinse the car with water to remove loose dirt. 3. Mix 1 ounce (4 capfuls) of Ultimate Wash & Wax per gallon of water in a bucket. 4. Apply the soapy water to a section of the car using a microfiber wash mitt. 5. Rinse thoroughly and dry with a clean microfiber towel.",
+    "offers": {},
+    "specs": {
+      "brand": "Meguiar's"
+    },
+    "relatedSlugs": [
+      "michelin-primacy-tour-as-tire",
+      "bosch-icon-wiper-blade"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "YETI Tundra 45 Cooler",
+    "slug": "yeti-tundra-45-cooler",
+    "category": "Sports & Outdoors",
+    "image": "https://cdn.dummyjson.com/product-images/31/1.jpg",
+    "price": 29999,
+    "originalPrice": 29999,
+    "rating": 4.9,
+    "reviews": 12000,
+    "features": [],
+    "description": "The legendary YETI Tundra 45 is built to handle any adventure. With up to 3 inches of PermaFrost™ Insulation and a rugged rotomolded construction, it's virtually indestructible and keeps your contents ice-cold for days. The T-Rex™ Lid Latches and InterLock™ Lid System create a form-fitting barrier against the heat.",
+    "user_manual": "1. Pre-chill the cooler with ice or ice packs for several hours before use for best performance. 2. Pack the cooler with a 2:1 ice-to-contents ratio. 3. Ensure the lid is securely closed and latched at all times. 4. Drain melted ice by opening the Vortex™ Drain System. 5. Clean with soap and water after each use.",
+    "offers": {},
+    "specs": {
+      "brand": "YETI"
+    },
+    "relatedSlugs": [
+      "osprey-atmos-ag-65-backpack",
+      "black-diamond-spot-400-headlamp"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Osprey Atmos AG 65 Backpack",
+    "slug": "osprey-atmos-ag-65-backpack",
+    "category": "Sports & Outdoors",
+    "image": "https://cdn.dummyjson.com/product-images/32/1.jpg",
+    "price": 24990,
+    "originalPrice": 27990,
+    "rating": 4.8,
+    "reviews": 4500,
+    "features": [],
+    "description": "Revolutionize your backpacking experience with the Osprey Atmos AG 65. The innovative AntiGravity™ suspension system delivers a seamless fit that feels like you're carrying less weight. With multiple access points, a removable floating top lid, and an internal hydration reservoir sleeve, it's perfectly equipped for multi-day treks.",
+    "user_manual": "1. Adjust the torso length to match your back size. 2. Load the heaviest items close to your back in the middle of the pack. 3. Fasten the hipbelt, ensuring it sits comfortably on your hip bones. 4. Tighten the shoulder straps, load lifters, and sternum strap for a stable fit. 5. Use the various compression straps to secure your load.",
+    "offers": {},
+    "specs": {
+      "brand": "Osprey"
+    },
+    "relatedSlugs": [
+      "yeti-tundra-45-cooler",
+      "black-diamond-spot-400-headlamp"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Black Diamond Spot 400 Headlamp",
+    "slug": "black-diamond-spot-400-headlamp",
+    "category": "Sports & Outdoors",
+    "image": "https://cdn.dummyjson.com/product-images/33/1.jpg",
+    "price": 3999,
+    "originalPrice": 4499,
+    "rating": 4.7,
+    "reviews": 9800,
+    "features": [],
+    "description": "The Black Diamond Spot 400 is a reliable and powerful headlamp for any outdoor pursuit. It boasts 400 lumens of light, a waterproof housing, and multiple lighting modes including full strength, dimming, strobe, red night-vision, and lock mode. PowerTap™ Technology allows for instant transitioning between full and dimmed power.",
+    "user_manual": "1. Insert 3 AAA batteries (included). 2. Press the main button to cycle through lighting modes. 3. To dim, press and hold the main button. 4. To activate red night-vision, press and hold the mode button. 5. Activate lock mode by holding both buttons for 4 seconds to prevent accidental turn-on during transport.",
+    "offers": {},
+    "specs": {
+      "brand": "Black Diamond"
+    },
+    "relatedSlugs": [
+      "yeti-tundra-45-cooler",
+      "osprey-atmos-ag-65-backpack"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Dyson Supersonic Hair Dryer",
+    "slug": "dyson-supersonic-hair-dryer",
+    "category": "Beauty & Personal Care",
+    "image": "https://cdn.dummyjson.com/product-images/16/1.png",
+    "price": 32900,
+    "originalPrice": 34900,
+    "rating": 4.9,
+    "reviews": 11500,
+    "features": [],
+    "description": "Engineered for different hair types, the Dyson Supersonic hair dryer prevents extreme heat damage to protect natural shine. Intelligent heat control measures air temperature over 40 times a second. The powerful digital motor V9 produces a high-velocity jet of controlled air for fast drying and precision styling.",
+    "user_manual": "1. Attach your desired magnetic styling attachment (concentrator, diffuser, etc.). 2. Select from 3 precise speed settings and 4 precise heat settings. 3. Use the cold shot button (28°C) to set your hair after styling. 4. The filter is located at the bottom of the handle; twist and pull down to clean it regularly.",
+    "offers": {
+      "emi": "No Cost EMI available"
+    },
+    "specs": {
+      "brand": "Dyson"
+    },
+    "relatedSlugs": [
+      "cerave-hydrating-facial-cleanser",
+      "the-ordinary-niacinamide-serum"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "CeraVe Hydrating Facial Cleanser",
+    "slug": "cerave-hydrating-facial-cleanser",
+    "category": "Beauty & Personal Care",
+    "image": "https://cdn.dummyjson.com/product-images/17/1.jpg",
+    "price": 1299,
+    "originalPrice": 1499,
+    "rating": 4.8,
+    "reviews": 85000,
+    "features": [],
+    "description": "A gentle face wash with ingredients like ceramides and hyaluronic acid that work to restore the skin’s natural barrier to help the skin lock in moisture. CeraVe Hydrating Cleanser was designed to cleanse and refresh the skin without over-stripping it or leaving it feeling tight and dry. Fragrance-free and non-comedogenic.",
+    "user_manual": "1. Wet skin with lukewarm water. 2. Massage cleanser into skin in a gentle, circular motion. 3. Rinse thoroughly. 4. Suitable for use in the morning and evening. 5. Gentle enough for daily use on normal to dry skin.",
+    "offers": {},
+    "specs": {
+      "brand": "CeraVe"
+    },
+    "relatedSlugs": [
+      "dyson-supersonic-hair-dryer",
+      "the-ordinary-niacinamide-serum"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "The Ordinary Niacinamide Serum",
+    "slug": "the-ordinary-niacinamide-10-zinc-1",
+    "category": "Beauty & Personal Care",
+    "image": "https://cdn.dummyjson.com/product-images/18/1.jpg",
+    "price": 550,
+    "originalPrice": 550,
+    "rating": 4.7,
+    "reviews": 120000,
+    "features": [],
+    "description": "A high-strength vitamin and mineral blemish formula. Niacinamide (Vitamin B3) is indicated to reduce the appearance of skin blemishes and congestion. A 10% concentration of this vitamin is supported in the formula by zinc salt of pyrrolidone carboxylic acid to balance visible aspects of sebum activity.",
+    "user_manual": "1. Apply to entire face morning and evening before heavier creams. 2. Do not use in the same routine as pure or ethylated vitamin C. 3. If irritation occurs, cease use and consult a physician. 4. Use only as directed on unbroken skin. Patch testing prior to use is advised.",
+    "offers": {},
+    "specs": {
+      "brand": "The Ordinary"
+    },
+    "relatedSlugs": [
+      "dyson-supersonic-hair-dryer",
+      "cerave-hydrating-facial-cleanser"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Samsung 8 kg AI EcoBubble Washing Machine",
+    "slug": "samsung-8kg-ai-ecobubble-washing-machine",
+    "category": "Appliances",
+    "image": "https://cdn.dummyjson.com/product-images/94/1.jpg",
+    "price": 36990,
+    "originalPrice": 45990,
+    "rating": 4.6,
+    "reviews": 3200,
+    "features": [],
+    "description": "Enjoy more effective washing with AI EcoBubble™ technology. It turns detergent into bubbles, so it quickly penetrates fabric and removes dirt easily, while saving energy and protecting its color and texture. The AI Control personalizes washing by remembering your habits and suggesting cycles.",
+    "user_manual": "1. Load laundry into the drum. 2. Add detergent and softener to the dispenser drawer. 3. Power on the machine and turn the dial to select a wash cycle. 4. The AI control panel will suggest your most frequently used cycles. 5. Press the Start/Pause button to begin the wash.",
+    "offers": {
+      "bank": "10% cashback on SBI cards"
+    },
+    "specs": {
+      "brand": "Samsung"
+    },
+    "relatedSlugs": [
+      "lg-frost-free-refrigerator-260l",
+      "bosch-13-place-dishwasher"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "LG Frost-Free Refrigerator 260L",
+    "slug": "lg-frost-free-refrigerator-260l",
+    "category": "Appliances",
+    "image": "https://cdn.dummyjson.com/product-images/95/1.jpg",
+    "price": 24990,
+    "originalPrice": 31990,
+    "rating": 4.5,
+    "reviews": 8900,
+    "features": [],
+    "description": "This LG refrigerator features a Smart Inverter Compressor for energy efficiency and silent operation. The multi-air flow cooling system ensures even cooling throughout the refrigerator, keeping your food fresh for longer. The convertible feature allows you to turn the freezer into a fridge for extra storage space.",
+    "user_manual": "1. Place the refrigerator on a flat, stable surface with adequate ventilation space. 2. Plug in the power cord and wait for the interior to cool before loading food. 3. Use the temperature control knob to adjust the fridge and freezer temperatures. 4. To use the convertible mode, press and hold the 'Freezer Convert' button for 3 seconds.",
+    "offers": {},
+    "specs": {
+      "brand": "LG"
+    },
+    "relatedSlugs": [
+      "samsung-8kg-ai-ecobubble-washing-machine",
+      "bosch-13-place-dishwasher"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Bosch 13 Place Dishwasher",
+    "slug": "bosch-13-place-dishwasher",
+    "category": "Appliances",
+    "image": "https://cdn.dummyjson.com/product-images/93/1.jpg",
+    "price": 42990,
+    "originalPrice": 52990,
+    "rating": 4.7,
+    "reviews": 2100,
+    "features": [],
+    "description": "Designed for Indian kitchens, this Bosch dishwasher is perfect for cleaning all types of utensils, including oily and greasy masala stains. It features 6 wash programs and 3 options, including an Intensive Kadhai program. The EcoSilence Drive motor ensures quiet operation and low power consumption.",
+    "user_manual": "1. Load the dishes, ensuring they do not obstruct the spray arms. 2. Add dishwasher detergent, rinse aid, and salt to their respective compartments. 3. Select the appropriate wash program based on the soil level of your dishes. 4. Press the start button. The machine will automatically run the cycle and dry the dishes.",
+    "offers": {},
+    "specs": {
+      "brand": "Bosch"
+    },
+    "relatedSlugs": [
+      "samsung-8kg-ai-ecobubble-washing-machine",
+      "lg-frost-free-refrigerator-260l"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Fire TV Stick 4K Max",
+    "slug": "amazon-fire-tv-stick-4k-max",
+    "category": "Fire TV",
+    "image": "https://cdn.dummyjson.com/product-images/24/1.jpg",
+    "price": 6499,
+    "originalPrice": 6499,
+    "rating": 4.6,
+    "reviews": 150000,
+    "features": [],
+    "description": "Our most powerful streaming stick. The Fire TV Stick 4K Max is 40% more powerful than the previous generation, with faster app starts and more fluid navigation. Enjoy vibrant 4K Ultra HD with support for Dolby Vision, HDR10+, and immersive Dolby Atmos audio. It's also our first-ever streaming stick with Wi-Fi 6 support for smoother streaming.",
+    "user_manual": "1. Plug the Fire TV Stick into your TV's HDMI port. 2. Plug the power adapter into a wall outlet. 3. Follow the on-screen instructions to connect to your Wi-Fi network and sign in to your Amazon account. 4. Use the Alexa Voice Remote to search for content, launch apps, and control your TV.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "fire-tv-cube",
+      "echo-dot-5th-gen"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Fire TV Cube",
+    "slug": "amazon-fire-tv-cube",
+    "category": "Fire TV",
+    "image": "https://cdn.dummyjson.com/product-images/25/1.jpg",
+    "price": 12999,
+    "originalPrice": 12999,
+    "rating": 4.7,
+    "reviews": 25000,
+    "features": [],
+    "description": "The fastest, most powerful Fire TV ever. With a new octa-core processor, the Fire TV Cube is twice as powerful as the Fire TV Stick 4K Max. It offers hands-free Alexa control, allowing you to control your TV, set-top box, and other compatible devices with just your voice. Enjoy true-to-life 4K streaming and immersive Dolby Atmos audio.",
+    "user_manual": "1. Place the Fire TV Cube at least 1-2 feet away from your speakers. 2. Connect it to your TV's HDMI port and a power outlet. 3. Follow the on-screen setup to connect to Wi-Fi and your Amazon account. 4. Say 'Alexa, turn on the TV' or 'Alexa, switch to HDMI 1' for hands-free control.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "amazon-fire-tv-stick-4k-max",
+      "echo-show-8"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "AmazonBasics 4K UHD Smart TV",
+    "slug": "amazonbasics-4k-uhd-smart-tv-55-inch",
+    "category": "Fire TV",
+    "image": "https://cdn.dummyjson.com/product-images/99/1.jpg",
+    "price": 32999,
+    "originalPrice": 56999,
+    "rating": 4.3,
+    "reviews": 12000,
+    "features": [],
+    "description": "A stunning 4K entertainment experience. This AmazonBasics Smart TV comes with Fire TV built-in, giving you access to thousands of apps, Alexa skills, and channels. The A+ Grade LED panel, Dolby Vision, and Dolby Atmos provide a brilliant picture and immersive sound. The built-in Alexa allows for hands-free voice control.",
+    "user_manual": "1. Attach the stands or mount the TV. 2. Connect to power and follow the on-screen Fire TV setup. 3. Connect to your Wi-Fi network and sign in to your Amazon account. 4. Use the included voice remote with Alexa to find and play content. 5. Connect your set-top box or other devices to the available HDMI ports.",
+    "offers": {
+      "deal": "Limited Time Deal"
+    },
+    "specs": {
+      "brand": "AmazonBasics"
+    },
+    "relatedSlugs": [
+      "amazon-fire-tv-stick-4k-max",
+      "fire-tv-cube"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Dyson Airwrap Multi-Styler",
+    "slug": "dyson-airwrap-multi-styler-complete",
+    "category": "New Releases",
+    "image": "https://cdn.dummyjson.com/product-images/19/1.jpg",
+    "price": 49900,
+    "originalPrice": 49900,
+    "rating": 4.9,
+    "reviews": 3500,
+    "features": [],
+    "description": "The only styler to curl, shape, and hide flyaways using the Coanda effect—not extreme heat. The re-engineered Dyson Airwrap comes with new barrels to curl and wave in both directions, brushes to control and shape, and the multi-functional Coanda smoothing dryer to dry, smooth, and hide flyaways.",
+    "user_manual": "1. Start with towel-dried, damp hair. 2. Select your desired attachment. 3. Choose your heat and airflow settings. 4. For curling, hold a section of hair near the barrel and let the Coanda effect automatically wrap it. Hold until dry. 5. Use the cool shot to set your style. 6. Use the smoothing dryer as a final step to hide flyaways.",
+    "offers": {},
+    "specs": {
+      "brand": "Dyson"
+    },
+    "relatedSlugs": [
+      "bose-quietcomfort-ultra-headphones",
+      "gopro-hero-12-black"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Bose QuietComfort Ultra Headphones",
+    "slug": "bose-quietcomfort-ultra-headphones",
+    "category": "New Releases",
+    "image": "https://cdn.dummyjson.com/product-images/100/1.jpg",
+    "price": 38900,
+    "originalPrice": 38900,
+    "rating": 4.8,
+    "reviews": 1200,
+    "features": [],
+    "description": "Experience the next level of noise cancellation with Bose QuietComfort Ultra Headphones. Featuring groundbreaking Bose Immersive Audio, these headphones take what you're hearing out of your head and place it in front of you for more natural-sounding music. World-class noise cancellation is now even quieter, and CustomTune technology personalizes the sound to your ears.",
+    "user_manual": "1. Power on the headphones and download the Bose Music app. 2. Follow the app instructions to pair the headphones with your device via Bluetooth. 3. Use the buttons on the right earcup to control volume, calls, and your voice assistant. 4. Press the button on the left earcup to cycle through Quiet, Aware, and Immersion modes. 5. Customize EQ and other settings in the Bose Music app.",
+    "offers": {},
+    "specs": {
+      "brand": "Bose"
+    },
+    "relatedSlugs": [
+      "dyson-airwrap-multi-styler-complete",
+      "gopro-hero-12-black"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "GoPro HERO12 Black",
+    "slug": "gopro-hero-12-black",
+    "category": "New Releases",
+    "image": "https://cdn.dummyjson.com/product-images/29/1.jpg",
+    "price": 45000,
+    "originalPrice": 45000,
+    "rating": 4.7,
+    "reviews": 850,
+    "features": [],
+    "description": "Incredible image quality, even better HyperSmooth video stabilization, and a huge boost in battery life come together in the latest and greatest GoPro—HERO12 Black. It takes best-in-class 5.3K video and adds High Dynamic Range (HDR) to capture once-in-a-lifetime journeys in even more detail. It's also waterproof to 33ft and built tough.",
+    "user_manual": "1. Insert the battery and a microSD card. 2. Power on the camera and follow the on-screen setup. 3. Pair with the GoPro Quik app for remote control and easy editing. 4. Swipe on the rear screen to change modes (Video, Photo, TimeLapse). 5. Use the front screen for easy framing of vlogs and selfies. 6. Mount the camera securely using official GoPro mounts.",
+    "offers": {},
+    "specs": {
+      "brand": "GoPro"
+    },
+    "relatedSlugs": [
+      "dyson-airwrap-multi-styler-complete",
+      "bose-quietcomfort-ultra-headphones"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Amazon Gift Card - Festive Box",
+    "slug": "amazon-gift-card-festive-box",
+    "category": "Gift Cards & Mobile Recharges",
+    "image": "https://cdn.dummyjson.com/product-images/20/1.jpg",
+    "price": 2000,
+    "originalPrice": 2000,
+    "rating": 4.9,
+    "reviews": 50000,
+    "features": [],
+    "description": "The perfect gift for any occasion. This Amazon Pay Gift Card is redeemable for millions of items storewide on Amazon.in. It comes in a beautiful festive gift box, making it an ideal present for birthdays, anniversaries, or holidays. The recipient can add the gift card balance to their Amazon Pay account and use it for shopping, bill payments, and more.",
+    "user_manual": "1. To redeem, the recipient should visit amazon.in/addgiftcard. 2. Scratch off the coating on the back of the card to reveal the 14-digit claim code. 3. Enter the claim code and click 'Add to Your Balance'. 4. The gift card balance will be automatically applied to eligible orders during checkout.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon Pay"
+    },
+    "relatedSlugs": [
+      "mobile-recharge-jio",
+      "google-play-recharge-code"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Mobile Recharge - Jio",
+    "slug": "mobile-recharge-jio",
+    "category": "Gift Cards & Mobile Recharges",
+    "image": "https://cdn.dummyjson.com/product-images/1/1.jpg",
+    "price": 239,
+    "originalPrice": 239,
+    "rating": 4.8,
+    "reviews": 100000,
+    "features": [],
+    "description": "Instantly recharge any Jio prepaid mobile number. Choose from a wide range of plans, including unlimited calls, daily data, and SMS benefits. The recharge is processed instantly, and you can pay securely using your Amazon Pay balance, UPI, credit/debit cards, or net banking.",
+    "user_manual": "1. Enter the 10-digit Jio prepaid mobile number. 2. Browse and select your desired recharge plan. 3. Proceed to payment and choose your preferred payment method. 4. The recharge will be credited to the mobile number instantly upon successful payment.",
+    "offers": {
+      "cashback": "Get up to ₹50 back"
+    },
+    "specs": {
+      "brand": "Jio"
+    },
+    "relatedSlugs": [
+      "amazon-gift-card-festive-box",
+      "google-play-recharge-code"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Bose soundlink revolve plus ii",
+    "slug": "bose-soundlink-revolve-plus-ii",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/13/1.jpg",
+    "price": 11999,
+    "originalPrice": 13999,
+    "rating": 4.7,
+    "reviews": 18000,
+    "features": [],
+    "description": "The Bose SoundLink Revolve+ II is a portable Bluetooth speaker engineered to deliver deep, loud, and immersive sound in every direction. Its durable, water-resistant design means you can bring it anywhere, from a poolside party to a backyard barbecue. The built-in handle makes it easy to grab and go, and the rechargeable battery provides up to 17 hours of playtime.",
+    "user_manual": "1. Press and hold the Power button to turn on the speaker. 2. Press and hold the Bluetooth button until the light blinks blue to enter pairing mode. 3. Select 'Bose Revolve+ II' from your device's Bluetooth list. 4. Use the Bose Connect app to manage connections and unlock more features. 5. Charge using the included Micro-B USB cable.",
+    "offers": {
+      "bank": "5% cashback on select cards"
+    },
+    "specs": {
+      "brand": "Bose"
+    },
+    "relatedSlugs": [
+      "jbl-flip-6-bluetooth-speaker",
+      "sony-xb100-wireless-speaker"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "JBL Flip 6 Bluetooth Speaker",
+    "slug": "jbl-flip-6-bluetooth-speaker",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/13/1.jpg",
+    "price": 11999,
+    "originalPrice": 13999,
+    "rating": 4.7,
+    "reviews": 18000,
+    "features": [],
+    "description": "Bigger, bolder sound on the go. The JBL Flip 6 is engineered to deliver powerful, crystal-clear sound with its 2-way speaker system. It's waterproof and dustproof, so you can take it anywhere, and with 12 hours of battery life, the party doesn't have to stop. Use PartyBoost to link multiple compatible JBL speakers together.",
+    "user_manual": "1. Power on the speaker. 2. Press the Bluetooth button to enter pairing mode. 3. Select 'JBL Flip 6' in your device's settings. 4. Use the JBL Portable app to access PartyBoost and customize EQ settings. 5. Charge via the USB-C port.",
+    "offers": {},
+    "specs": {
+      "brand": "JBL"
+    },
+    "relatedSlugs": [
+      "bose-soundlink-revolve-plus-ii",
+      "sony-xb100-wireless-speaker"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Sony XB100 Wireless Speaker",
+    "slug": "sony-xb100-wireless-speaker",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/14/1.jpg",
+    "price": 4990,
+    "originalPrice": 4990,
+    "rating": 4.5,
+    "reviews": 9500,
+    "features": [],
+    "description": "Enjoy powerful, clear sound with the ultra-compact Sony XB100. Its Sound Diffusion Processor spreads sound in every direction, and the passive radiator enhances bass. It's waterproof, dustproof, and has up to 16 hours of battery life, making it the perfect travel companion. You can even pair two speakers for stereo sound.",
+    "user_manual": "1. Press and hold the power button to turn on and enter pairing mode. 2. Select 'SRS-XB100' on your device. 3. The built-in microphone allows for hands-free calling. 4. Charge using the USB-C port. 5. To pair a second speaker, press and hold the stereo pair button on both speakers.",
+    "offers": {},
+    "specs": {
+      "brand": "Sony"
+    },
+    "relatedSlugs": [
+      "bose-soundlink-revolve-plus-ii",
+      "jbl-flip-6-bluetooth-speaker"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Kindle Oasis (10th Gen)",
+    "slug": "amazon-kindle-oasis-10th-gen",
+    "category": "Kindle E-Readers & eBooks",
+    "image": "https://cdn.dummyjson.com/product-images/8/2.jpg",
+    "price": 21999,
+    "originalPrice": 24999,
+    "rating": 4.8,
+    "reviews": 18000,
+    "features": [],
+    "description": "Our most advanced Kindle ever. The Kindle Oasis features our best 7-inch, 300 ppi flush-front Paperwhite display. It includes an adjustable warm light to shift screen shade from white to amber. The thin, ergonomic design with page turn buttons is perfect for one-handed reading, and it's waterproof (IPX8) for reading by the pool.",
+    "user_manual": "1. Charge the device via the micro-USB port. 2. Connect to Wi-Fi and register your Amazon account. 3. Use the physical page turn buttons or tap the screen to read. 4. Adjust the brightness and warmth of the light from the settings menu at the top of the screen. 5. Browse and buy books directly from the Kindle Store on the device.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "kindle-11th-gen",
+      "kindle-paperwhite-signature-11th-gen"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Kindle (11th Gen)",
+    "slug": "amazon-kindle-11th-gen",
+    "category": "Kindle E-Readers & eBooks",
+    "image": "https://cdn.dummyjson.com/product-images/8/3.jpg",
+    "price": 9999,
+    "originalPrice": 9999,
+    "rating": 4.7,
+    "reviews": 25000,
+    "features": [],
+    "description": "The lightest and most compact Kindle, now with a 300 ppi high-resolution display for sharp text and images. Read comfortably with a glare-free, paper-like display. The adjustable front light and dark mode make reading effortless, day and night. A single charge via USB-C lasts up to 6 weeks.",
+    "user_manual": "1. Charge the Kindle with the included USB-C cable. 2. Connect to Wi-Fi and sign in to your Amazon account. 3. Tap the right side of the screen to go to the next page, and the left to go back. 4. Access the Kindle Store to download new books. 5. Highlight passages or look up words by long-pressing on the text.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "kindle-oasis-10th-gen",
+      "kindle-paperwhite-signature-11th-gen"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "eBook: Dune by Frank Herbert",
+    "slug": "ebook-dune-frank-herbert",
+    "category": "Kindle E-Readers & eBooks",
+    "image": "https://cdn.dummyjson.com/product-images/26/2.jpg",
+    "price": 499,
+    "originalPrice": 699,
+    "rating": 4.9,
+    "reviews": 55000,
+    "features": [],
+    "description": "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the 'spice' melange, a drug capable of extending life and enhancing consciousness. A stunning blend of adventure and mysticism, environmentalism, and politics, Dune is a triumph of the imagination.",
+    "user_manual": "1. Purchase and download the eBook from the Kindle Store. 2. The book will automatically appear in your Kindle library. 3. Tap on the book cover to open and start reading. 4. Use Kindle features like X-Ray to explore characters and terms, and Word Wise for difficult words.",
+    "offers": {},
+    "specs": {
+      "brand": "Kindle Edition"
+    },
+    "relatedSlugs": [
+      "ebook-the-lord-of-the-rings",
+      "ebook-project-hail-mary"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Audible Membership (1 Month)",
+    "slug": "audible-membership-1-month",
+    "category": "Audible Audiobooks",
+    "image": "https://cdn.dummyjson.com/product-images/100/2.jpg",
+    "price": 199,
+    "originalPrice": 199,
+    "rating": 4.8,
+    "reviews": 120000,
+    "features": [],
+    "description": "An Audible membership gives you access to the world's largest selection of audiobooks and podcasts. With this 1-month plan, you get 1 credit to purchase any title from our premium selection, regardless of its price. You also get unlimited access to the Plus Catalog, filled with thousands of Audible Originals, audiobooks, and podcasts.",
+    "user_manual": "1. Purchase the membership. 2. Download the Audible app on your smartphone or tablet. 3. Sign in with your Amazon account. 4. Use your 1 credit to buy any audiobook you want to keep forever. 5. Browse the Plus Catalog and start listening to thousands of included titles instantly.",
+    "offers": {},
+    "specs": {
+      "brand": "Audible"
+    },
+    "relatedSlugs": [
+      "audiobook-harry-potter-stephen-fry",
+      "audiobook-sapiens-yuval-noah-harari"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Audiobook: Harry Potter by Stephen Fry",
+    "slug": "audiobook-harry-potter-stephen-fry",
+    "category": "Audible Audiobooks",
+    "image": "https://cdn.dummyjson.com/product-images/86/2.jpg",
+    "price": 2499,
+    "originalPrice": 2999,
+    "rating": 5,
+    "reviews": 85000,
+    "features": [],
+    "description": "Listen to the magic. This is the complete collection of all seven Harry Potter books, narrated by the brilliant Stephen Fry. His iconic voice brings the entire wizarding world to life, from the Dursleys' living room to the halls of Hogwarts. A truly enchanting listening experience for all ages.",
+    "user_manual": "1. Purchase the audiobook on Audible's website or app (can be purchased with 1 credit). 2. The title will be added to your Audible library. 3. Download the book to your device for offline listening. 4. Press play and enjoy. Use features like sleep timer, chapter navigation, and variable narration speed.",
+    "offers": {},
+    "specs": {
+      "brand": "Pottermore Publishing"
+    },
+    "relatedSlugs": [
+      "audible-membership-1-month",
+      "audiobook-sapiens-yuval-noah-harari"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Audiobook: Sapiens by Yuval Noah Harari",
+    "slug": "audiobook-sapiens-yuval-noah-harari",
+    "category": "Audible Audiobooks",
+    "image": "https://cdn.dummyjson.com/product-images/87/2.jpg",
+    "price": 899,
+    "originalPrice": 1199,
+    "rating": 4.9,
+    "reviews": 65000,
+    "features": [],
+    "description": "A brief history of humankind. Sapiens explores the story of our species, from our earliest ancestors to our modern-day society. Yuval Noah Harari's groundbreaking narrative challenges everything we thought we knew about being human: our thoughts, our actions, our power, and our future.",
+    "user_manual": "1. Purchase the audiobook on Audible. 2. The title will appear in your library. 3. Download for offline listening. 4. Use the bookmark feature to save important sections. 5. Listen while commuting, exercising, or doing chores.",
+    "offers": {},
+    "specs": {
+      "brand": "Penguin Random House"
+    },
+    "relatedSlugs": [
+      "audible-membership-1-month",
+      "audiobook-harry-potter-stephen-fry"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Amazon Prime Membership (1 Year)",
+    "slug": "amazon-prime-membership-1-year",
+    "category": "Prime",
+    "image": "https://cdn.dummyjson.com/product-images/20/2.jpg",
+    "price": 1499,
+    "originalPrice": 1499,
+    "rating": 4.9,
+    "reviews": 500000,
+    "features": [],
+    "description": "Unlock the best of Amazon with a Prime membership. This 1-year plan gives you unlimited free, fast delivery on eligible items, access to the latest and exclusive movies and TV shows with Prime Video, ad-free music with Prime Music, a rotating selection of free eBooks with Prime Reading, and exclusive access to deals and offers.",
+    "user_manual": "1. Purchase the membership. 2. Your Amazon account will be instantly upgraded to Prime. 3. Look for the Prime badge on items for free, fast delivery. 4. Visit primevideo.com or the Prime Video app to start watching. 5. Download the Amazon Music app to listen to ad-free music.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "prime-video-subscription",
+      "prime-music-subscription"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Prime Video Subscription (1 Month)",
+    "slug": "prime-video-subscription-1-month",
+    "category": "Amazon Prime Video",
+    "image": "https://cdn.dummyjson.com/product-images/96/2.jpg",
+    "price": 299,
+    "originalPrice": 299,
+    "rating": 4.7,
+    "reviews": 80000,
+    "features": [],
+    "description": "Watch the latest movies, TV shows, and award-winning Amazon Originals. A Prime Video subscription gives you access to thousands of titles. Stream on your TV, tablet, or mobile device. You can also download titles for offline viewing, perfect for travel.",
+    "user_manual": "1. Purchase the subscription. 2. Sign in with your Amazon account on the Prime Video website or app. 3. Browse the extensive catalog of movies and TV shows. 4. Click on a title to start streaming. 5. Create a watchlist to save titles for later.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "amazon-prime-membership-1-year",
+      "prime-music-subscription"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Prime Music Subscription (1 Year)",
+    "slug": "prime-music-subscription-1-year",
+    "category": "Amazon Prime Music",
+    "image": "https://cdn.dummyjson.com/product-images/12/2.jpg",
+    "price": 999,
+    "originalPrice": 999,
+    "rating": 4.6,
+    "reviews": 60000,
+    "features": [],
+    "description": "Listen ad-free to over 100 million songs and thousands of podcasts. With Amazon Prime Music, you can listen to your favorite artists and discover new music with curated playlists and stations. Enjoy unlimited skips and offline listening by downloading your favorite tracks.",
+    "user_manual": "1. Purchase the subscription. 2. Download the Amazon Music app on your device. 3. Sign in with your Amazon account. 4. Search for artists, albums, or songs, or browse curated playlists. 5. Download songs to your device for offline playback.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "amazon-prime-membership-1-year",
+      "prime-video-subscription"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "American Tourister Kamiliant Suitcase",
+    "slug": "american-tourister-kamiliant-suitcase",
+    "category": "Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/48/1.jpg",
+    "price": 3499,
+    "originalPrice": 7900,
+    "rating": 4.5,
+    "reviews": 12500,
+    "features": [],
+    "description": "Travel in style and with peace of mind. The American Tourister Kamiliant suitcase is made from a durable yet lightweight polypropylene material. It features 360-degree spinner wheels for effortless maneuverability, a secure combination lock, and spacious interiors with packing straps to keep your belongings organized.",
+    "user_manual": "1. To set the combination lock, set the dials to the default 0-0-0. 2. Press the reset button with a pen until you hear a click. 3. Set your desired combination. 4. Push the main button to set the new combination. 5. Pack your belongings and use the cross-straps to secure them.",
+    "offers": {
+      "deal": "55% off"
+    },
+    "specs": {
+      "brand": "American Tourister"
+    },
+    "relatedSlugs": [
+      "skybags-drip-pro-backpack",
+      "safari-thorium-duffle-bag"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Skybags Drip Pro Backpack",
+    "slug": "skybags-drip-pro-backpack",
+    "category": "Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/49/1.jpg",
+    "price": 1899,
+    "originalPrice": 2499,
+    "rating": 4.6,
+    "reviews": 8000,
+    "features": [],
+    "description": "The perfect backpack for work, college, or travel. The Skybags Drip Pro features three spacious compartments, including a padded laptop sleeve that fits up to a 17-inch laptop. It also has a built-in rain cover to protect your belongings and an organizer to keep your essentials in place.",
+    "user_manual": "1. Adjust the shoulder straps for a comfortable fit. 2. Use the main compartments for books and larger items. 3. Place your laptop in the dedicated padded sleeve for protection. 4. Use the front organizer for pens, keys, and other small items. 5. In case of rain, pull out the rain cover from the bottom pocket.",
+    "offers": {},
+    "specs": {
+      "brand": "Skybags"
+    },
+    "relatedSlugs": [
+      "american-tourister-kamiliant-suitcase",
+      "safari-thorium-duffle-bag"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Safari Thorium Duffle Bag",
+    "slug": "safari-thorium-duffle-bag",
+    "category": "Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/50/1.jpg",
+    "price": 2499,
+    "originalPrice": 4500,
+    "rating": 4.7,
+    "reviews": 6500,
+    "features": [],
+    "description": "Your ideal companion for weekend getaways or gym sessions. The Safari Thorium Duffle Bag is made from durable, water-resistant fabric. It has a spacious main compartment, a separate shoe compartment to keep your footwear isolated, and multiple pockets for easy organization. The adjustable shoulder strap and padded handles ensure comfortable carrying.",
+    "user_manual": "1. Use the main compartment for clothes and large items. 2. Store shoes or soiled clothes in the dedicated side compartment. 3. Use the front and side pockets for quick access to essentials like your phone and wallet. 4. Carry using the padded top handles or the adjustable shoulder strap.",
+    "offers": {},
+    "specs": {
+      "brand": "Safari"
+    },
+    "relatedSlugs": [
+      "american-tourister-kamiliant-suitcase",
+      "skybags-drip-pro-backpack"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Amazon Pay eGift Card",
+    "slug": "amazon-pay-egift-card",
+    "category": "Amazon Pay",
+    "image": "https://cdn.dummyjson.com/product-images/20/3.jpg",
+    "price": 1000,
+    "originalPrice": 1000,
+    "rating": 4.9,
+    "reviews": 200000,
+    "features": [],
+    "description": "The perfect last-minute gift. Send an Amazon Pay eGift Card instantly via email. The recipient can use the balance for shopping on Amazon.in, paying bills, booking tickets, and more. Choose from a variety of designs and personalize it with your own message.",
+    "user_manual": "1. Choose a design and gift card amount. 2. Enter the recipient's email address and your personalized message. 3. Complete the payment. 4. The eGift card will be delivered to the recipient's email inbox within minutes. 5. The recipient can redeem it by entering the claim code at amazon.in/addgiftcard.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon Pay"
+    },
+    "relatedSlugs": [
+      "amazon-gift-card-festive-box",
+      "mobile-recharge-jio"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Scan & Pay with Amazon Pay",
+    "slug": "scan-and-pay-with-amazon-pay",
+    "category": "Amazon Pay",
+    "image": "https://cdn.dummyjson.com/product-images/1/2.jpg",
+    "price": 0,
+    "originalPrice": 0,
+    "rating": 4.8,
+    "reviews": 500000,
+    "features": [],
+    "description": "Pay anyone, anywhere, instantly. Use the Amazon app to scan any UPI QR code and make secure payments directly from your bank account using Amazon Pay UPI. It's fast, secure, and you can earn exciting rewards on your transactions.",
+    "user_manual": "1. Open the Amazon app and tap on the 'Amazon Pay' icon. 2. Tap on 'Scan & Pay'. 3. Grant camera permissions if prompted. 4. Point your camera at any UPI QR code. 5. Enter the amount, your UPI PIN, and the payment will be completed instantly.",
+    "offers": {
+      "cashback": "Win up to ₹100 cashback on your first transaction"
+    },
+    "specs": {
+      "brand": "Amazon Pay"
+    },
+    "relatedSlugs": [
+      "amazon-pay-egift-card",
+      "amazon-gift-card-festive-box"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Pay Bills with Amazon Pay",
+    "slug": "pay-bills-with-amazon-pay",
+    "category": "Amazon Pay",
+    "image": "https://cdn.dummyjson.com/product-images/2/2.jpg",
+    "price": 0,
+    "originalPrice": 0,
+    "rating": 4.8,
+    "reviews": 450000,
+    "features": [],
+    "description": "A convenient way to manage all your bills in one place. With Amazon Pay, you can pay your electricity, mobile postpaid, broadband, DTH, and other utility bills instantly. Set up reminders so you never miss a due date and earn rewards on your payments.",
+    "user_manual": "1. Go to the 'Amazon Pay' section in the Amazon app. 2. Select 'Bill Payments' and choose the category (e.g., Electricity). 3. Select your biller and enter your consumer number. 4. The bill amount will be fetched automatically. 5. Complete the payment using your preferred payment method.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon Pay"
+    },
+    "relatedSlugs": [
+      "amazon-pay-egift-card",
+      "scan-and-pay-with-amazon-pay"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Amazon Fresh - Organic Vegetables",
+    "slug": "amazon-fresh-organic-vegetables-combo",
+    "category": "Fresh",
+    "image": "https://cdn.dummyjson.com/product-images/21/2.jpg",
+    "price": 299,
+    "originalPrice": 399,
+    "rating": 4.6,
+    "reviews": 15000,
+    "features": [],
+    "description": "Get farm-fresh, certified organic vegetables delivered to your doorstep. This combo pack includes a selection of seasonal essentials like tomatoes, onions, potatoes, carrots, and spinach. All vegetables are sourced from trusted organic farms and are free from harmful pesticides.",
+    "user_manual": "1. Add the organic vegetable combo to your Amazon Fresh cart. 2. Choose a convenient 2-hour delivery slot. 3. Upon delivery, inspect the vegetables for freshness. 4. Wash thoroughly before cooking. 5. Store in the refrigerator to maintain freshness.",
+    "offers": {
+      "deal": "Flat 25% off"
+    },
+    "specs": {
+      "brand": "Amazon Fresh"
+    },
+    "relatedSlugs": [
+      "amazon-fresh-dairy-and-bread",
+      "amazon-fresh-pantry-staples"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Amazon Fresh - Dairy & Bread",
+    "slug": "amazon-fresh-dairy-and-bread",
+    "category": "Fresh",
+    "image": "https://cdn.dummyjson.com/product-images/22/2.jpg",
+    "price": 150,
+    "originalPrice": 150,
+    "rating": 4.7,
+    "reviews": 22000,
+    "features": [],
+    "description": "Your daily essentials, delivered fresh. This combo includes 1 litre of toned milk and a loaf of whole wheat bread. Perfect for your daily breakfast needs. All products are sourced fresh and delivered with care to ensure quality.",
+    "user_manual": "1. Add to your Amazon Fresh cart. 2. Schedule your delivery. 3. Check the expiration dates upon delivery. 4. Refrigerate the milk immediately. 5. Store the bread in a cool, dry place.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon Fresh"
+    },
+    "relatedSlugs": [
+      "amazon-fresh-organic-vegetables-combo",
+      "amazon-fresh-pantry-staples"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "OnePlus Nord CE 4",
+    "slug": "oneplus-nord-ce-4-5g",
+    "category": "Mobiles",
+    "image": "https://cdn.dummyjson.com/product-images/2/1.jpg",
+    "price": 24999,
+    "originalPrice": 26999,
+    "rating": 4.6,
+    "reviews": 18000,
+    "features": [
+      "Qualcomm Snapdragon 7 Gen 3",
+      "50MP Sony LYT-600 Camera with OIS",
+      "100W SUPERVOOC Charging",
+      "6.7-inch 120Hz AMOLED Display"
+    ],
+    "description": "The OnePlus Nord CE 4 is built to be more than just a smartphone; it's a powerhouse of performance. With the latest Snapdragon 7 Gen 3 processor and 100W SUPERVOOC charging, you get incredible speed and can power up for a full day in just 15 minutes. The 120Hz AMOLED display makes every scroll and swipe ultra-smooth.",
+    "user_manual": "1. Press and hold the power button to turn on the device. 2. Follow the on-screen setup assistant to connect to Wi-Fi and sign in to your Google account. 3. To use 100W SUPERVOOC charging, use the included red cable and power adapter. 4. Explore the OxygenOS settings to customize gestures, display, and more.",
+    "offers": {
+      "bank": "₹1500 instant discount on ICICI Bank cards"
+    },
+    "specs": {
+      "brand": "OnePlus"
+    },
+    "relatedSlugs": [
+      "samsung-galaxy-m55",
+      "realme-narzo-70-pro"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Atomic Habits by James Clear",
+    "slug": "atomic-habits-james-clear",
+    "category": "Books",
+    "image": "https://cdn.dummyjson.com/product-images/19/1.jpg",
+    "price": 499,
+    "originalPrice": 799,
+    "rating": 4.8,
+    "reviews": 150000,
+    "features": [
+      "Paperback Edition",
+      "International Bestseller",
+      "Practical strategies for improvement",
+      "Easy-to-understand framework"
+    ],
+    "description": "Tiny changes, remarkable results. 'Atomic Habits' offers a proven framework for improving every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.",
+    "user_manual": "1. Read one chapter at a time to absorb the concepts. 2. Choose one small habit you'd like to build. 3. Apply the 'Four Laws of Behavior Change': Make it Obvious, Make it Attractive, Make it Easy, and Make it Satisfying. 4. Use the habit tracker templates available online to monitor your progress.",
+    "offers": {
+      "deal": "Bestseller in Personal Growth"
+    },
+    "specs": {
+      "brand": "Penguin Random House"
+    },
+    "relatedSlugs": [
+      "ikigai-the-japanese-secret",
+      "the-psychology-of-money"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Funskool Monopoly Deluxe",
+    "slug": "funskool-monopoly-deluxe-board-game",
+    "category": "Toys & Games",
+    "image": "https://cdn.dummyjson.com/product-images/87/1.jpg",
+    "price": 899,
+    "originalPrice": 1299,
+    "rating": 4.6,
+    "reviews": 12000,
+    "features": [
+      "Classic property trading game",
+      "For 2-6 players",
+      "Includes premium metal tokens",
+      "Ages 8 and up"
+    ],
+    "description": "Own it all in the fast-dealing property trading game, Monopoly! This Deluxe edition features classic gameplay with premium components, including special metal tokens. Buy, sell, dream, and scheme your way to riches. It's the perfect game for family game night, bringing friends and family together to create new memories.",
+    "user_manual": "1. Each player chooses a token and receives their starting cash. 2. Players roll the dice and move their token around the board. 3. Buy properties you land on, collect rent from opponents, and build houses and hotels to increase your income. 4. Draw Chance and Community Chest cards for unexpected prizes or penalties. 5. The last player remaining with money wins!",
+    "offers": {},
+    "specs": {
+      "brand": "Funskool"
+    },
+    "relatedSlugs": [
+      "mattel-games-uno",
+      "hasbro-jenga-classic"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Skillmatics Found It! Indoor Game",
+    "slug": "skillmatics-found-it-indoor-scavenger-hunt-game",
+    "category": "Amazon Launchpad",
+    "image": "https://cdn.dummyjson.com/product-images/41/1.jpg",
+    "price": 399,
+    "originalPrice": 499,
+    "rating": 4.7,
+    "reviews": 9500,
+    "features": [
+      "Fun Scavenger Hunt for Kids",
+      "Includes 50 Game Cards",
+      "Builds vocabulary and observation skills",
+      "Perfect for ages 4-7"
+    ],
+    "description": "A fantastic, fun-filled scavenger hunt game from an innovative Indian startup on Amazon Launchpad. 'Found It!' helps children learn as they play. Players must shout 'FOUND IT!' as soon as they find the object on the card. This game helps build vocabulary, observation, and critical thinking skills in a fun and engaging way.",
+    "user_manual": "1. Shuffle the deck of cards and place them face down. 2. Draw a card from the top of the deck. 3. Read the prompt on the card, which will ask you to find an object with a certain characteristic (e.g., 'Find something that is red'). 4. All players search the room for an object that fits the description. The first one to find it and shout 'FOUND IT!' wins the card.",
+    "offers": {},
+    "specs": {
+      "brand": "Skillmatics"
+    },
+    "relatedSlugs": [
+      "shumee-wooden-activity-walker",
+      "einstein-box-science-kit"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "AmazonBasics High-Speed HDMI Cable",
+    "slug": "amazonbasics-high-speed-hdmi-cable-6-feet",
+    "category": "All",
+    "image": "https://cdn.dummyjson.com/product-images/65/1.jpg",
+    "price": 499,
+    "originalPrice": 899,
+    "rating": 4.6,
+    "reviews": 250000,
+    "features": [
+      "6 Feet (1.8 Meters) long",
+      "Supports 4K Video @ 60Hz",
+      "Gold-Plated Connectors",
+      "Durable braided nylon cable"
+    ],
+    "description": "Connect your Blu-ray players, Fire TV, Apple TV, PS4, Xbox One, computers, and other HDMI-enabled devices to TVs, displays, and A/V receivers. This AmazonBasics High-Speed HDMI Cable supports the latest standards, including 4K video, ensuring you get a reliable, high-quality signal for all your media needs.",
+    "user_manual": "1. Connect one end of the HDMI cable to the 'HDMI OUT' port of your source device (e.g., laptop, gaming console). 2. Connect the other end of the cable to an 'HDMI IN' port on your display (e.g., TV, monitor). 3. Use your display's remote or menu to select the corresponding HDMI input channel. 4. The signal should be displayed automatically.",
+    "offers": {
+      "deal": "Amazon's Choice"
+    },
+    "specs": {
+      "brand": "AmazonBasics"
+    },
+    "relatedSlugs": [
+      "solimo-microfibre-comforter",
+      "amazonbasics-rechargeable-batteries"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Samsung Galaxy M34 5G",
+    "slug": "samsung-galaxy-m34-5g-120hz-amoled",
+    "category": "Mobiles",
+    "image": "https://cdn.dummyjson.com/product-images/3/1.jpg",
+    "price": 15999,
+    "originalPrice": 24499,
+    "rating": 4.2,
+    "reviews": 35000,
+    "features": [
+      "6000mAh Battery",
+      "120Hz sAMOLED Display",
+      "50MP No Shake Camera (OIS)",
+      "4 Generations of OS Upgrades"
+    ],
+    "description": "Get ready to binge with the Samsung Galaxy M34 5G. Its massive 6000mAh battery lets you watch videos and browse for hours on end. The stunning 120Hz Super AMOLED display brings content to life, while the 50MP camera with Optical Image Stabilization captures blur-free photos and videos, even on the move.",
+    "user_manual": "1. Insert your SIM card(s) and a microSD card into the tray. 2. Power on the device and follow the Samsung setup guide. 3. To maximize battery life, enable 'Power saving mode' in Settings. 4. Explore the Camera app's 'Fun' mode for creative filters and effects. 5. Keep your device updated for the latest features and security patches.",
+    "offers": {
+      "deal": "Bestseller in Mobiles"
+    },
+    "specs": {
+      "brand": "Samsung"
+    },
+    "relatedSlugs": [
+      "redmi-note-13-pro",
+      "oneplus-nord-ce-4"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Ikigai: The Japanese Secret",
+    "slug": "ikigai-the-japanese-secret-to-a-long-and-happy-life",
+    "category": "Books",
+    "image": "https://cdn.dummyjson.com/product-images/42/1.jpg",
+    "price": 350,
+    "originalPrice": 699,
+    "rating": 4.7,
+    "reviews": 95000,
+    "features": [
+      "Hardcover Edition",
+      "Find your purpose in life",
+      "Insights from the world's longest-living people",
+      "International Bestseller"
+    ],
+    "description": "Find your 'ikigai' (a reason to jump out of bed each morning) with this international bestseller. The book explores the secrets of the world's longest-living people in Okinawa, Japan, to help you discover your own purpose and live a longer, happier life. It's a guide to finding fulfillment, joy, and mindfulness in everything you do.",
+    "user_manual": "1. Read this book slowly, reflecting on the concepts presented. 2. Use a journal to answer the reflective questions about your passions, mission, vocation, and profession. 3. Try to incorporate small, joyful rituals into your daily routine. 4. Focus on being in the 'flow' during your activities, whether at work or play.",
+    "offers": {},
+    "specs": {
+      "brand": "Hutchinson"
+    },
+    "relatedSlugs": [
+      "atomic-habits-james-clear",
+      "the-psychology-of-money"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Hasbro Jenga Classic Game",
+    "slug": "hasbro-jenga-classic-game",
+    "category": "Toys & Games",
+    "image": "https://cdn.dummyjson.com/product-images/34/1.jpg",
+    "price": 699,
+    "originalPrice": 999,
+    "rating": 4.7,
+    "reviews": 48000,
+    "features": [
+      "54 Genuine Hardwood Blocks",
+      "Game of Skill, Suspense, and Laughter",
+      "For 1 or more players",
+      "Includes stacking sleeve"
+    ],
+    "description": "The classic block-stacking, stack-crashing game of Jenga! How will you stack up against the law of gravity? Pull out a block, place it on top, but don't let the tower fall! This fun, challenging game is a great party game and perfect for family nights. It's easy to learn and can be played anytime, anywhere.",
+    "user_manual": "1. Use the stacking sleeve to build the tower. Place three blocks per layer, alternating direction with each layer. 2. The player who built the tower goes first. 3. Using only one hand, remove a block from anywhere below the highest completed layer. 4. Place the block on top of the tower. 5. The last player to stack a block without making the tower fall wins!",
+    "offers": {},
+    "specs": {
+      "brand": "Hasbro Gaming"
+    },
+    "relatedSlugs": [
+      "mattel-games-uno",
+      "funskool-monopoly-deluxe"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Flat Tawa by The Indus Valley",
+    "slug": "the-indus-valley-pre-seasoned-cast-iron-tawa",
+    "category": "Amazon Launchpad",
+    "image": "https://cdn.dummyjson.com/product-images/43/1.jpg",
+    "price": 1299,
+    "originalPrice": 1999,
+    "rating": 4.4,
+    "reviews": 11000,
+    "features": [
+      "Pre-Seasoned Cast Iron",
+      "10.5 Inch / 26.7 cm size",
+      "Naturally Non-stick",
+      "Toxin-Free Cooking"
+    ],
+    "description": "Cook healthy, cook delicious with this pre-seasoned cast iron tawa from The Indus Valley. It's a 100% natural, toxin-free alternative to non-stick cookware. Over time, it becomes naturally non-stick and adds a small amount of iron to your food. Perfect for making dosas, chapatis, pancakes, and more.",
+    "user_manual": "1. Before first use, wash with warm water and a soft sponge. 2. Heat the tawa on medium heat, then apply a thin layer of cooking oil. 3. To maintain the seasoning, clean the tawa after use while it's still warm. Use a soft scrub and avoid harsh detergents. 4. Wipe it dry completely and apply a thin layer of oil before storing.",
+    "offers": {
+      "deal": "Launchpad Seller"
+    },
+    "specs": {
+      "brand": "The Indus Valley"
+    },
+    "relatedSlugs": [
+      "sleepy-owl-cold-brew-coffee",
+      "arata-face-wash"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Logitech MX Master 3S Mouse",
+    "slug": "logitech-mx-master-3s-wireless-mouse",
+    "category": "All",
+    "image": "https://cdn.dummyjson.com/product-images/67/1.jpg",
+    "price": 9995,
+    "originalPrice": 11995,
+    "rating": 4.8,
+    "reviews": 15000,
+    "features": [
+      "8K DPI Any-Surface Tracking",
+      "Quiet Clicks",
+      "MagSpeed Electromagnetic Scrolling",
+      "Ergonomic Design"
+    ],
+    "description": "Meet the MX Master 3S – an iconic mouse remastered. Experience ultimate precision and performance with an 8K DPI optical sensor that tracks on virtually any surface, even glass. The MagSpeed scroll wheel is fast enough to scroll 1,000 lines per second and precise enough to stop on a pixel. The clicks are now 90% quieter.",
+    "user_manual": "1. The mouse can be connected via the Logi Bolt USB receiver or Bluetooth Low Energy. 2. To pair via Bluetooth, press and hold the Easy-Switch button on the bottom until the LED blinks rapidly. 3. Download the Logi Options+ software to customize buttons, set app-specific profiles, and adjust tracking speed.",
+    "offers": {},
+    "specs": {
+      "brand": "Logitech"
+    },
+    "relatedSlugs": [
+      "keychron-k2-mechanical-keyboard",
+      "elgato-stream-deck-mk2"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Sony Bravia 65-inch X90L TV",
+    "slug": "sony-bravia-65-inch-x90l-full-array-led-4k",
+    "category": "TV",
+    "image": "https://cdn.dummyjson.com/product-images/96/1.jpg",
+    "price": 139990,
+    "originalPrice": 229900,
+    "rating": 4.8,
+    "reviews": 1800,
+    "features": [
+      "Full Array LED with Cognitive Processor XR",
+      "Perfect for PlayStation 5 (4K/120fps)",
+      "Acoustic Multi-Audio Technology",
+      "Google TV with Chromecast"
+    ],
+    "description": "Experience breathtakingly realistic contrast with the Sony Bravia X90L. Powered by the Cognitive Processor XR, this TV understands how humans see and hear to deliver intense contrast with deep blacks, high peak brightness, and natural colors. It's the perfect TV for movies and gaming, with exclusive features for the PlayStation 5.",
+    "user_manual": "1. Unbox and assemble the stand, or prepare for wall mounting. 2. Connect your devices via the HDMI ports. Use HDMI 3 or 4 for 4K/120fps gaming. 3. Power on the TV and follow the Google TV setup process. 4. Explore the settings to calibrate picture modes like 'Cinema' or 'Game'. 5. Use the voice remote to search for content across all your apps.",
+    "offers": {
+      "emi": "No Cost EMI up to 18 months"
+    },
+    "specs": {
+      "brand": "Sony"
+    },
+    "relatedSlugs": [
+      "samsung-the-frame-ls03b-qled-tv",
+      "lg-oled-g3-evo-tv"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Nikon Z f Mirrorless Camera",
+    "slug": "nikon-z-f-mirrorless-camera-full-frame",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/69/1.jpg",
+    "price": 175995,
+    "originalPrice": 189995,
+    "rating": 4.9,
+    "reviews": 450,
+    "features": [
+      "24.5MP Full-Frame Sensor",
+      "EXPEED 7 Image Processor",
+      "In-Body 5-Axis Vibration Reduction",
+      "Dedicated B&W Mode Switch"
+    ],
+    "description": "A fusion of classic design and modern mirrorless technology. The Nikon Z f features a timeless, tactile design with brass dials, reminiscent of the iconic Nikon FM2. Inside, it boasts a powerful full-frame sensor and the advanced EXPEED 7 processor, delivering stunning image quality and a deeply engaging shooting experience.",
+    "user_manual": "1. Charge the battery and insert it along with a memory card. 2. Attach a NIKKOR Z lens. 3. Use the top dials to manually set ISO, shutter speed, and exposure compensation for a tactile experience. 4. Alternatively, switch to Auto mode for point-and-shoot simplicity. 5. Use the fully articulating touch screen to compose shots from creative angles.",
+    "offers": {},
+    "specs": {
+      "brand": "Nikon"
+    },
+    "relatedSlugs": [
+      "sony-alpha-7-iv",
+      "canon-eos-r6-mark-ii"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Marshall Stanmore III Bluetooth Speaker",
+    "slug": "marshall-stanmore-iii-bluetooth-speaker",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/78/1.jpg",
+    "price": 39999,
+    "originalPrice": 44999,
+    "rating": 4.8,
+    "reviews": 1200,
+    "features": [
+      "Iconic Marshall Design",
+      "Wider Stereo Soundstage",
+      "Bluetooth 5.2 and 3.5mm Input",
+      "Top-panel Analog Controls"
+    ],
+    "description": "The Stanmore III has an even wider soundstage than its predecessor, delivering home-filling Marshall signature sound. This new generation of Stanmore has tweeters angled outwards and updated waveguides to deliver a consistently solid sound that is so wide it chases you around the room. The iconic design makes it a centerpiece in any space.",
+    "user_manual": "1. Plug the speaker into a power outlet. 2. Press the power switch. 3. To connect via Bluetooth, press the source button until the Bluetooth LED starts to blink. Select 'STANMORE III' from your device's Bluetooth list. 4. Use the analog brass knobs on the top panel to control volume, bass, and treble.",
+    "offers": {},
+    "specs": {
+      "brand": "Marshall"
+    },
+    "relatedSlugs": [
+      "harman-kardon-onyx-studio-7",
+      "sonos-era-100"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Fitbit Charge 6 Fitness Tracker",
+    "slug": "fitbit-charge-6-fitness-tracker",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/86/1.jpg",
+    "price": 13999,
+    "originalPrice": 14999,
+    "rating": 4.5,
+    "reviews": 9800,
+    "features": [
+      "Heart Rate on Exercise Equipment via Bluetooth",
+      "40+ Exercise Modes",
+      "Built-in GPS",
+      "ECG and EDA Scan Apps"
+    ],
+    "description": "Move more with the Fitbit Charge 6. This advanced fitness tracker features Google essentials like Maps, Wallet, and YouTube Music controls. It provides our most accurate heart rate yet, plus built-in GPS and tools like an EDA scan for stress management. It's your ultimate health and fitness companion.",
+    "user_manual": "1. Charge your Charge 6 using the magnetic charger. 2. Download the Fitbit app and create an account. 3. Follow the in-app instructions to pair your tracker. 4. Navigate the tracker using the touch screen and the side haptic button. 5. Swipe left/right to see your daily stats and start exercises.",
+    "offers": {
+      "deal": "Includes 6-month Fitbit Premium membership"
+    },
+    "specs": {
+      "brand": "Fitbit"
+    },
+    "relatedSlugs": [
+      "garmin-vivosmart-5",
+      "xiaomi-smart-band-8"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Philips Hue Smart Lightstrip",
+    "slug": "philips-hue-play-gradient-lightstrip-2m",
+    "category": "All",
+    "image": "https://cdn.dummyjson.com/product-images/91/1.jpg",
+    "price": 6999,
+    "originalPrice": 8995,
+    "rating": 4.7,
+    "reviews": 3200,
+    "features": [
+      "Blends multiple colors of light",
+      "Flexible and extendable",
+      "Requires Philips Hue Hub",
+      "Syncs with music and movies"
+    ],
+    "description": "Surround your TV with a blend of colorful light. The Philips Hue Play gradient lightstrip attaches to the back of your TV and mimics the content on your screen, creating an immersive entertainment experience. Watch as the colors from your movies and games expand into the room, pulling you deeper into the action.",
+    "user_manual": "1. A Philips Hue Hub (sold separately) is required. Set up the Hub first. 2. Attach the lightstrip to the back of your TV using the included mounting brackets. 3. In the Philips Hue app, go to Settings > Light setup and add the new lightstrip. 4. Create an 'Entertainment area' in the app and select the lightstrip to sync it with your content.",
+    "offers": {},
+    "specs": {
+      "brand": "Philips Hue"
+    },
+    "relatedSlugs": [
+      "nanoleaf-lines-smarter-kit",
+      "govee-glide-hexa-light-panels"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Breville Barista Express Espresso Machine",
+    "slug": "breville-barista-express-espresso-machine",
+    "category": "Home & Kitchen",
+    "image": "https://cdn.dummyjson.com/product-images/93/1.jpg",
+    "price": 69990,
+    "originalPrice": 85000,
+    "rating": 4.8,
+    "reviews": 6500,
+    "features": [
+      "Grind, Dose, and Extract all in one",
+      "Integrated Conical Burr Grinder",
+      "Precise PID temperature control",
+      "Manual steam wand for microfoam"
+    ],
+    "description": "Create third-wave specialty coffee at home. The Barista Express allows you to grind fresh beans right before extraction. Its precise temperature control (PID) ensures optimal espresso extraction, and the powerful steam wand allows you to hand-texture microfoam milk for creating authentic latte art.",
+    "user_manual": "1. Fill the hopper with fresh coffee beans and the water tank with fresh water. 2. Select your grind size and amount. 3. Dose the freshly ground coffee into the portafilter. Tamp it down firmly. 4. Insert the portafilter into the group head and select a single or double shot. 5. Use the steam wand to texture your milk.",
+    "offers": {},
+    "specs": {
+      "brand": "Breville"
+    },
+    "relatedSlugs": [
+      "delonghi-dedica-espresso-machine",
+      "gaggia-classic-pro"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Ajmal Zeal Eau De Parfum",
+    "slug": "ajmal-zeal-eau-de-parfum-for-men-100ml",
+    "category": "Beauty & Personal Care",
+    "image": "https://cdn.dummyjson.com/product-images/14/1.jpg",
+    "price": 1299,
+    "originalPrice": 2000,
+    "rating": 4.4,
+    "reviews": 9800,
+    "features": [
+      "100ml EDP",
+      "Fresh, Citrus, and Woody Fragrance",
+      "Long-lasting Scent",
+      "Ideal for everyday wear"
+    ],
+    "description": "A vibrant and energetic fragrance for the modern man. Ajmal Zeal opens with fresh notes of orange, bergamot, and lemon. The heart reveals a blend of lavender and pine, settling into a warm, woody base of patchouli and vetiver. It's a versatile scent that exudes confidence and charisma.",
+    "user_manual": "1. Spray the perfume on your pulse points for a longer-lasting scent. 2. Apply to wrists, neck, and behind the ears. 3. Do not rub the perfume into your skin, as this can break down the fragrance molecules. 4. Store the bottle in a cool, dark place away from direct sunlight.",
+    "offers": {},
+    "specs": {
+      "brand": "Ajmal"
+    },
+    "relatedSlugs": [
+      "nautica-voyage-eau-de-toilette",
+      "davidoff-cool-water-for-men"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Vega Crux Flip-Up Helmet",
+    "slug": "vega-crux-flip-up-helmet-matte-black",
+    "category": "Automotive",
+    "image": "https://cdn.dummyjson.com/product-images/87/1.jpg",
+    "price": 1499,
+    "originalPrice": 1899,
+    "rating": 4.3,
+    "reviews": 22000,
+    "features": [
+      "ISI Certified",
+      "Flip-up (Modular) Design",
+      "High-Impact ABS Material Shell",
+      "Scratch-resistant visor"
+    ],
+    "description": "Safety meets convenience with the Vega Crux Flip-Up Helmet. The modular design allows you to lift the chin guard, making it easy to communicate or get some fresh air without removing the helmet. The high-impact ABS shell and ISI certification ensure your safety on the road.",
+    "user_manual": "1. Measure your head circumference to select the correct size (M, L, XL). 2. Fasten the chin strap securely before every ride; it should be snug but not uncomfortable. 3. To use the flip-up feature, press the button at the front of the chin guard and lift it upwards until it locks. 4. Clean the visor with a soft cloth and water to maintain clear visibility.",
+    "offers": {},
+    "specs": {
+      "brand": "Vega"
+    },
+    "relatedSlugs": [
+      "axor-apex-venomous-helmet",
+      "steelbird-air-sba-2-helmet"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "The Psychology of Money",
+    "slug": "the-psychology-of-money-morgan-housel",
+    "category": "Books",
+    "image": "https://cdn.dummyjson.com/product-images/42/1.jpg",
+    "price": 380,
+    "originalPrice": 599,
+    "rating": 4.7,
+    "reviews": 85000,
+    "features": [
+      "Paperback Edition",
+      "Timeless lessons on wealth and happiness",
+      "Engaging and easy to read",
+      "Bestseller in Finance"
+    ],
+    "description": "Doing well with money isn't necessarily about what you know. It's about how you behave. In 'The Psychology of Money', award-winning author Morgan Housel shares 19 short stories exploring the strange ways people think about money and teaches you how to make better sense of one of life's most important topics.",
+    "user_manual": "1. Read with an open mind, as the book challenges many common beliefs about finance. 2. Reflect on your own relationship with money and your financial behaviors. 3. Focus on the timeless principles of saving, investing, and risk rather than specific financial advice. 4. Discuss the concepts with friends or family to gain different perspectives.",
+    "offers": {},
+    "specs": {
+      "brand": "Jaico Publishing House"
+    },
+    "relatedSlugs": [
+      "atomic-habits-james-clear",
+      "rich-dad-poor-dad"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Sleepyhead Flip Mattress",
+    "slug": "sleepyhead-flip-dual-sided-foam-mattress-queen",
+    "category": "Home & Kitchen",
+    "image": "https://cdn.dummyjson.com/product-images/30/1.jpg",
+    "price": 11999,
+    "originalPrice": 15999,
+    "rating": 4.5,
+    "reviews": 21000,
+    "features": [
+      "Queen Size (78x60x6 inches)",
+      "Dual-Sided (Firm & Soft)",
+      "High-Density Foam",
+      "Comes in a Box"
+    ],
+    "description": "One mattress, two comfort levels. The Sleepyhead Flip mattress features two different surfaces: a firm side for those who prefer solid support, and a softer side for a plush, cozy feel. Simply flip it to choose your preferred comfort. It comes conveniently delivered to your door in a box.",
+    "user_manual": "1. Unbox the mattress in the room where you intend to use it. 2. Carefully cut the plastic wrap. The mattress will start to decompress. 3. Allow 24-48 hours for the mattress to fully expand to its original shape and size. 4. The side with the 'Sleepyhead' logo is the softer side. Flip the mattress to use the firmer side. 5. Rotate the mattress head-to-toe every 3-6 months.",
+    "offers": {},
+    "specs": {
+      "brand": "Sleepyhead"
+    },
+    "relatedSlugs": [
+      "wakefit-orthopedic-memory-foam-mattress",
+      "the-sleep-company-smartgrid-mattress"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Pigeon by Stovekraft Cruise 1800W Induction Cooktop",
+    "slug": "pigeon-cruise-1800w-induction-cooktop",
+    "category": "Home & Kitchen",
+    "image": "https://cdn.dummyjson.com/product-images/92/1.jpg",
+    "price": 1599,
+    "originalPrice": 3195,
+    "rating": 4.1,
+    "reviews": 180000,
+    "features": [
+      "1800 Watt Power",
+      "7 Preset Indian Menus",
+      "Push-button controls",
+      "LED Display"
+    ],
+    "description": "Make cooking faster and more energy-efficient with the Pigeon Cruise Induction Cooktop. Its 1800-watt power ensures quick heating, while the 7 preset menus are customized for popular Indian dishes. The push-button controls and LED display make it easy to operate, and the sleek design adds a modern touch to your kitchen.",
+    "user_manual": "1. Place the induction cooktop on a stable, flat surface. 2. Use only induction-compatible cookware (with a flat, magnetic base). 3. Plug in the device and press the 'On/Off' button. 4. Select a preset menu or use the '+' and '-' buttons to manually adjust the power level. 5. After cooking, wait for the fan to stop before unplugging the device.",
+    "offers": {
+      "deal": "Bestseller"
+    },
+    "specs": {
+      "brand": "Pigeon by Stovekraft"
+    },
+    "relatedSlugs": [
+      "prestige-iris-mixer-grinder",
+      "hawkins-contura-pressure-cooker"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Nivia Storm Football - Size 5",
+    "slug": "nivia-storm-football-size-5",
+    "category": "Sports & Outdoors",
+    "image": "https://cdn.dummyjson.com/product-images/31/1.jpg",
+    "price": 499,
+    "originalPrice": 899,
+    "rating": 4.3,
+    "reviews": 22000,
+    "features": [
+      "Size 5 (Official Size)",
+      "32-Panel Stitched Construction",
+      "Durable Rubber Outer Material",
+      "Ideal for Training and Hard Ground"
+    ],
+    "description": "Built for the rough and tough of Indian playing fields. The Nivia Storm Football is designed for high durability and performance on hard ground surfaces. Its 32-panel stitched construction provides a true flight and feel, making it an excellent choice for training sessions and recreational matches.",
+    "user_manual": "1. Inflate the football using a standard pump with a moistened needle. 2. Inflate to the recommended pressure (usually 8-10 PSI), which is often printed near the valve. 3. Avoid over-inflating, as this can strain the stitching. 4. After play, clean the ball with a damp cloth and store it in a cool, dry place.",
+    "offers": {},
+    "specs": {
+      "brand": "Nivia"
+    },
+    "relatedSlugs": [
+      "adidas-predator-football-studs",
+      "sg-nexus-plus-kashmir-willow-bat"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Garmin Forerunner 255 Music",
+    "slug": "garmin-forerunner-255-music-gps-smartwatch",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/86/1.jpg",
+    "price": 41990,
+    "originalPrice": 45990,
+    "rating": 4.7,
+    "reviews": 1500,
+    "features": [
+      "Built-in Music (Download up to 500 songs)",
+      "Multi-band GPS for enhanced accuracy",
+      "Advanced Training Metrics (HRV Status, Race Widget)",
+      "Garmin Pay™ Contactless Payments"
+    ],
+    "description": "Take your running to the next level with the Garmin Forerunner 255 Music. This GPS running smartwatch provides detailed training stats, recovery insights, and daily suggested workouts. With built-in music storage, you can leave your phone behind and listen to your favorite tunes on the go.",
+    "user_manual": "1. Charge the watch using the provided cable. 2. Download the Garmin Connect app and pair your watch. 3. To load music, use Garmin Express on your computer. 4. To start a run, press the top right button, select 'Run', and wait for a GPS signal. 5. Press the same button to start and stop your activity. The data will automatically sync to your app.",
+    "offers": {},
+    "specs": {
+      "brand": "Garmin"
+    },
+    "relatedSlugs": [
+      "coros-pace-3",
+      "apple-watch-ultra-2"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Neutrogena Ultra Sheer Sunscreen SPF 50+",
+    "slug": "neutrogena-ultra-sheer-dry-touch-sunscreen-spf-50",
+    "category": "Beauty & Personal Care",
+    "image": "https://cdn.dummyjson.com/product-images/17/1.jpg",
+    "price": 499,
+    "originalPrice": 575,
+    "rating": 4.5,
+    "reviews": 65000,
+    "features": [
+      "Broad Spectrum UVA/UVB Protection",
+      "SPF 50+",
+      "Oil-Free and Non-Comedogenic",
+      "Water-resistant (up to 80 minutes)"
+    ],
+    "description": "Protect your skin from harmful sun damage with Neutrogena Ultra Sheer Sunscreen. Its Helioplex® Technology provides superior broad-spectrum protection against skin-aging UVA and burning UVB rays. The Dry-Touch technology ensures it absorbs quickly for a non-greasy, matte finish.",
+    "user_manual": "1. Apply generously to all exposed skin 15 minutes before sun exposure. 2. Ensure complete coverage. 3. Reapply at least every 2 hours, or after 80 minutes of swimming or sweating, and immediately after towel drying. 4. For use on the face, apply after your moisturizer.",
+    "offers": {
+      "deal": "Amazon's Choice"
+    },
+    "specs": {
+      "brand": "Neutrogena"
+    },
+    "relatedSlugs": [
+      "cetaphil-gentle-skin-cleanser",
+      "the-ordinary-niacinamide-10-zinc-1"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Amazon Echo Show 8 (2nd Gen)",
+    "slug": "amazon-echo-show-8-2nd-gen",
+    "category": "Echo & Alexa",
+    "image": "https://cdn.dummyjson.com/product-images/26/1.jpg",
+    "price": 9999,
+    "originalPrice": 13999,
+    "rating": 4.6,
+    "reviews": 22000,
+    "features": [
+      "8-inch HD Touchscreen",
+      "13 MP Camera with Auto-framing",
+      "Stereo Sound",
+      "Control Smart Home Devices"
+    ],
+    "description": "See and do more with Alexa. The Echo Show 8 features a vibrant 8-inch HD touchscreen, stereo speakers, and a powerful 13 MP camera that keeps you in frame during video calls. Watch movies, get news updates, see your security cameras, and control your smart home, all with your voice or a touch.",
+    "user_manual": "1. Plug in the Echo Show 8. 2. Follow the on-screen instructions to connect to your Wi-Fi network and sign in to your Amazon account. 3. Say 'Alexa' followed by a command, like 'Alexa, show me my calendar' or 'Alexa, play Prime Video'. 4. Use the physical camera shutter for privacy. 5. Swipe down from the top of the screen to access settings.",
+    "offers": {},
+    "specs": {
+      "brand": "Amazon"
+    },
+    "relatedSlugs": [
+      "google-nest-hub-2nd-gen",
+      "amazon-echo-dot-5th-gen"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "JBL Flip 6 Bluetooth Speaker",
+    "slug": "jbl-flip-6-portable-bluetooth-speaker",
+    "category": "Electronics",
+    "image": "https://cdn.dummyjson.com/product-images/78/1.jpg",
+    "price": 11999,
+    "originalPrice": 13999,
+    "rating": 4.7,
+    "reviews": 18000,
+    "features": [
+      "Powerful JBL Original Pro Sound",
+      "IP67 Waterproof and Dustproof",
+      "12 Hours of Playtime",
+      "PartyBoost compatible"
+    ],
+    "description": "Your adventure. Your soundtrack. The bold JBL Flip 6 delivers powerful JBL Original Pro Sound with exceptional clarity thanks to its 2-way speaker system. It's waterproof and dustproof, so you can take it anywhere, in any weather. With 12 hours of battery life, the party can last all day or all night.",
+    "user_manual": "1. Charge the speaker using the USB-C cable. 2. Press the power button to turn it on. 3. Press the Bluetooth button to enter pairing mode. Select 'JBL Flip 6' from your device's Bluetooth list. 4. Use the PartyBoost feature in the JBL Portable app to link multiple compatible speakers for stereo sound or a bigger party.",
+    "offers": {},
+    "specs": {
+      "brand": "JBL"
+    },
+    "relatedSlugs": [
+      "sony-srs-xb100-speaker",
+      "bose-soundlink-flex"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Western Digital My Passport 2TB HDD",
+    "slug": "wd-my-passport-2tb-portable-hdd",
+    "category": "Computers",
+    "image": "https://cdn.dummyjson.com/product-images/67/1.jpg",
+    "price": 5999,
+    "originalPrice": 8999,
+    "rating": 4.6,
+    "reviews": 95000,
+    "features": [
+      "2TB Storage Capacity",
+      "USB 3.0 Interface",
+      "Password Protection with 256-bit AES Hardware Encryption",
+      "Slim and Portable Design"
+    ],
+    "description": "Every journey needs a passport. The My Passport portable drive is trusted to store the massive amounts of photos, videos, and music you love. Its slim style fits comfortably in the palm of your hand, so you can easily take your treasured content everywhere you go. Built-in hardware encryption helps keep your private files secure.",
+    "user_manual": "1. Connect the drive to your computer using the included USB 3.0 cable. 2. The drive will appear as a new storage device in your file explorer. 3. You can start dragging and dropping files immediately. 4. For added security, install the WD Discovery software from the drive to set up password protection and hardware encryption.",
+    "offers": {},
+    "specs": {
+      "brand": "Western Digital"
+    },
+    "relatedSlugs": [
+      "seagate-expansion-2tb-hdd",
+      "samsung-t7-touch-1tb-ssd"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Lenovo IdeaPad Slim 3 Laptop",
+    "slug": "lenovo-ideapad-slim-3-intel-core-i5-12th-gen",
+    "category": "Computers",
+    "image": "https://cdn.dummyjson.com/product-images/6/1.png",
+    "price": 54990,
+    "originalPrice": 75990,
+    "rating": 4.3,
+    "reviews": 11000,
+    "features": [
+      "Intel Core i5-1235U Processor",
+      "15.6-inch FHD Anti-Glare Display",
+      "16GB RAM, 512GB SSD",
+      "Windows 11 with MS Office"
+    ],
+    "description": "Engineered for long-lasting performance, the Lenovo IdeaPad Slim 3 delivers powerful, smooth processing in a stylish, light design. Perfect for everyday computing, this 15.6-inch laptop boasts a 12th Gen Intel Core i5 processor, ample RAM, and speedy SSD storage. The narrow bezels on two sides give it a clean look and a great viewing experience.",
+    "user_manual": "1. Unbox and connect the power adapter to charge the laptop. 2. Press the power button to begin the Windows 11 setup process. 3. Connect to your Wi-Fi network and sign in with a Microsoft account to activate MS Office. 4. Use the physical privacy shutter on the webcam for peace of mind. 5. Keep the system updated via Lenovo Vantage software.",
+    "offers": {},
+    "specs": {
+      "brand": "Lenovo"
+    },
+    "relatedSlugs": [
+      "hp-15s-laptop-ryzen-5",
+      "asus-vivobook-16x-oled"
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Woodland Men's Leather Boots",
+    "slug": "woodland-mens-leather-outdoor-boots",
+    "category": "Men's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/58/1.jpg",
+    "price": 3495,
+    "originalPrice": 4995,
+    "rating": 4.5,
+    "reviews": 18000,
+    "features": [
+      "Genuine Leather Upper",
+      "High-traction Rubber Outsole",
+      "Lace-up closure for a secure fit",
+      "Rugged and Durable Construction"
+    ],
+    "description": "Built for adventure, the Woodland leather boots are designed to tackle any terrain. The genuine leather upper provides durability and a classic look, while the high-traction rubber outsole offers excellent grip. Whether you're hiking a trail or navigating the city streets, these boots provide comfort and support.",
+    "user_manual": "1. Wear thick socks when trying on for the best fit. 2. Use a leather conditioner or cream periodically to keep the leather supple and prevent cracking. 3. After exposure to mud or water, clean with a damp cloth and allow to air dry naturally, away from direct heat. 4. Check the laces for wear and tear before any major outing.",
+    "offers": {},
+    "specs": {
+      "brand": "Woodland"
+    },
+    "relatedSlugs": [
+      "cat-lifestyles-caterpillar-boots",
+      "red-chief-leather-boots"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Biba Women's Salwar Suit Set",
+    "slug": "biba-womens-printed-anarkali-salwar-suit-set",
+    "category": "Women's Fashion",
+    "image": "https://cdn.dummyjson.com/product-images/59/1.jpg",
+    "price": 2999,
+    "originalPrice": 5999,
+    "rating": 4.4,
+    "reviews": 6500,
+    "features": [
+      "Anarkali Kurta, Churidar, and Dupatta",
+      "Cotton Fabric",
+      "Printed Pattern",
+      "Three-Quarter Sleeves"
+    ],
+    "description": "Look effortlessly elegant with this beautiful printed Anarkali suit set from Biba. Made from comfortable cotton fabric, it's perfect for festive occasions, parties, and family gatherings. The set includes a flared Anarkali kurta, a matching churidar, and a coordinating dupatta.",
+    "user_manual": "1. Hand wash separately in cold water or use the gentle cycle on your washing machine. 2. Do not use bleach. 3. Dry in shade to prevent color fading. 4. Iron on a low to medium heat setting. 5. Pair with traditional juttis or heels to complete the look.",
+    "offers": {
+      "deal": "50% Off"
+    },
+    "specs": {
+      "brand": "Biba"
+    },
+    "relatedSlugs": [
+      "w-for-woman-kurta-set",
+      "fabindia-silk-kurta-set"
+    ]
+  }
+]
