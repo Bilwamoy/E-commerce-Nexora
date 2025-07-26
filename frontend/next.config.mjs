@@ -10,16 +10,29 @@ const nextConfig = {
   // Completely disable SWC to avoid download issues
   swcMinify: false,
   
-  // Disable SWC compilation
+  // Disable SWC compilation completely
   experimental: {
     forceSwcTransforms: false,
     swcTraceProfiling: false,
+    swcPlugins: false,
     optimizePackageImports: ['lucide-react'],
   },
   
   // Use webpack instead of SWC
   webpack: (config, { isServer }) => {
-    // Add any webpack configurations here if needed
+    // Disable SWC loader
+    config.module.rules.forEach((rule) => {
+      if (rule.oneOf) {
+        rule.oneOf.forEach((oneOfRule) => {
+          if (oneOfRule.loader && oneOfRule.loader.includes('swc')) {
+            oneOfRule.loader = require.resolve('babel-loader');
+            oneOfRule.options = {
+              presets: ['next/babel'],
+            };
+          }
+        });
+      }
+    });
     return config;
   },
   
