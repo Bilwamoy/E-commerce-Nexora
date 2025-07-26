@@ -1,7 +1,6 @@
-import { MetadataRoute } from 'next'
 import { products } from '@/data/products'
- 
-export default function sitemap(): MetadataRoute.Sitemap {
+
+export default function sitemap() {
   const baseUrl = 'https://nexora.vercel.app'
   
   // Static pages

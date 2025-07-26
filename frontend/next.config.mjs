@@ -7,15 +7,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   
-  // Completely disable SWC to avoid download issues
-  swcMinify: false,
-  
-  // Disable SWC compilation completely
+  // Enable app directory
   experimental: {
-    forceSwcTransforms: false,
-    swcTraceProfiling: false,
-    swcPlugins: false,
-    optimizePackageImports: ['lucide-react'],
+    appDir: true,
   },
   
   // Use webpack instead of SWC
