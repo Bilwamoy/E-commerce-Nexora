@@ -14,11 +14,6 @@ const nextConfig = {
   // Completely disable SWC
   swcMinify: false,
   
-  // Enable app directory
-  experimental: {
-    appDir: true,
-  },
-  
   // Image optimization
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com'],

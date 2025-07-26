@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd frontend && chmod +x build.sh && ./build.sh",
+  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "frontend/.next",
   "framework": "nextjs",
   "installCommand": "echo 'Using custom build command'",
