@@ -14,6 +14,17 @@ const nextConfig = {
   // Completely disable SWC
   swcMinify: false,
   
+  // Custom webpack configuration to suppress warnings
+  webpack: (config, { dev, isServer }) => {
+    // Suppress punycode deprecation warnings
+    config.ignoreWarnings = [
+      { module: /node_modules\/punycode/ },
+      /Critical dependency: the request of a dependency is an expression/,
+    ];
+    
+    return config;
+  },
+  
   // Image optimization
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com'],
