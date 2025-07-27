@@ -7,14 +7,15 @@ interface JoyChatbotProps {
   embedMode?: boolean;
 }
 
-const GEMINI_API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-
-// Fetch products from local data
-import { products } from '@/data/products';
-
+// Mock: fetch products
 async function fetchProducts() {
-  return products;
+  return [
+    { id: 1, name: 'iPhone 15 Pro', price: 999, description: 'Latest smartphone with advanced features' },
+    { id: 2, name: 'MacBook Pro', price: 1999, description: 'Professional laptop for creators' },
+    { id: 3, name: 'AirPods Pro', price: 249, description: 'Wireless earbuds with noise cancellation' },
+  ];
 }
+
 // Mock: fetch orders for the user
 const mockOrders = [
   { id: 1, product: 'Product 1', status: 'Delivered' },
@@ -60,35 +61,54 @@ const JoyChatbot = ({ embedMode = false }: JoyChatbotProps) => {
     return null;
   }
 
-  // Order status Q&A
-  function answerOrderStatus(query: string) {
-    const q = query.toLowerCase();
-    if (q.includes('order') && (q.includes('status') || q.includes('where'))) {
-      return mockOrders.map(o => `Order #${o.id}: ${o.product} - ${o.status}`).join('\n');
+  // Handle cart actions
+  function handleCartActions(text: string) {
+    const lowerText = text.toLowerCase();
+    
+    if (lowerText.includes('add') && lowerText.includes('cart')) {
+      const productName = text.match(/add (.+?) to cart/i)?.[1];
+      if (productName) {
+        const product = products.find(p => p.name.toLowerCase().includes(productName.toLowerCase()));
+        if (product) {
+          addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: '/product-image.jpg',
+            category: 'electronics',
+            slug: product.name.toLowerCase().replace(/\s+/g, '-')
+          });
+          return `Added ${product.name} to your cart!`;
+        }
+      }
     }
+    
+    if (lowerText.includes('remove') && lowerText.includes('cart')) {
+      const productName = text.match(/remove (.+?) from cart/i)?.[1];
+      if (productName) {
+        const cartItem = cartItems.find(item => item.name.toLowerCase().includes(productName.toLowerCase()));
+        if (cartItem) {
+          removeFromCart(cartItem.id);
+          return `Removed ${cartItem.name} from your cart!`;
+        }
+      }
+    }
+    
+    if (lowerText.includes('show cart') || lowerText.includes('what&apos;s in cart')) {
+      if (cartItems.length === 0) {
+        return 'Your cart is empty. Would you like me to suggest some products?';
+      }
+      return `You have ${cartItems.length} items in your cart:\n${cartItems.map(item => `- ${item.name} x${item.quantity}`).join('\n')}`;
+    }
+    
     return null;
   }
 
-  // Cart actions
-  function handleCartActions(query: string) {
-    const q = query.toLowerCase();
-    if (q.startsWith('add ')) {
-      const name = q.replace('add ', '').trim();
-      const found = products.find(p => p.name.toLowerCase().includes(name));
-      if (found) {
-        addToCart({ id: found.id, name: found.name, price: found.price, image: found.image, category: found.category, slug: found.slug });
-        return `Added ${found.name} to your cart.`;
-      }
-      return `Sorry, I couldn't find ${name} to add to your cart.`;
-    }
-    if (q.startsWith('remove ')) {
-      const name = q.replace('remove ', '').trim();
-      const found = products.find(p => p.name.toLowerCase().includes(name));
-      if (found) {
-        removeFromCart(found.id);
-        return `Removed ${found.name} from your cart.`;
-      }
-      return `Sorry, I couldn't find ${name} in your cart.`;
+  // Answer order status questions
+  function answerOrderStatus(text: string) {
+    const lowerText = text.toLowerCase();
+    if (lowerText.includes('order status') || lowerText.includes('track order')) {
+      return `Here are your recent orders:\n${mockOrders.map(order => `- ${order.product}: ${order.status}`).join('\n')}`;
     }
     return null;
   }
@@ -130,72 +150,32 @@ const JoyChatbot = ({ embedMode = false }: JoyChatbotProps) => {
     // Handle greetings
     const greetingWords = ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'];
     if (greetingWords.some(word => input.toLowerCase().includes(word))) {
-      const greetings = [
-        "Hello! I'm Joy, your shopping assistant. How can I help you today?",
-        "Hi there! Welcome to Nexora. I can help you find products, manage your cart, or answer questions.",
-        "Hey! I'm here to make your shopping experience better. What would you like to do?",
-        "Hello! I can help you with product searches, cart management, and order tracking. What do you need?"
-      ];
-      const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
-      setMessages((msgs) => [...msgs, { from: 'joy', text: randomGreeting }]);
+      setMessages((msgs) => [...msgs, { from: 'joy', text: 'Hello! How can I help you with your shopping today?' }]);
       setLoading(false);
       setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
       return;
     }
 
-    // Product suggestions
-    const found = suggestProducts(input);
-    if (found.length > 0) {
-      setMessages((msgs) => [
-        ...msgs,
-        { from: 'joy', text: `Here are some products you might like:` },
-        ...found.slice(0, 3).map(p => ({ from: 'joy', text: `${p.name} - $${p.price}` }))
-      ]);
-      setLoading(false);
-      setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
-      return;
-    }
-
-    // Fallback to Gemini or provide a helpful response
-    if (!GEMINI_API_KEY) {
-      const responses = [
-        "I can help you with product searches, cart management, and order status! Try asking me about specific products or use commands like 'add [product name]' or 'show my cart'.",
-        "Hi there! I'm Joy, your shopping assistant. I can help you find products, manage your cart, and check order status. What would you like to do?",
-        "Welcome! I can help you with shopping. Try asking me to 'show products', 'add items to cart', or 'check order status'.",
-        "Hello! I'm here to help with your shopping needs. You can ask me about products, cart management, or order tracking."
-      ];
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      setMessages((msgs) => [...msgs, { from: 'joy', text: randomResponse }]);
-      setLoading(false);
-      setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
-      return;
-    }
-
-    try {
-      const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + GEMINI_API_KEY, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contents: [{ parts: [{ text: input }] }] })
-      });
-      const data = await res.json();
-      let reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-      if (reply.toLowerCase().includes('cannot find') || reply.toLowerCase().includes('not available')) {
-        reply += '\nIf you need more help, try our support bot.';
+    // Handle product searches
+    if (input.toLowerCase().includes('find') || input.toLowerCase().includes('search') || input.toLowerCase().includes('show')) {
+      const found = suggestProducts(input);
+      if (found.length > 0) {
+        const suggestions = found.slice(0, 3).map(p => `- ${p.name}: $${p.price}`).join('\n');
+        setMessages((msgs) => [...msgs, { from: 'joy', text: `I found these products for you:\n${suggestions}\n\nWould you like me to add any of these to your cart?` }]);
+      } else {
+        setMessages((msgs) => [...msgs, { from: 'joy', text: 'I couldn&apos;t find any products matching your search. Could you try a different keyword?' }]);
       }
-      setMessages((msgs) => [...msgs, { from: 'joy', text: reply }]);
-    } catch (e) {
-      console.error('Gemini API error:', e);
-      const fallbackResponses = [
-        "I'm here to help with your shopping! Try asking me about products, cart management, or order status.",
-        "I can assist you with finding products, managing your cart, and tracking orders. What would you like to know?",
-        "Let me help you with your shopping needs. You can ask about products, add items to cart, or check order status.",
-        "I'm your shopping assistant! I can help you find products, manage your cart, and track orders."
-      ];
-      const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-      setMessages((msgs) => [...msgs, { from: 'joy', text: randomResponse }]);
+      setLoading(false);
+      setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
+      return;
     }
-    setLoading(false);
-    setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
+
+    // Default response
+    setTimeout(() => {
+      setMessages((msgs) => [...msgs, { from: 'joy', text: 'I&apos;m here to help you with shopping! You can ask me to find products, add items to cart, check order status, or just chat about what you&apos;re looking for.' }]);
+      setLoading(false);
+      setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
+    }, 1000);
   }
 
   // Show cart items if user asks
@@ -209,8 +189,7 @@ const JoyChatbot = ({ embedMode = false }: JoyChatbotProps) => {
         ...cartItems.map(item => ({ from: 'joy', text: `${item.name} x${item.quantity}` }))
       ]);
     }
-    // eslint-disable-next-line
-  }, [messages.length, open]);
+  }, [messages, open, cartItems]);
 
   // Listen for support bot redirect
   useEffect(() => {
@@ -222,109 +201,139 @@ const JoyChatbot = ({ embedMode = false }: JoyChatbotProps) => {
 
   if (embedMode) {
     return (
-      <div className="w-full max-w-full bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden border border-blue-400 animate-fade-in">
-        {/* Container logo at top */}
-        <div className="flex justify-center items-center pt-2 pb-1 bg-white">
-          <BotContainerLogo size={48} />
-        </div>
-        <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 font-bold flex items-center justify-between">
-          <span className="flex items-center gap-2"><JoyLogo size={24} /> Joy</span>
-        </div>
-        <div className="relative flex-1 p-4 overflow-y-auto bg-gray-50" style={{ maxHeight: 350 }}>
-          {/* Watermark */}
-          <div className="absolute inset-0 flex justify-center items-center pointer-events-none opacity-10 select-none">
-            <BotContainerLogo size={120} />
+      <div className="w-full h-full">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center gap-2 p-4 border-b">
+            <JoyLogo />
+            <span className="font-semibold">Joy</span>
           </div>
-          <div className="relative z-10">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4" ref={chatRef}>
             {messages.map((msg, i) => (
-              <div key={i} className={`mb-2 flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`px-3 py-2 rounded-lg max-w-[80%] ${msg.from === 'user' ? 'bg-blue-100 text-blue-900 text-right' : 'bg-purple-100 text-purple-900 text-left'}`}>{msg.text}</div>
+              <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`max-w-xs p-3 rounded-lg ${
+                  msg.from === 'user' 
+                    ? 'bg-blue-500 text-white' 
+                    : 'bg-gray-100 text-gray-800'
+                }`}>
+                  {msg.text}
+                </div>
               </div>
             ))}
-            {suggested.length > 0 && (
-              <div className="mb-2">
-                <div className="font-bold text-xs mb-1 text-purple-700">Suggestions:</div>
-                {suggested.map((p, i) => (
-                  <div key={i} className="text-xs text-blue-700 mb-1">{p.name} - ${p.price}</div>
-                ))}
+            {loading && (
+              <div className="flex justify-start">
+                <div className="bg-gray-100 text-gray-800 max-w-xs p-3 rounded-lg">
+                  <div className="flex space-x-1">
+                    <div className="size-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div className="size-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="size-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                </div>
               </div>
             )}
-            {loading && <div className="text-xs text-gray-400">Joy is typing...</div>}
+          </div>
+          <div className="p-4 border-t">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                placeholder="Type your message..."
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                onClick={sendMessage}
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+              >
+                Send
+              </button>
+            </div>
           </div>
         </div>
-                  <form className="flex border-t border-gray-200" onSubmit={e => { e.preventDefault(); sendMessage(); }}>
-            <input
-              className="flex-1 px-3 py-2 outline-none text-gray-900 placeholder-gray-500"
-              placeholder="Type your message..."
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              disabled={loading}
-            />
-            <button type="submit" className="px-4 text-blue-600 font-bold hover:text-blue-800" disabled={loading || !input.trim()}>Send</button>
-          </form>
       </div>
     );
   }
 
   return (
     <>
-      {/* Floating button */}
+      {/* Chat Button */}
       <button
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:scale-110 transition"
-        onClick={() => setOpen((v) => !v)}
-        title="Chat with Joy"
+        onClick={() => setOpen(!open)}
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        aria-label="Open Joy Chatbot"
       >
-        <JoyLogo size={40} />
+        <JoyLogo />
       </button>
-      {/* Chat window */}
+
+      {/* Chat Modal */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-80 max-w-full bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden border border-blue-400 animate-fade-in">
-          {/* Container logo at top */}
-          <div className="flex justify-center items-center pt-2 pb-1 bg-white">
-            <BotContainerLogo size={48} />
-          </div>
-          <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 font-bold flex items-center justify-between">
-            <span className="flex items-center gap-2"><JoyLogo size={24} /> Joy</span>
-            <button onClick={() => setOpen(false)} className="text-white text-xl">×</button>
-          </div>
-          <div className="relative flex-1 p-4 overflow-y-auto bg-gray-50" style={{ maxHeight: 350 }}>
-            {/* Watermark */}
-            <div className="absolute inset-0 flex justify-center items-center pointer-events-none opacity-10 select-none">
-              <BotContainerLogo size={120} />
+        <div className="fixed inset-0 z-50 flex items-end justify-end p-4">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setOpen(false)}></div>
+          <div className="relative bg-white rounded-t-2xl shadow-2xl w-full max-w-md h-96 flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 border-b">
+              <div className="flex items-center gap-2">
+                <JoyLogo />
+                <span className="font-semibold text-gray-800">Joy</span>
+              </div>
+              <button
+                onClick={() => setOpen(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-            <div className="relative z-10">
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4" ref={chatRef}>
               {messages.map((msg, i) => (
-                <div key={i} className={`mb-2 flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`px-3 py-2 rounded-lg max-w-[80%] ${msg.from === 'user' ? 'bg-blue-100 text-blue-900 text-right' : 'bg-purple-100 text-purple-900 text-left'}`}>{msg.text}</div>
+                <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-xs p-3 rounded-lg ${
+                    msg.from === 'user' 
+                      ? 'bg-blue-500 text-white' 
+                      : 'bg-gray-100 text-gray-800'
+                  }`}>
+                    {msg.text}
+                  </div>
                 </div>
               ))}
-              {suggested.length > 0 && (
-                <div className="mb-2">
-                  <div className="font-bold text-xs mb-1 text-purple-700">Suggestions:</div>
-                  {suggested.map((p, i) => (
-                    <div key={i} className="text-xs text-blue-700 mb-1">{p.name} - ${p.price}</div>
-                  ))}
+              {loading && (
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 text-gray-800 max-w-xs p-3 rounded-lg">
+                    <div className="flex space-x-1">
+                      <div className="size-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="size-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="size-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                  </div>
                 </div>
               )}
-              {loading && <div className="text-xs text-gray-400">Joy is typing...</div>}
+            </div>
+
+            {/* Input */}
+            <div className="p-4 border-t">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                  placeholder="Type your message..."
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  onClick={sendMessage}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+                >
+                  Send
+                </button>
+              </div>
             </div>
           </div>
-          <form className="flex border-t border-gray-200" onSubmit={e => { e.preventDefault(); sendMessage(); }}>
-            <input
-              className="flex-1 px-3 py-2 outline-none text-gray-900 placeholder-gray-500"
-              placeholder="Type your message..."
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              disabled={loading}
-            />
-            <button type="submit" className="px-4 text-blue-600 font-bold hover:text-blue-800" disabled={loading || !input.trim()}>Send</button>
-          </form>
         </div>
       )}
-      <style jsx>{`
-        .animate-fade-in { animation: fadeIn 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none; } }
-      `}</style>
     </>
   );
 };

@@ -74,7 +74,7 @@ const FeaturedCategories = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-100 mb-6">
-            <Star className="w-4 h-4 text-blue-500" />
+            <Star className="size-4 text-blue-500" />
             <span className="text-sm font-medium text-blue-700">Featured Categories</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -100,8 +100,8 @@ const FeaturedCategories = () => {
               >
                 <div className={`relative bg-gradient-to-br ${category.bgGradient} rounded-2xl p-8 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-2`}>
                   {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${category.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                  <div className={`size-16 bg-gradient-to-r ${category.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="size-8 text-white" />
                   </div>
                   
                   {/* Content */}
@@ -118,8 +118,8 @@ const FeaturedCategories = () => {
                       <span className="text-sm font-semibold text-gray-500">
                         {category.count}
                       </span>
-                      <div className={`w-8 h-8 bg-gradient-to-r ${category.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                        <ArrowRight className="w-4 h-4 text-white" />
+                      <div className={`size-8 bg-gradient-to-r ${category.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <ArrowRight className="size-4 text-white" />
                       </div>
                     </div>
                   </div>
@@ -136,7 +136,7 @@ const FeaturedCategories = () => {
         <div className="text-center">
           <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Can't find what you're looking for?
+              Can&apos;t find what you&apos;re looking for?
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Explore our complete product catalog with thousands of items across all categories
@@ -146,7 +146,7 @@ const FeaturedCategories = () => {
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1"
             >
               Browse All Products
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="size-5" />
             </Link>
           </div>
         </div>

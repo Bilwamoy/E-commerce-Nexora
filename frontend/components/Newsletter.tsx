@@ -52,7 +52,7 @@ const Newsletter = () => {
                 {/* Header */}
                 <div className="space-y-4">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-100">
-                    <Star className="w-4 h-4 text-blue-500" />
+                    <Star className="size-4 text-blue-500" />
                     <span className="text-sm font-medium text-blue-700">Stay Connected</span>
                   </div>
                   
@@ -72,22 +72,22 @@ const Newsletter = () => {
                 {/* Benefits */}
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-white" />
+                            <div className="size-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+          <CheckCircle className="size-4 text-white" />
                     </div>
                     <span className="text-gray-700 font-medium">Exclusive subscriber-only discounts</span>
                   </div>
                   
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                      <Bell className="w-4 h-4 text-white" />
+                            <div className="size-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+          <Bell className="size-4 text-white" />
                     </div>
                     <span className="text-gray-700 font-medium">Early access to new product launches</span>
                   </div>
                   
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                      <Zap className="w-4 h-4 text-white" />
+                            <div className="size-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+          <Zap className="size-4 text-white" />
                     </div>
                     <span className="text-gray-700 font-medium">Weekly tech trends and insights</span>
                   </div>
@@ -96,14 +96,14 @@ const Newsletter = () => {
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400" />
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email address"
                       required
-                      className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                      className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-500"
                     />
                   </div>
                   
@@ -114,13 +114,13 @@ const Newsletter = () => {
                   >
                     {isLoading ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <div className="size-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                         Subscribing...
                       </>
                     ) : (
                       <>
                         Subscribe Now
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="size-5" />
                       </>
                     )}
                   </button>
@@ -130,7 +130,7 @@ const Newsletter = () => {
                 {isSubscribed && (
                   <div className="bg-green-50 border border-green-200 rounded-xl p-4">
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <CheckCircle className="size-5 text-green-600" />
                       <span className="text-green-800 font-medium">
                         Successfully subscribed! Check your email for confirmation.
                       </span>
@@ -157,15 +157,15 @@ const Newsletter = () => {
             <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-cyan-500 p-12 lg:p-16 flex items-center justify-center relative overflow-hidden">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
-                <div className="absolute top-1/4 right-0 w-24 h-24 bg-white rounded-full translate-x-12"></div>
-                <div className="absolute bottom-0 left-1/3 w-20 h-20 bg-white rounded-full translate-y-10"></div>
+                        <div className="absolute top-0 left-0 size-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
+        <div className="absolute top-1/4 right-0 size-24 bg-white rounded-full translate-x-12"></div>
+        <div className="absolute bottom-0 left-1/3 size-20 bg-white rounded-full translate-y-10"></div>
               </div>
               
               {/* Content */}
               <div className="relative text-center text-white space-y-6">
-                <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto">
-                  <Mail className="w-12 h-12" />
+                        <div className="size-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto">
+          <Mail className="size-12" />
                 </div>
                 
                 <div className="space-y-4">

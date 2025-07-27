@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { useState } from "react";
 import SearchBar from "@/components/SearchBar";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CategoryPageProps {
   params: { category: string };
@@ -21,10 +22,12 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
         <div className="mb-8">
-          <img 
+          <Image 
             src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" 
             alt="Sorry" 
-            className="mx-auto w-32 h-32 rounded-full"
+            width={128}
+            height={128}
+            className="mx-auto size-32 rounded-full"
           />
         </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">

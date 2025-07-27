@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/components/CartContext';
 import { toast } from 'react-hot-toast';
+import Image from 'next/image';
 import { 
   CreditCard, 
   Lock, 
@@ -518,10 +519,12 @@ const CheckoutPage = () => {
                 <div className="space-y-3 mb-4">
                   {cartItems.map((item) => (
                     <div key={item.id} className="flex items-center space-x-3">
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.name}
-                        className="w-12 h-12 object-cover rounded-lg"
+                        width={48}
+                        height={48}
+                        className="size-12 object-cover rounded-lg"
                       />
                       <div className="flex-1">
                         <h4 className="font-medium text-gray-900 text-sm">{item.name}</h4>

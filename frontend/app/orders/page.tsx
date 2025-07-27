@@ -1,65 +1,81 @@
 'use client';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
 
-const mockOrders = [
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+
+interface Order {
+  id: string;
+  product: string;
+  status: string;
+  orderDate: string;
+  deliveryDate: string;
+  price: number;
+  image: string;
+  trackingNumber: string;
+}
+
+interface Delivery {
+  id: string;
+  product: string;
+  status: string;
+  estimatedDelivery: string;
+  price: number;
+  image: string;
+  trackingNumber: string;
+}
+
+const mockOrders: Order[] = [
   {
-    id: 1,
-    product: 'SAMSUNG Galaxy S24 Ultra',
+    id: 'ORD-001',
+    product: 'iPhone 15 Pro Max',
     status: 'Delivered',
-    canReturn: true,
-    category: 'Mobiles',
-    slug: 'samsung-galaxy-s24-ultra',
-    image: 'https://images.samsung.com/is/image/samsung/p6pim/in/sm-s928bztqins/gallery/in-galaxy-s24-ultra-sm-s928-478978-sm-s928bztqins-thumb-538642237',
-    description: 'SAMSUNG Galaxy S24 Ultra Cell Phone, 512GB AI Smartphone, Unlocked Android, 50MP Zoom Camera, Long Battery Life, S Pen, US Version, 2024, Titanium Gray. The ultimate flagship with advanced AI features, pro-grade camera, and all-day battery.'
+    orderDate: '2024-01-10',
+    deliveryDate: '2024-01-15',
+    price: 149999,
+    image: '/laptops.jpg',
+    trackingNumber: 'TRK123456789'
   },
   {
-    id: 2,
-    product: 'SAMSUNG Galaxy S24',
+    id: 'ORD-002',
+    product: 'MacBook Pro M3',
     status: 'Shipped',
-    canReturn: false,
-    category: 'Mobiles',
-    slug: 'samsung-galaxy-s24',
-    image: 'https://images.samsung.com/is/image/samsung/p6pim/in/sm-s921bzvdins/gallery/in-galaxy-s24-sm-s921-478978-sm-s921bzvdins-thumb-538642237',
-    description: 'SAMSUNG Galaxy S24 Cell Phone, 128GB AI Smartphone, Unlocked Android, 50MP Camera, Fastest Processor, Long Battery Life, US Version, 2024, Onyx Black. Experience next-gen performance and camera in a sleek, durable design.'
+    orderDate: '2024-01-12',
+    deliveryDate: '2024-01-18',
+    price: 199999,
+    image: '/smart watches.jpg',
+    trackingNumber: 'TRK987654321'
   },
   {
-    id: 3,
-    product: 'Sony WH-1000XM5 Wireless Headphones',
-    status: 'Delivered',
-    canReturn: true,
-    category: 'Headphones',
-    slug: 'sony-wh-1000xm5',
-    image: 'https://m.media-amazon.com/images/I/61v6lGqHq+L._AC_SL1500_.jpg',
-    description: 'Sony WH-1000XM5 Wireless Industry Leading Headphones with Auto Noise Canceling Optimizer, Crystal Clear Hands-Free Calling, and Alexa Voice Control. Midnight Blue. The best-in-class noise cancellation and all-day comfort.'
-  },
+    id: 'ORD-003',
+    product: 'Sony WH-1000XM5',
+    status: 'Processing',
+    orderDate: '2024-01-14',
+    deliveryDate: '2024-01-20',
+    price: 24999,
+    image: '/pcs.jpg',
+    trackingNumber: 'TRK456789123'
+  }
 ];
 
-const mockDeliveries = [
+const mockDeliveries: Delivery[] = [
   {
-    id: 101,
-    product: 'Sonos Ace Wireless Over Ear Headphones',
+    id: 'DEL-001',
+    product: 'PlayStation 5',
     status: 'Out for Delivery',
-    eta: 'Today, 5:00 PM',
-    lat: 22.57,
-    lng: 88.36,
-    category: 'Headphones',
-    slug: 'sonos-ace-wireless',
-    image: 'https://m.media-amazon.com/images/I/31vrL5EimQL._AC_SL1500_.jpg',
-    description: 'Sonos Ace - Wireless Over Ear Headphones with Noise Cancellation, Bluetooth, 30-Hour Battery Life, Spatial Audio, Dolby Atmos, Dynamic Head Tracking. Black. Premium sound and comfort for music lovers.'
+    estimatedDelivery: '2024-01-16',
+    price: 49999,
+    image: '/game.jpg',
+    trackingNumber: 'TRK111222333'
   },
   {
-    id: 102,
-    product: 'Bose QuietComfort Ultra Wireless Headphones',
+    id: 'DEL-002',
+    product: 'Nike Air Max 270',
     status: 'In Transit',
-    eta: 'Tomorrow, 11:00 AM',
-    lat: 22.58,
-    lng: 88.37,
-    category: 'Headphones',
-    slug: 'bose-quietcomfort-ultra',
-    image: 'https://assets.bose.com/content/dam/Bose_DAM/Web/consumer_electronics/global/products/headphones/quietcomfort_ultra_headphones/product_silo_images/qc_ultra_hp_blk_EC_hero.psd/jcr:content/renditions/cq5dam.web.320.320.png',
-    description: 'Bose QuietComfort Ultra Wireless Noise Cancelling Headphones with Spatial Audio, Over-The-Ear Headphones with Mic, Up to 24 Hours of Battery Life. Black. Legendary comfort and immersive sound.'
-  },
+    estimatedDelivery: '2024-01-17',
+    price: 8999,
+    image: '/shoes.jpg',
+    trackingNumber: 'TRK444555666'
+  }
 ];
 
 export default function OrdersPage() {
@@ -89,101 +105,160 @@ export default function OrdersPage() {
     return () => clearInterval(interval);
   }, [deliveryActive]);
 
+  const handleReturnRequest = (orderId: string) => {
+    setReturnRequested(true);
+    setTimeout(() => setReturnRequested(false), 3000);
+  };
+
+  const startTracking = (index: number) => {
+    setSelectedOrder(index);
+    setTrackingActive(true);
+    setTimeout(() => setTrackingActive(false), 10000);
+  };
+
+  const startDeliveryTracking = (index: number) => {
+    setSelectedDelivery(index);
+    setDeliveryActive(true);
+    setTimeout(() => setDeliveryActive(false), 10000);
+  };
+
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-6">Your Orders</h1>
-      <ul className="mb-8">
-        {mockOrders.map(order => (
-          <li key={order.id} className="mb-4 p-4 bg-white rounded shadow flex justify-between items-center">
-            <Link href={`/product/${encodeURIComponent(order.category)}/${order.slug}`} className="flex items-center gap-3">
-              <img src={order.image} alt={order.product} className="w-16 h-16 object-contain rounded" />
-              <div className="font-semibold text-amazon-blue hover:underline">{order.product}</div>
-            </Link>
-            <div className="flex gap-2">
-              {order.canReturn && (
-                <button
-                  className="bg-amazon-yellow text-black px-3 py-1 rounded font-bold"
-                  onClick={() => { setSelectedOrder(order.id); setReturnRequested(false); }}
-                >
-                  Return Product
-                </button>
-              )}
-              <button
-                className="bg-blue-500 text-white px-3 py-1 rounded font-bold"
-                onClick={() => { setSelectedOrder(order.id); setTrackingActive(true); }}
-              >
-                Track Order
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
-      {selectedOrder && (
-        <div className="mb-8 p-6 bg-gray-100 rounded shadow">
-          <h2 className="text-xl font-bold mb-2">Order #{selectedOrder}</h2>
-          {!returnRequested ? (
-            <button
-              className="bg-red-500 text-white px-4 py-2 rounded font-bold mb-4"
-              onClick={() => setReturnRequested(true)}
-            >
-              Confirm Return
-            </button>
-          ) : (
-            <div className="text-green-600 font-bold mb-4">Return Requested!</div>
-          )}
-          {trackingActive && (
-            <div className="mt-4">
-              <h3 className="font-semibold mb-2">Live Tracking (Mocked)</h3>
-              <div className="w-full h-64 bg-gray-300 rounded flex items-center justify-center relative">
-                <div
-                  className="absolute"
-                  style={{ left: `${50 + (tracking.lng - 88.36) * 1000}px`, top: `${50 + (tracking.lat - 22.57) * 1000}px` }}
-                >
-                  <span className="inline-block w-6 h-6 bg-blue-600 rounded-full border-4 border-white animate-pulse"></span>
-                  <div className="text-xs text-center mt-1">Product</div>
-                </div>
-                <span className="text-gray-700">Map Placeholder</span>
-              </div>
-            </div>
-          )}
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">My Orders & Returns</h1>
+          <p className="text-gray-600">Track your orders and manage returns</p>
         </div>
-      )}
-      {/* Delivery Section */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Active Deliveries</h2>
-        <ul>
-          {mockDeliveries.map(delivery => (
-            <li key={delivery.id} className="mb-4 p-4 bg-white rounded shadow flex justify-between items-center">
-              <Link href={`/product/${encodeURIComponent(delivery.category)}/${delivery.slug}`} className="flex items-center gap-3">
-                <img src={delivery.image} alt={delivery.product} className="w-16 h-16 object-contain rounded" />
-                <div className="font-semibold text-amazon-blue hover:underline">{delivery.product}</div>
-              </Link>
-              <div>
-                <div className="text-xs text-gray-500">Status: {delivery.status}</div>
-                <div className="text-xs text-gray-500">ETA: {delivery.eta}</div>
-              </div>
-              <button
-                className="bg-green-500 text-white px-3 py-1 rounded font-bold"
-                onClick={() => { setSelectedDelivery(delivery.id); setDeliveryActive(true); setDeliveryTracking({ lat: delivery.lat, lng: delivery.lng }); }}
-              >
-                Track Delivery
-              </button>
-            </li>
-          ))}
-        </ul>
-        {selectedDelivery && deliveryActive && (
-          <div className="mt-4 mb-8 p-6 bg-gray-100 rounded shadow">
-            <h3 className="font-semibold mb-2">Live Delivery Tracking (Mocked)</h3>
-            <div className="w-full h-64 bg-gray-300 rounded flex items-center justify-center relative">
-              <div
-                className="absolute"
-                style={{ left: `${50 + (deliveryTracking.lng - 88.36) * 1000}px`, top: `${50 + (deliveryTracking.lat - 22.57) * 1000}px` }}
-              >
-                <span className="inline-block w-6 h-6 bg-green-600 rounded-full border-4 border-white animate-pulse"></span>
-                <div className="text-xs text-center mt-1">Delivery</div>
-              </div>
-              <span className="text-gray-700">Map Placeholder</span>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Orders Section */}
+          <div className="bg-white rounded-lg shadow-sm border">
+            <div className="px-6 py-4 border-b">
+              <h2 className="text-xl font-semibold text-gray-900">Recent Orders</h2>
             </div>
+            <div className="p-6 space-y-4">
+              {mockOrders.map((order, index) => (
+                <div key={order.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                  <div className="flex items-start space-x-4">
+                    <Image 
+                      src={order.image} 
+                      alt={order.product} 
+                      width={64}
+                      height={64}
+                      className="size-16 object-contain rounded" 
+                    />
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-medium text-gray-900 truncate">{order.product}</h3>
+                      <p className="text-sm text-gray-500">Order #{order.id}</p>
+                      <p className="text-sm text-gray-500">₹{order.price.toLocaleString()}</p>
+                      <div className="flex items-center space-x-2 mt-2">
+                        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                          order.status === 'Delivered' ? 'bg-green-100 text-green-800' :
+                          order.status === 'Shipped' ? 'bg-blue-100 text-blue-800' :
+                          'bg-yellow-100 text-yellow-800'
+                        }`}>
+                          {order.status}
+                        </span>
+                        {order.status === 'Delivered' && (
+                          <button
+                            onClick={() => handleReturnRequest(order.id)}
+                            className="text-sm text-red-600 hover:text-red-800 font-medium"
+                          >
+                            Request Return
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <button
+                        onClick={() => startTracking(index)}
+                        className="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+                      >
+                        Track
+                      </button>
+                      {selectedOrder === index && trackingActive && (
+                        <div className="text-xs text-green-600">Live tracking active</div>
+                      )}
+                    </div>
+                  </div>
+                  {selectedOrder === index && trackingActive && (
+                    <div className="mt-4 p-3 bg-gray-50 rounded text-sm">
+                      <div className="flex justify-between">
+                        <span>Current Location:</span>
+                        <span>{tracking.lat.toFixed(4)}, {tracking.lng.toFixed(4)}</span>
+                      </div>
+                      <div className="mt-2 text-gray-600">
+                        Estimated delivery: {order.deliveryDate}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Deliveries Section */}
+          <div className="bg-white rounded-lg shadow-sm border">
+            <div className="px-6 py-4 border-b">
+              <h2 className="text-xl font-semibold text-gray-900">Active Deliveries</h2>
+            </div>
+            <div className="p-6 space-y-4">
+              {mockDeliveries.map((delivery, index) => (
+                <div key={delivery.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                  <div className="flex items-start space-x-4">
+                    <Image 
+                      src={delivery.image} 
+                      alt={delivery.product} 
+                      width={64}
+                      height={64}
+                      className="size-16 object-contain rounded" 
+                    />
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-medium text-gray-900 truncate">{delivery.product}</h3>
+                      <p className="text-sm text-gray-500">Delivery #{delivery.id}</p>
+                      <p className="text-sm text-gray-500">₹{delivery.price.toLocaleString()}</p>
+                      <div className="flex items-center space-x-2 mt-2">
+                        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                          delivery.status === 'Out for Delivery' ? 'bg-orange-100 text-orange-800' :
+                          'bg-blue-100 text-blue-800'
+                        }`}>
+                          {delivery.status}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <button
+                        onClick={() => startDeliveryTracking(index)}
+                        className="text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
+                      >
+                        Track
+                      </button>
+                      {selectedDelivery === index && deliveryActive && (
+                        <div className="text-xs text-green-600">Live tracking active</div>
+                      )}
+                    </div>
+                  </div>
+                  {selectedDelivery === index && deliveryActive && (
+                    <div className="mt-4 p-3 bg-gray-50 rounded text-sm">
+                      <div className="flex justify-between">
+                        <span>Current Location:</span>
+                        <span>{deliveryTracking.lat.toFixed(4)}, {deliveryTracking.lng.toFixed(4)}</span>
+                      </div>
+                      <div className="mt-2 text-gray-600">
+                        Estimated delivery: {delivery.estimatedDelivery}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Return Request Success Message */}
+        {returnRequested && (
+          <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50">
+            Return request submitted successfully!
           </div>
         )}
       </div>

@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200">
-                <Zap className="w-4 h-4 text-yellow-500" />
+                <Zap className="size-4 text-yellow-500" />
                 <span className="text-sm font-medium text-gray-700">New Arrivals</span>
               </div>
               
@@ -78,7 +78,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               {slide.features.map((feature: string, featureIndex: number) => (
                 <div key={featureIndex} className="flex items-center gap-2 px-3 py-1 bg-white/60 backdrop-blur-sm rounded-full border border-gray-200">
-                  <Star className="w-3 h-3 text-yellow-500" />
+                  <Star className="size-3 text-yellow-500" />
                   <span className="text-sm font-medium text-gray-700">{feature}</span>
                 </div>
               ))}
@@ -92,12 +92,12 @@ const Hero = () => {
               >
                 <span className="flex items-center gap-2">
                   {slide.ctaText}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
               
               <button className="px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 flex items-center gap-2">
-                <Play className="w-4 h-4" />
+                <Play className="size-4" />
                 Watch Demo
               </button>
             </div>
@@ -105,15 +105,15 @@ const Hero = () => {
             {/* Trust Indicators */}
             <div className="flex items-center gap-8 pt-8 border-t border-gray-200">
               <div className="flex items-center gap-2">
-                <Truck className="w-5 h-5 text-green-500" />
+                <Truck className="size-5 text-green-500" />
                 <span className="text-sm text-gray-600">Free Shipping</span>
               </div>
               <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-blue-500" />
+                <Shield className="size-5 text-blue-500" />
                 <span className="text-sm text-gray-600">Secure Payment</span>
               </div>
               <div className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-yellow-500" />
+                <Star className="size-5 text-yellow-500" />
                 <span className="text-sm text-gray-600">4.9/5 Rating</span>
               </div>
             </div>
@@ -124,8 +124,8 @@ const Hero = () => {
             <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
               <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                 <div className="text-center space-y-4">
-                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <Zap className="w-16 h-16 text-white" />
+                          <div className="size-32 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+          <Zap className="size-16 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">Premium Tech</h3>
                   <p className="text-gray-600">Experience the difference</p>
@@ -134,10 +134,10 @@ const Hero = () => {
             </div>
             
             {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+            <div className="absolute -top-4 -right-4 size-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-sm">50%</span>
             </div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center shadow-lg">
+            <div className="absolute -bottom-4 -left-4 size-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-xs">NEW</span>
             </div>
           </div>

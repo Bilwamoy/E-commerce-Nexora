@@ -108,7 +108,7 @@ export default function BotTestPage() {
               <h3 className="font-semibold text-gray-900 mb-2">Testing Commands:</h3>
               <div className="text-sm text-gray-600 space-y-1">
                 <p><strong>Joy Bot:</strong> Try "show me products", "add [product name] to cart", "what's in my cart?"</p>
-                <p><strong>Support Bot:</strong> Try "I can't find a product" (redirects to Joy) or "I have a complaint" (escalates)</p>
+                <p><strong>Support Bot:</strong> Try "I can&apos;t find a product" (redirects to Joy) or "I have a complaint" (escalates)</p>
               </div>
             </div>
           </div>

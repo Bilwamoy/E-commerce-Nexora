@@ -46,7 +46,7 @@ const BotHub = () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
     };
-  }, [dragging]);
+  }, [dragging, onMouseMove, onMouseUp]);
 
   // Touch events for drag (mobile)
   const onTouchStart = (e: React.TouchEvent) => {
@@ -79,7 +79,7 @@ const BotHub = () => {
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', onTouchEnd);
     };
-  }, [dragging]);
+  }, [dragging, onTouchMove, onTouchEnd]);
 
   // Keep the button and window together
   let buttonStyle: React.CSSProperties;
@@ -126,7 +126,7 @@ const BotHub = () => {
       {/* Floating Bot Hub button (draggable) */}
       <button
         style={buttonStyle}
-        className="bg-gradient-to-r from-slate-700 to-purple-700 text-white rounded-full w-20 h-20 flex items-center justify-center shadow-2xl hover:scale-110 transition"
+        className="bg-gradient-to-r from-slate-700 to-purple-700 text-white rounded-full size-20 flex items-center justify-center shadow-2xl hover:scale-110 transition"
         onClick={() => setOpen(v => !v)}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}

@@ -129,7 +129,7 @@ const NexoraPreloader = () => {
             {/* Central Logo and Title */}
             <div className="flex items-center space-x-4">
               <motion.div
-                className="w-16 h-16 bg-purple-600 rounded-md flex items-center justify-center text-white font-bold text-4xl"
+                className="size-16 bg-purple-600 rounded-md flex items-center justify-center text-white font-bold text-4xl"
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20, delay: 0.2 }}

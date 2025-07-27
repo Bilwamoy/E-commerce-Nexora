@@ -11,7 +11,7 @@ const HelpAndSuggestions = () => {
     <>
       {/* Floating Help & Suggestions button */}
       <button
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-green-400 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:scale-110 transition"
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-green-400 text-white rounded-full size-16 flex items-center justify-center shadow-lg hover:scale-110 transition"
         onClick={() => setOpen((v) => !v)}
         title="Help & Suggestions"
       >

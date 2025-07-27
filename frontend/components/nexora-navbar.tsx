@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
@@ -200,7 +201,7 @@ export function NexoraNavbar() {
           {/* Left Section - Logo and Categories */}
           <div className="flex items-center space-x-8">
             {/* Logo */}
-            <div className="flex-shrink-0 cursor-pointer transform hover:scale-105 transition-transform duration-200" 
+            <div className="shrink-0 cursor-pointer hover:scale-105 transition-transform duration-200" 
                  onClick={() => router.push("/")}>
               <NexoraLogo />
             </div>
@@ -212,9 +213,9 @@ export function NexoraNavbar() {
                 onClick={() => setShowCategoryMenu(!showCategoryMenu)}
                 onMouseEnter={() => setShowCategoryMenu(true)}
               >
-                                 <Grid className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
+                                 <Grid className="size-5 group-hover:rotate-90 transition-transform duration-300" />
                 <span className="font-medium">Categories</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showCategoryMenu ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`size-4 transition-transform duration-200 ${showCategoryMenu ? 'rotate-180' : ''}`} />
               </button>
               
               {/* Categories Dropdown */}
@@ -232,7 +233,7 @@ export function NexoraNavbar() {
                       {categories.map((cat) => (
                         <div key={cat.name} className="group">
                           <button className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-left">
-                            <cat.icon className="w-5 h-5 text-purple-600 group-hover:scale-110 transition-transform" />
+                            <cat.icon className="size-5 text-purple-600 group-hover:scale-110 transition-transform" />
                             <div>
                               <div className="font-medium text-gray-900">{cat.name}</div>
                               <div className="text-xs text-gray-500">{cat.subcategories.length} subcategories</div>
@@ -300,13 +301,13 @@ export function NexoraNavbar() {
                 className="h-14 px-8 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold transition-all duration-200 flex items-center justify-center group"
                 onClick={handleSearch}
               >
-                <Search className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                <Search className="size-6 group-hover:scale-110 transition-transform" />
               </button>
             </div>
 
             {/* Voice Search Button */}
             <button
-              className={`absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full transition-all duration-200 ${
+              className={`absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center size-12 rounded-full transition-all duration-200 ${
                 listening 
                   ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg animate-pulse' 
                   : 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white shadow-md hover:shadow-lg'
@@ -356,15 +357,15 @@ export function NexoraNavbar() {
 
             {/* Notifications */}
             <button className="relative p-3 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 group">
-              <Bell className="w-6 h-6 group-hover:scale-110 transition-transform" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">
+              <Bell className="size-6 group-hover:scale-110 transition-transform" />
+              <span className="absolute -top-1 -right-1 size-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">
                 3
               </span>
             </button>
 
             {/* Wishlist */}
             <button className="p-3 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 group">
-              <Heart className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <Heart className="size-6 group-hover:scale-110 transition-transform" />
             </button>
 
             {/* User Account */}
@@ -373,10 +374,12 @@ export function NexoraNavbar() {
                 <div className="flex items-center space-x-3 px-4 py-2 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 cursor-pointer"
                      onClick={() => setShowUserMenu(!showUserMenu)}>
                   {session.user.image ? (
-                    <img 
+                    <Image 
                       src={session.user.image} 
                       alt="Profile" 
-                      className="w-10 h-10 rounded-full border-2 border-purple-400 object-cover"
+                      width={40}
+                      height={40}
+                      className="size-10 rounded-full border-2 border-purple-400 object-cover"
                     />
                   ) : (
                     <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-blue-500">

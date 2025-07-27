@@ -1,4 +1,5 @@
 import { Product } from "@/types";
+import Image from "next/image";
 import { useCart } from "./CartContext";
 import { toast } from "react-hot-toast";
 import { Star } from "lucide-react";
@@ -157,10 +158,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
       <div className="flex-shrink-0 flex flex-col items-center md:items-start">
-        <img 
+        <Image 
           src={getLocalImage(product)} 
           alt={product.name} 
-          className="w-64 h-64 object-contain mb-4 rounded-lg" 
+          width={256}
+          height={256}
+          className="size-64 object-contain mb-4 rounded-lg" 
         />
         <button 
           onClick={handleAddToCart}

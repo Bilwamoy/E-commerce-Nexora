@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import ChatWidget from '../components/ChatWidget'
 import Footer from '../components/Footer'
 
@@ -15,7 +16,7 @@ const About: NextPage = () => {
   const values = [
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -24,7 +25,7 @@ const About: NextPage = () => {
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
@@ -33,7 +34,7 @@ const About: NextPage = () => {
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z" />
         </svg>
       ),
@@ -42,7 +43,7 @@ const About: NextPage = () => {
     },
     {
       icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
         </svg>
       ),
@@ -90,7 +91,7 @@ const About: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center">
+              <div className="size-8 bg-purple-600 rounded-md flex items-center justify-center">
                 <span className="text-white font-bold text-sm">N</span>
               </div>
               <span className="text-xl font-bold">NEXORA</span>
@@ -158,12 +159,14 @@ const About: NextPage = () => {
                 </p>
               </div>
               <div className="relative">
-                <img 
+                <Image 
                   src="/hero.jpg" 
                   alt="Nexora Store" 
+                  width={600}
+                  height={400}
                   className="rounded-lg shadow-lg"
                 />
-                <div className="absolute inset-0 bg-blue-600 bg-opacity-20 rounded-lg"></div>
+                <div className="absolute inset-0 bg-blue-600/20 rounded-lg"></div>
               </div>
             </div>
           </div>
@@ -227,9 +230,11 @@ const About: NextPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {team.map((member, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <img 
+                  <Image 
                     src={member.image} 
                     alt={member.name} 
+                    width={300}
+                    height={192}
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">

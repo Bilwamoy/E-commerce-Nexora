@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
@@ -129,7 +130,7 @@ export function SiteHeader() {
           <div className="flex items-center justify-between text-xs">
             <div className="flex items-center space-x-4">
               <span className="flex items-center gap-1">
-                <Zap className="w-3 h-3" />
+                <Zap className="size-3" />
                 Flash Sale: Up to 70% off on Electronics
               </span>
               <span className="hidden md:inline">|</span>
@@ -200,13 +201,13 @@ export function SiteHeader() {
                 className="h-12 px-6 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium transition-all duration-200 flex items-center justify-center group"
                 onClick={handleSearch}
               >
-                <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Search className="size-5 group-hover:scale-110 transition-transform" />
               </button>
             </div>
 
             {/* Voice Search Button */}
             <button
-              className={`ml-3 flex items-center justify-center w-12 h-12 rounded-full transition-all duration-200 ${
+              className={`ml-3 flex items-center justify-center size-12 rounded-full transition-all duration-200 ${
                 listening 
                   ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg' 
                   : 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white shadow-md hover:shadow-lg'
@@ -214,7 +215,7 @@ export function SiteHeader() {
               title="Voice Search"
               onClick={listening ? stopVoiceSearch : startVoiceSearch}
             >
-              <Mic className="w-5 h-5" />
+              <Mic className="size-5" />
             </button>
           </div>
 
@@ -227,7 +228,7 @@ export function SiteHeader() {
                 onClick={() => setShowLang(!showLang)}
               >
                 {selectedLang.slice(0, 2).toUpperCase()}
-                <ChevronDown className="ml-1 w-4 h-4" />
+                <ChevronDown className="ml-1 size-4" />
               </button>
               {showLang && (
                 <div className="absolute right-0 mt-2 w-48 bg-white text-gray-900 rounded-lg shadow-xl z-50 max-h-64 overflow-y-auto border border-gray-200">
@@ -260,14 +261,16 @@ export function SiteHeader() {
                        router.push('/');
                      }}>
                   {session.user.image ? (
-                    <img 
+                    <Image 
                       src={session.user.image} 
                       alt="Profile" 
-                      className="w-8 h-8 rounded-full border-2 border-purple-400 object-cover"
+                      width={32}
+                      height={32}
+                      className="size-8 rounded-full border-2 border-purple-400 object-cover"
                     />
                   ) : (
-                    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-blue-500">
-                      <User className="w-5 h-5 text-white" />
+                            <div className="size-8 flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-blue-500">
+          <User className="size-5 text-white" />
                     </div>
                   )}
                   <div className="flex flex-col">
@@ -294,7 +297,7 @@ export function SiteHeader() {
             <div className="relative group">
               <div className="flex items-center px-3 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-200 cursor-pointer"
                    onClick={() => setShowLocationInput(!showLocationInput)}>
-                <MapPin className="w-5 h-5 mr-1" />
+                <MapPin className="size-5 mr-1" />
                 <div className="flex flex-col">
                   <span className="text-xs opacity-90">Deliver to</span>
                   <span className="text-sm font-medium">{location}</span>
@@ -324,7 +327,7 @@ export function SiteHeader() {
 
             {/* Wishlist */}
             <button className="flex flex-col items-center px-3 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-200">
-              <Heart className="w-5 h-5 mb-1" />
+              <Heart className="size-5 mb-1" />
               <span className="text-xs">Wishlist</span>
             </button>
 
@@ -332,9 +335,9 @@ export function SiteHeader() {
             <div className="relative group">
               <Link href="/cart" className="flex items-center px-3 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-200">
                 <div className="relative">
-                  <ShoppingCart className="w-6 h-6" />
+                  <ShoppingCart className="size-6" />
                   {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
+                    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full size-5 flex items-center justify-center animate-pulse">
                       {cartCount}
                     </span>
                   )}
@@ -371,7 +374,7 @@ export function SiteHeader() {
               className="text-white hover:bg-white/10 p-2 rounded-lg transition-colors duration-200"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
             </button>
           </div>
         </div>

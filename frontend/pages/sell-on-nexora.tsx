@@ -78,7 +78,7 @@ const SellOnNexora: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-purple-600 rounded-md flex items-center justify-center">
+              <div className="size-8 bg-purple-600 rounded-md flex items-center justify-center">
                 <span className="text-white font-bold text-sm">N</span>
               </div>
               <span className="text-xl font-bold">NEXORA</span>
@@ -143,7 +143,7 @@ const SellOnNexora: NextPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="size-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {step.number}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
