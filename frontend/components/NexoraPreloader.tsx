@@ -111,7 +111,7 @@ const NexoraPreloader = () => {
           />
 
           {/* Main UI Content */}
-          <div className="relative z-20 flex flex-col items-center justify-center w-full h-full p-4">
+          <div className="relative z-20 flex flex-col items-center justify-center size-full p-4">
             {/* Corner Stats */}
             <div className="absolute top-5 left-5">
               <AnimatedStat label={stats[0].label} value={stats[0].value} delay={0.2} />

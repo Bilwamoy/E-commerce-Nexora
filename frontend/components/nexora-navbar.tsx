@@ -177,7 +177,7 @@ export function NexoraNavbar() {
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center space-x-6">
               <span className="flex items-center gap-2 animate-pulse">
-                <Zap className="w-4 h-4" />
+                <Zap className="size-4" />
                 <span className="font-semibold">FLASH SALE: Up to 80% OFF</span>
               </span>
               <span className="hidden md:inline">|</span>
@@ -226,7 +226,7 @@ export function NexoraNavbar() {
                 >
                   <div className="p-4">
                                          <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                       <Grid className="w-5 h-5 text-purple-600" />
+                       <Grid className="size-5 text-purple-600" />
                        All Categories
                      </h3>
                     <div className="grid grid-cols-2 gap-2">
@@ -315,7 +315,7 @@ export function NexoraNavbar() {
               title="Voice Search"
               onClick={listening ? stopVoiceSearch : startVoiceSearch}
             >
-              <Mic className="w-5 h-5" />
+                              <Mic className="size-5" />
             </button>
           </div>
 
@@ -332,7 +332,7 @@ export function NexoraNavbar() {
                   {selectedLang.slice(0, 2).toUpperCase()}
                 </span>
                 {selectedLang.slice(0, 2).toUpperCase()}
-                <ChevronDown className="ml-1 w-4 h-4" />
+                <ChevronDown className="ml-1 size-4" />
               </button>
               {showLang && (
                 <div className="absolute right-0 mt-2 w-48 bg-white text-gray-900 rounded-xl shadow-xl z-50 max-h-64 overflow-y-auto border border-gray-200">
@@ -390,7 +390,7 @@ export function NexoraNavbar() {
                     <span className="text-sm opacity-90">Hello, {session.user.name?.split(' ')[0] || 'User'}</span>
                     <span className="text-sm font-medium">Account</span>
                   </div>
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="size-4" />
                 </div>
               ) : (
                 <div className="flex items-center space-x-3 px-4 py-2 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 cursor-pointer"

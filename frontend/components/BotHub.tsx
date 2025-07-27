@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { BotContainerLogo } from './BotLogos';
 import JoyChatbot from './JoyChatbot';
 import SupportBot from './SupportBot';
@@ -23,17 +23,18 @@ const BotHub = () => {
     };
     document.body.style.userSelect = 'none';
   };
-  const onMouseMove = (e: MouseEvent) => {
+  const onMouseMove = useCallback((e: MouseEvent) => {
     if (!dragging) return;
     setPos({
       x: e.clientX - dragOffset.current.x,
       y: e.clientY - dragOffset.current.y,
     });
-  };
-  const onMouseUp = () => {
+  }, [dragging]);
+  
+  const onMouseUp = useCallback(() => {
     setDragging(false);
     document.body.style.userSelect = '';
-  };
+  }, []);
   React.useEffect(() => {
     if (dragging) {
       window.addEventListener('mousemove', onMouseMove);
@@ -58,15 +59,16 @@ const BotHub = () => {
       y: touch.clientY - (pos.y ?? window.innerHeight - 112 - 24),
     };
   };
-  const onTouchMove = (e: TouchEvent) => {
+  const onTouchMove = useCallback((e: TouchEvent) => {
     if (!dragging) return;
     const touch = e.touches[0];
     setPos({
       x: touch.clientX - dragOffset.current.x,
       y: touch.clientY - dragOffset.current.y,
     });
-  };
-  const onTouchEnd = () => setDragging(false);
+  }, [dragging]);
+  
+  const onTouchEnd = useCallback(() => setDragging(false), []);
   React.useEffect(() => {
     if (dragging) {
       window.addEventListener('touchmove', onTouchMove);

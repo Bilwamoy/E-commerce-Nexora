@@ -88,7 +88,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => handleShopNow(slide.ctaLink)}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1"
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1"
               >
                 <span className="flex items-center gap-2">
                   {slide.ctaText}
@@ -145,8 +145,8 @@ const Hero = () => {
       </div>
 
       {/* Background Decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl -translate-y-48 translate-x-48"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-green-400/20 to-teal-400/20 rounded-full blur-3xl translate-y-48 -translate-x-48"></div>
+      <div className="absolute top-0 right-0 size-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl -translate-y-48 translate-x-48"></div>
+      <div className="absolute bottom-0 left-0 size-96 bg-gradient-to-br from-green-400/20 to-teal-400/20 rounded-full blur-3xl translate-y-48 -translate-x-48"></div>
     </div>
   );
 

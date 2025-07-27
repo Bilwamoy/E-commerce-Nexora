@@ -72,7 +72,7 @@ const SupportBot = ({ embedMode = false }: SupportBotProps) => {
 
   if (embedMode) {
     return (
-      <div className="w-full h-full">
+      <div className="size-full">
         <div className="flex flex-col h-full">
           <div className="flex items-center gap-2 p-4 border-b">
             <BotContainerLogo />

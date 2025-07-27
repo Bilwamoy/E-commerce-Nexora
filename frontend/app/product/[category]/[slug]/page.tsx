@@ -3,9 +3,10 @@ import ProductDetail from '@/components/ProductDetail';
 import productsData from '@/data/products.json';
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { category: string; slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
   const product = (productsData as any[]).find(
-    (p) => p.category.toLowerCase().replace(/\s+/g, '-') === params.category && p.slug === params.slug
+    (p) => p.category.toLowerCase().replace(/\s+/g, '-') === resolvedParams.category && p.slug === resolvedParams.slug
   );
   return {
     title: product ? `${product.name} | Nexora` : 'Product Not Found',
@@ -13,9 +14,10 @@ export async function generateMetadata({ params }: { params: { category: string;
   };
 }
 
-export default function ProductPage({ params }: { params: { category: string; slug: string } }) {
+export default async function ProductPage({ params }: { params: Promise<{ category: string; slug: string }> }) {
+  const resolvedParams = await params;
   const product = (productsData as any[]).find(
-    (p) => p.category.toLowerCase().replace(/\s+/g, '-') === params.category && p.slug === params.slug
+    (p) => p.category.toLowerCase().replace(/\s+/g, '-') === resolvedParams.category && p.slug === resolvedParams.slug
   );
   if (!product) return notFound();
 

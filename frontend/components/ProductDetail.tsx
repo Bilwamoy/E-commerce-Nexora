@@ -157,7 +157,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
-      <div className="flex-shrink-0 flex flex-col items-center md:items-start">
+      <div className="shrink-0 flex flex-col items-center md:items-start">
         <Image 
           src={getLocalImage(product)} 
           alt={product.name} 
