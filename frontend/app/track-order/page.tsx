@@ -61,7 +61,7 @@ const mockOrders = [
     trackingNumber: 'TRK1703123456789',
     status: 'Shipped',
     estimatedDelivery: '2024-01-25',
-    customerName: 'John Doe',
+            customerName: 'Bilwamoy',
     items: ['iPhone 15 Pro', 'AirPods Pro'],
     total: 125000
   },
@@ -204,7 +204,7 @@ export default function TrackOrderPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Total Amount:</span>
-                    <span className="font-bold">₹{searchedOrder.total.toLocaleString()}</span>
+                    <span className="font-bold">₹{searchedOrder.total.toLocaleString('en-IN')}</span>
                   </div>
                 </div>
               </div>

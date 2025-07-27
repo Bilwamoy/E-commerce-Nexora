@@ -20,7 +20,7 @@ export default function AllProductsPage() {
     if (searchQuery) {
       filtered = filtered.filter(product =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (product.description?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+        (product.description?.toLowerCase().includes(searchQuery.toLowerCase()) || false) ||
         product.category.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
@@ -61,7 +61,7 @@ export default function AllProductsPage() {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Search products..."
+                  placeholder="Search in Nexora..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"

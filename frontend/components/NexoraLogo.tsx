@@ -29,11 +29,8 @@ const NexoraLogo = () => {
             strokeWidth="2"
             className={`transition-all duration-700 ${
               isHovered ? 'stroke-dasharray-[113] stroke-dashoffset-[0]' : 'stroke-dasharray-[90,23] stroke-dashoffset-[113]'
-            }`}
-            style={{
-              transformOrigin: '20px 20px',
-              animation: isHovered ? 'spin 2s linear infinite' : 'none'
-            }}
+            } ${isHovered ? 'logo-spin' : ''}`}
+            style={{ transformOrigin: '20px 20px' }}
           />
           {/* Inner diamond shape */}
           <path
@@ -77,13 +74,10 @@ const NexoraLogo = () => {
             <span
               key={index}
               className={`inline-block transition-all duration-300 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent ${
-                isHovered 
-                  ? 'animate-bounce' 
-                  : ''
+                isHovered ? 'logo-bounce' : ''
               }`}
               style={{
-                animationDelay: isHovered ? `${index * 0.1}s` : '0s',
-                animationDuration: '0.6s'
+                animationDelay: isHovered ? `${index * 0.1}s` : '0s'
               }}
             >
               {letter}
@@ -97,20 +91,6 @@ const NexoraLogo = () => {
           }`}
         />
       </div>
-      {/* CSS animations */}
-      <style jsx>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-bounce {
-          animation: bounce 0.6s ease-in-out;
-        }
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-      `}</style>
     </div>
   );
 };

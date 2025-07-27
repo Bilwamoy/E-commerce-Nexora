@@ -1,7 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Algerian&family=Poppins:wght@300;400;500;600;700&display=swap');
+/* --- Base Styles & Variables --- */
+:root {
+    --primary-color: #00c2ff; /* Neon Blue/Cyan */
+    --secondary-color: #00f7a5; /* Neon Teal/Green */
+    --dark-color: #121212;
+    --background-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --input-bg-color: #2c2c44;
+    --container-bg-color: rgba(31, 31, 58, 0.35); 
+}
 
 .login-signup-body {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,29 +18,20 @@
     min-height: 100vh;
     background-color: var(--background-color);
     color: var(--text-color);
-    overflow: hidden;
+    overflow: hidden; /* Prevents scrollbars */
     position: relative;
 }
 
-:root {
-    --primary-color: #00c2ff;
-    --secondary-color: #00f7a5;
-    --dark-color: #121212;
-    --background-color: #1a1a2e;
-    --text-color: #e0e0e0;
-    --input-bg-color: #2c2c44;
-    --container-bg-color: rgba(31, 31, 58, 0.35);
-}
-
+/* --- Animated Cube Background --- */
 .cube-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Properly centers the cube */
     width: 300px;
     height: 300px;
     perspective: 1000px;
-    z-index: 1;
+    z-index: 1; /* Places cube behind the container */
 }
 
 .cube {
@@ -53,10 +53,10 @@
     width: 300px;
     height: 300px;
     border: 3px solid var(--secondary-color);
-    background: rgba(0, 247, 165, 0.2);
-    box-shadow:
-        inset 0 0 60px rgba(0, 247, 165, 0.45),
-        0 0 60px rgba(0, 247, 165, 0.45);
+    background: rgba(0, 247, 165, 0.2); 
+    box-shadow: 
+        inset 0 0 60px rgba(0, 247, 165, 0.45), 
+        0 0 60px rgba(0, 247, 165, 0.45); 
 }
 
 .face.front  { transform: rotateY(0deg) translateZ(150px); }
@@ -66,13 +66,14 @@
 .face.top    { transform: rotateX(90deg) translateZ(150px); }
 .face.bottom { transform: rotateX(-90deg) translateZ(150px); }
 
+/* --- Main Container --- */
 .container {
     background-color: var(--container-bg-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     border-radius: 20px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.38);
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure form is above the cube */
     overflow: hidden;
     width: 768px;
     max-width: 100%;
@@ -80,6 +81,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* --- Form Styles --- */
 .form-container {
     position: absolute;
     top: 0;
@@ -115,14 +117,12 @@
 }
 
 .container h1 {
-    font-family: "Algerian", serif;
     font-weight: bold;
     margin: 0;
     color: #fff;
     margin-bottom: 20px;
-    font-size: 2.2em;
+    font-size: 2em;
     text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
-    text-transform: capitalize;
 }
 
 .input-group {
@@ -144,10 +144,10 @@
     background-color: var(--input-bg-color);
     border: 2px solid transparent;
     border-radius: 10px;
-    padding: 12px 15px 12px 45px;
+    padding: 12px 15px 12px 45px; /* Space for icon */
     width: 100%;
     color: var(--text-color);
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     transition: all 0.3s ease;
 }
@@ -206,6 +206,55 @@
     box-shadow: 0 0 20px rgba(0, 194, 255, 0.7);
 }
 
+/* --- Google Sign-in Button Styles --- */
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #ffffff !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 15px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.google-btn:hover {
+    background: #f8f9fa !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-1px) !important;
+}
+
+.google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 15px;
+}
+
+/* --- Overlay Styles --- */
 .overlay-container {
     position: absolute;
     top: 0;
@@ -220,7 +269,7 @@
 }
 
 .overlay {
-    background: linear-gradient(to right, rgba(0, 247, 165, 0.7), rgba(0, 194, 255, 0.7));
+    background: linear-gradient(to right, rgba(0, 247, 165, 0.7), rgba(0, 194, 255, 0.7)); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -269,6 +318,7 @@
     transform: translateX(0);
 }
 
+/* --- Animation Classes --- */
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
     visibility: hidden;
@@ -309,6 +359,7 @@
     }
 }
 
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
     .container {
         min-height: 600px;
@@ -323,7 +374,7 @@
     .container form {
         padding: 0 20px;
     }
-    .cube-wrapper {
+    .cube-wrapper { /* Make cube smaller on mobile */
         width: 200px;
         height: 200px;
     }

@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Joy AI Assistant Logo
 export const JoyLogo = ({ size = 64, className = "" }) => (
   <div className={`relative ${className}`} style={{ width: size, height: size }}>
     <svg
@@ -38,7 +37,7 @@ export const JoyLogo = ({ size = 64, className = "" }) => (
   </div>
 );
 
-// Support Bot Logo
+
 export const SupportLogo = ({ size = 64, className = "" }) => (
   <div className={`relative ${className}`} style={{ width: size, height: size }}>
     <svg
@@ -80,7 +79,6 @@ export const SupportLogo = ({ size = 64, className = "" }) => (
   </div>
 );
 
-// Container Logo for Both Bots
 export const BotContainerLogo = ({ size = 80, className = "" }) => (
   <div className={`relative ${className}`} style={{ width: size, height: size }}>
     <svg
@@ -127,6 +125,5 @@ export const BotContainerLogo = ({ size = 80, className = "" }) => (
         <circle cx="68" cy="20" r="1" className="animate-ping" style={{animationDelay: '1.3s'}} />
       </g>
     </svg>
-    // change the size of the logos
   </div>
 ); 

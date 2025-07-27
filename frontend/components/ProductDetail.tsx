@@ -181,8 +181,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
         
         <div className="flex items-center gap-4 mb-6">
-          <span className="text-3xl font-bold text-amazon-blue">₹{product.price.toLocaleString()}</span>
-          <span className="text-gray-400 line-through text-xl">₹{product.originalPrice.toLocaleString()}</span>
+          <span className="text-3xl font-bold text-amazon-blue">₹{product.price.toLocaleString('en-IN')}</span>
+          <span className="text-gray-400 line-through text-xl">₹{product.originalPrice.toLocaleString('en-IN')}</span>
           <span className="text-green-600 text-lg font-semibold">{discount}% off</span>
         </div>
 

@@ -165,8 +165,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className="text-xs text-gray-500 ml-1">({product.reviews})</span>
         </div>
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-xl font-bold text-amazon-blue">₹{product.price.toLocaleString()}</span>
-          <span className="text-gray-400 line-through text-sm">₹{product.originalPrice.toLocaleString()}</span>
+          <span className="text-xl font-bold text-amazon-blue">₹{product.price.toLocaleString('en-IN')}</span>
+          <span className="text-gray-400 line-through text-sm">₹{product.originalPrice.toLocaleString('en-IN')}</span>
           <span className="text-green-600 text-sm font-semibold">{discount}% off</span>
         </div>
         <div className="text-xs text-green-700 mb-1">FREE delivery {product.features[0]}</div>

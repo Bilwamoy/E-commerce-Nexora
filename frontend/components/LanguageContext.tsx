@@ -1,55 +1,65 @@
 "use client";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-const translations: Record<string, Record<string, string>> = {
+type TranslationKey = 'searchPlaceholder' | 'helloSignIn' | 'accountLists' | 'returns' | 'orders' | 'deliveringTo' | 'update' | 'detectLocation' | 'cart';
+
+type LanguageCode = 'en' | 'hi' | 'bn';
+
+const translations: Record<LanguageCode, Record<TranslationKey, string>> = {
   en: {
-    searchPlaceholder: "Search Amazon.in",
+    searchPlaceholder: "Search in Nexora",
     helloSignIn: "Hello, sign in",
     accountLists: "Account & Lists",
     returns: "Returns",
     orders: "& Orders",
-    cart: "Cart",
     deliveringTo: "Delivering to",
     update: "Update",
     detectLocation: "Detect Location",
-    search: "Search",
+    cart: "Cart",
   },
   hi: {
-    searchPlaceholder: "Amazon.in पर खोजें",
+    searchPlaceholder: "Nexora में खोजें",
     helloSignIn: "नमस्ते, साइन इन करें",
-    accountLists: "खाता और सूचियाँ",
-    returns: "रिटर्न",
+    accountLists: "खाता और सूची",
+    returns: "वापसी",
     orders: "और ऑर्डर",
-    cart: "कार्ट",
-    deliveringTo: "डिलीवर किया जा रहा है",
+    deliveringTo: "डिलीवरी कर रहे हैं",
     update: "अपडेट करें",
-    detectLocation: "स्थान पता करें",
-    search: "खोजें",
+    detectLocation: "स्थान का पता लगाएं",
+    cart: "कार्ट",
   },
   bn: {
-    searchPlaceholder: "Amazon.in এ অনুসন্ধান করুন",
+    searchPlaceholder: "Nexora তে অনুসন্ধান করুন",
     helloSignIn: "হ্যালো, সাইন ইন করুন",
-    accountLists: "অ্যাকাউন্ট ও তালিকা",
-    returns: "রিটার্ন",
+    accountLists: "অ্যাকাউন্ট এবং তালিকা",
+    returns: "ফেরত",
     orders: "এবং অর্ডার",
+    deliveringTo: "ডেলিভারি করছি",
+    update: "আপডেট করুন",
+    detectLocation: "অবস্থান সনাক্ত করুন",
     cart: "কার্ট",
-    deliveringTo: "ডেলিভারি হচ্ছে",
-    update: "আপডেট",
-    detectLocation: "অবস্থান নির্ধারণ করুন",
-    search: "অনুসন্ধান",
   },
-  // Add more languages as needed
 };
 
-const LanguageContext = createContext<any>(null);
+interface LanguageContextType {
+  lang: LanguageCode;
+  setLang: (lang: LanguageCode) => void;
+  t: (key: TranslationKey) => string;
+}
+
+const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function useLanguage() {
-  return useContext(LanguageContext);
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState("en");
-  const t = (key: string) => translations[lang]?.[key] || translations["en"][key] || key;
+  const [lang, setLang] = useState<LanguageCode>("en");
+  const t = (key: TranslationKey) => translations[lang]?.[key] || translations["en"][key] || key;
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
       {children}

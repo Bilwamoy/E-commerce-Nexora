@@ -47,7 +47,7 @@ export default function SearchBar({
     <div className="flex flex-wrap gap-4 mb-6 items-end">
       <input
         type="text"
-        placeholder="Search by name or brand"
+                        placeholder="Search in Nexora by name or brand"
         value={search}
         onChange={e => setSearch(e.target.value)}
         className="border rounded px-3 py-2 w-56"

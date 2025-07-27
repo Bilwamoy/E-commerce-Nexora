@@ -1,154 +1,175 @@
-"use client";
-import React, { useState } from 'react';
-import { signIn } from 'next-auth/react';
-import '../../styles/login-signup.css';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-hot-toast';
-import { useSession } from 'next-auth/react';
-import { useLanguage } from "@/components/LanguageContext";
+import { signIn, useSession } from 'next-auth/react';
+import '@/styles/login-signup.css';
 
 const LoginSignup = () => {
     const [isSignUpActive, setIsSignUpActive] = useState(false);
-    const [showForgot, setShowForgot] = useState(false);
-    const [email, setEmail] = useState("");
-    const [forgotSent, setForgotSent] = useState(false);
-    const [resetCode, setResetCode] = useState("");
-    const [resetPassword, setResetPassword] = useState("");
-    const [resetMessage, setResetMessage] = useState("");
-    const [resetError, setResetError] = useState("");
-    const [signupName, setSignupName] = useState("");
-    const [signupEmail, setSignupEmail] = useState("");
-    const [signupPassword, setSignupPassword] = useState("");
-    const [loginEmail, setLoginEmail] = useState("");
-    const [loginPassword, setLoginPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    });
     const router = useRouter();
-
     const { data: session, status } = useSession();
-    const { t } = useLanguage();
+
+    // Handle session changes
+    useEffect(() => {
+        if (session?.user) {
+            const userSession = { user: session.user };
+            localStorage.setItem('userSession', JSON.stringify(userSession));
+            window.dispatchEvent(new CustomEvent('sessionChange', { detail: userSession }));
+            
+            // Send welcome email
+            sendWelcomeEmail(session.user);
+            
+            // Redirect admin to admin dashboard
+            if (session.user.email === 'admin@nexora.com') {
+                router.push('/admin');
+            } else {
+                router.push('/');
+            }
+        }
+    }, [session, router]);
+
+    const sendWelcomeEmail = async (user: any) => {
+        try {
+            await fetch('/api/auth/welcome-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user }),
+            });
+        } catch (error) {
+            console.error('Failed to send welcome email:', error);
+        }
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
 
     const handleSignUpClick = () => {
         setIsSignUpActive(true);
+        setFormData({ name: '', email: '', password: '', confirmPassword: '' });
     };
 
     const handleSignInClick = () => {
         setIsSignUpActive(false);
+        setFormData({ name: '', email: '', password: '', confirmPassword: '' });
     };
 
-    const handleForgot = async (e: React.FormEvent) => {
+    const handleSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
-        setResetMessage("");
-        setResetError("");
-        setForgotSent(false);
-        const res = await fetch("/api/auth/forgot", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email }),
-        });
-        const data = await res.json();
-        if (!data.success) setResetError(data.message || "Failed to send reset email");
-        else {
-            setForgotSent(true);
-            setResetMessage("Password reset code sent. Please check your inbox.");
-        }
-    };
-
-    const handleReset = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setResetMessage("");
-        setResetError("");
-        const res = await fetch("/api/auth/reset", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, code: resetCode, password: resetPassword }),
-        });
-        const data = await res.json();
-        if (!data.success) setResetError(data.message || "Failed to reset password");
-        else {
-            setResetMessage("Password reset successful! You can now sign in.");
-            setShowForgot(false);
-            setForgotSent(false);
-            setResetCode("");
-            setResetPassword("");
-        }
-    };
-
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
-        toast.dismiss();
-        if (!loginEmail || !loginPassword) {
-            toast.error(t('allFieldsRequired'));
+        if (!formData.email || !formData.password) {
+            alert('Please fill in all fields');
             return;
         }
-        const signInRes = await signIn("credentials", {
-            email: loginEmail,
-            password: loginPassword,
-            redirect: false,
-        });
-        if (signInRes && !signInRes.error) {
-            toast.success("You have successfully logged in!");
-            setLoginEmail("");
-            setLoginPassword("");
-            
-            // Check if user is admin and redirect accordingly
-            if (loginEmail === 'admin@nexora.com') {
-                router.push("/admin");
+
+        setIsLoading(true);
+        try {
+            const result = await signIn('credentials', {
+                email: formData.email,
+                password: formData.password,
+                redirect: false,
+            });
+
+            if (result?.error) {
+                alert('Invalid email or password');
             } else {
-                router.push("/");
+                // Get user data from the session
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: formData.email, password: formData.password }),
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const userSession = { user: data.user };
+                    localStorage.setItem('userSession', JSON.stringify(userSession));
+                    window.dispatchEvent(new CustomEvent('sessionChange', { detail: userSession }));
+                    
+                    // Send welcome email
+                    await sendWelcomeEmail(data.user);
+                    
+                    // Redirect admin to admin dashboard
+                    if (data.user.email === 'admin@nexora.com') {
+                        router.push('/admin');
+                    } else {
+                        router.push('/');
+                    }
+                }
             }
-        } else {
-            toast.error("Invalid email or password.");
+        } catch (error) {
+            alert('Login failed. Please try again.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    const handleSignup = async (e: React.FormEvent) => {
+    const handleSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
-        toast.dismiss();
-        if (!signupName || !signupEmail || !signupPassword) {
-            toast.error(t('allFieldsRequired'));
+        if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+            alert('Please fill in all fields');
             return;
         }
-        const res = await fetch("/api/auth/signup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name: signupName, email: signupEmail, password: signupPassword }),
-        });
-        const data = await res.json();
-        if (!data.success) {
-            toast.error(data.message || "Signup failed");
+        if (formData.password !== formData.confirmPassword) {
+            alert('Passwords do not match');
             return;
         }
-        // Automatically log the user in
-        const signInRes = await signIn("credentials", {
-            email: signupEmail,
-            password: signupPassword,
-            redirect: false,
-        });
-        if (signInRes && !signInRes.error) {
-            toast.success("You have successfully signed up and are now logged in!");
-            setSignupName("");
-            setSignupEmail("");
-            setSignupPassword("");
-            setLoginEmail("");
-            setLoginPassword("");
-            
-            // Check if user is admin and redirect accordingly
-            if (signupEmail === 'admin@nexora.com') {
-                router.push("/admin");
+        if (formData.password.length < 6) {
+            alert('Password must be at least 6 characters');
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const response = await fetch('/api/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    password: formData.password
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Account created! Please check your email for verification.');
+                setIsSignUpActive(false);
+                setFormData({ name: '', email: '', password: '', confirmPassword: '' });
             } else {
-                router.push("/");
+                alert(data.message || 'Signup failed');
             }
-        } else {
-            toast.error("Signup succeeded but login failed. Please try logging in.");
+        } catch (error) {
+            alert('Signup failed. Please try again.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    if (status === 'loading') {
-        return <div className="login-signup-body flex items-center justify-center min-h-screen"><span>Loading...</span></div>;
-    }
-    if (session && session.user) {
-        // Optionally redirect to home, or just vanish the form
-        return null;
-    }
+    const handleGoogleSignIn = async () => {
+        setIsLoading(true);
+        try {
+            await signIn('google', { 
+                callbackUrl: '/',
+                redirect: true
+            });
+        } catch (error) {
+            alert('Google sign-in failed');
+            setIsLoading(false);
+        }
+    };
 
     return (
         <div className="login-signup-body">
@@ -167,92 +188,141 @@ const LoginSignup = () => {
             <div className={`container ${isSignUpActive ? 'right-panel-active' : ''}`} id="container">
                 {/* Sign Up Form */}
                 <div className="form-container sign-up-container">
-                    <form onSubmit={handleSignup}>
-                        <h1>{t('createAccount')}</h1>
+                    <form onSubmit={handleSignUp}>
+                        <h1>Create Account</h1>
                         <div className="input-group">
-                            <input type="text" placeholder={t('fullNamePlaceholder')} required value={signupName} onChange={e => setSignupName(e.target.value)} />
+                            <input 
+                                type="text" 
+                                name="name"
+                                placeholder="Full Name" 
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                required 
+                            />
                             <i className="fas fa-user"></i>
                         </div>
                         <div className="input-group">
-                            <input type="email" placeholder={t('emailPlaceholder')} required value={signupEmail} onChange={e => setSignupEmail(e.target.value)} />
+                            <input 
+                                type="email" 
+                                name="email"
+                                placeholder="Email" 
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required 
+                            />
                             <i className="fas fa-envelope"></i>
                         </div>
                         <div className="input-group">
-                            <input type="password" placeholder={t('passwordPlaceholder')} required value={signupPassword} onChange={e => setSignupPassword(e.target.value)} />
+                            <input 
+                                type="password" 
+                                name="password"
+                                placeholder="Password" 
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                required 
+                            />
                             <i className="fas fa-lock"></i>
                         </div>
-                        <button type="submit">{t('signUp')}</button>
+                        <div className="input-group">
+                            <input 
+                                type="password" 
+                                name="confirmPassword"
+                                placeholder="Confirm Password" 
+                                value={formData.confirmPassword}
+                                onChange={handleInputChange}
+                                required 
+                            />
+                            <i className="fas fa-lock"></i>
+                        </div>
+                        <button type="submit" disabled={isLoading}>
+                            {isLoading ? 'Creating Account...' : 'Sign Up'}
+                        </button>
+                        
+                        {/* Google Sign Up Button */}
+                        <div className="divider">
+                            <span>or</span>
+                        </div>
+                        <button 
+                            type="button" 
+                            className="google-btn"
+                            onClick={handleGoogleSignIn}
+                            disabled={isLoading}
+                        >
+                            <svg className="google-icon" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            Sign up with Google
+                        </button>
                     </form>
                 </div>
 
                 {/* Sign In Form */}
                 <div className="form-container sign-in-container">
-                    <form onSubmit={handleLogin}>
-                        <h1>{t('signIn')}</h1>
+                    <form onSubmit={handleSignIn}>
+                        <h1>Sign In</h1>
                         <div className="input-group">
-                            <input type="email" placeholder={t('emailPlaceholder')} required value={loginEmail} onChange={e => setLoginEmail(e.target.value)} />
+                            <input 
+                                type="email" 
+                                name="email"
+                                placeholder="Email" 
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
+                            />
                             <i className="fas fa-envelope"></i>
                         </div>
                         <div className="input-group">
-                            <input type="password" placeholder={t('passwordPlaceholder')} required value={loginPassword} onChange={e => setLoginPassword(e.target.value)} />
+                            <input 
+                                type="password" 
+                                name="password"
+                                placeholder="Password" 
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                required
+                            />
                             <i className="fas fa-lock"></i>
                         </div>
-                        <a href="#" onClick={e => { e.preventDefault(); setShowForgot(true); }}>{t('forgotPassword')}</a>
-                        <button type="submit">{t('signIn')}</button>
-                        <button type="button" style={{marginTop: 10, background: '#fff', color: '#333', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8}} onClick={() => signIn('google', { callbackUrl: '/' })}>
-                          <span style={{display: 'flex', alignItems: 'center'}}>
-                            <svg width="20" height="20" viewBox="0 0 48 48" style={{marginRight: 8}}><g><path fill="#4285F4" d="M24 9.5c3.54 0 6.7 1.22 9.19 3.22l6.85-6.85C35.64 2.09 30.13 0 24 0 14.82 0 6.73 5.8 2.69 14.09l7.98 6.19C12.13 13.09 17.56 9.5 24 9.5z"/><path fill="#34A853" d="M46.1 24.55c0-1.64-.15-3.22-.43-4.74H24v9.01h12.44c-.54 2.9-2.18 5.36-4.64 7.01l7.19 5.6C43.98 37.09 46.1 31.36 46.1 24.55z"/><path fill="#FBBC05" d="M10.67 28.28c-1.09-3.25-1.09-6.77 0-10.02l-7.98-6.19C.64 16.36 0 20.09 0 24c0 3.91.64 7.64 2.69 11.09l7.98-6.19z"/><path fill="#EA4335" d="M24 48c6.13 0 11.64-2.09 15.85-5.7l-7.19-5.6c-2.01 1.35-4.58 2.15-8.66 2.15-6.44 0-11.87-3.59-14.33-8.79l-7.98 6.19C6.73 42.2 14.82 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></g></svg>
-                            {t('signInWithGoogle')}
-                          </span>
+                        <a href="#">Forgot your password?</a>
+                        <button type="submit" disabled={isLoading}>
+                            {isLoading ? 'Signing In...' : 'Sign In'}
+                        </button>
+                        
+                        {/* Google Sign In Button */}
+                        <div className="divider">
+                            <span>or</span>
+                        </div>
+                        <button 
+                            type="button" 
+                            className="google-btn"
+                            onClick={handleGoogleSignIn}
+                            disabled={isLoading}
+                        >
+                            <svg className="google-icon" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            Sign in with Google
                         </button>
                     </form>
-                    {showForgot && (
-                        <div style={{marginTop: 20}}>
-                            {!forgotSent ? (
-                                <form onSubmit={handleForgot}>
-                                    <h2>{t('forgotPassword')}</h2>
-                                    {resetError && <div style={{ color: '#ff4d4f', marginBottom: 10 }}>{resetError}</div>}
-                                    {resetMessage && <div style={{ color: '#00f7a5', marginBottom: 10 }}>{resetMessage}</div>}
-                                    <div className="input-group">
-                                        <input type="email" placeholder={t('enterEmailPlaceholder')} required value={email} onChange={e => setEmail(e.target.value)} />
-                                        <i className="fas fa-envelope"></i>
-                                    </div>
-                                    <button type="submit">{t('sendResetEmail')}</button>
-                                    <button type="button" className="ghost" onClick={() => setShowForgot(false)}>{t('backToSignIn')}</button>
-                                </form>
-                            ) : (
-                                <form onSubmit={handleReset}>
-                                    <h2>{t('resetPassword')}</h2>
-                                    {resetError && <div style={{ color: '#ff4d4f', marginBottom: 10 }}>{resetError}</div>}
-                                    {resetMessage && <div style={{ color: '#00f7a5', marginBottom: 10 }}>{resetMessage}</div>}
-                                    <div className="input-group">
-                                        <input type="text" placeholder={t('resetCodePlaceholder')} required value={resetCode} onChange={e => setResetCode(e.target.value)} />
-                                        <i className="fas fa-key"></i>
-                                    </div>
-                                    <div className="input-group">
-                                        <input type="password" placeholder={t('newPasswordPlaceholder')} required value={resetPassword} onChange={e => setResetPassword(e.target.value)} />
-                                        <i className="fas fa-lock"></i>
-                                    </div>
-                                    <button type="submit">{t('resetPassword')}</button>
-                                    <button type="button" className="ghost" onClick={() => { setShowForgot(false); setForgotSent(false); setResetCode(""); setResetPassword(""); }}>{t('backToSignIn')}</button>
-                                </form>
-                            )}
-                        </div>
-                    )}
                 </div>
 
                 {/* Overlay Panels */}
                 <div className="overlay-container">
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">
-                            <h1>{t('welcomeBack')}</h1>
-                            <p>{t('keepConnected')}</p>
-                            <button className="ghost" onClick={handleSignInClick}>{t('signIn')}</button>
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <button className="ghost" onClick={handleSignInClick}>Sign In</button>
                         </div>
                         <div className="overlay-panel overlay-right">
-                            <h1>{t('helloFriend')}</h1>
-                            <p>{t('startJourney')}</p>
-                            <button className="ghost" onClick={handleSignUpClick}>{t('signUp')}</button>
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start your journey with us</p>
+                            <button className="ghost" onClick={handleSignUpClick}>Sign Up</button>
                         </div>
                     </div>
                 </div>

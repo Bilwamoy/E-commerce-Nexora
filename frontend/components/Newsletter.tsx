@@ -1,14 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from './ui/button';
+import { Mail, Bell, Zap, ArrowRight, CheckCircle, Star } from 'lucide-react';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
     try {
       const response = await fetch('/api/newsletter', {
@@ -23,10 +25,10 @@ const Newsletter = () => {
         setIsSubscribed(true);
         setEmail('');
         
-        // Reset the success message after 3 seconds
+        // Reset the success message after 5 seconds
         setTimeout(() => {
           setIsSubscribed(false);
-        }, 3000);
+        }, 5000);
       } else {
         const error = await response.json();
         alert('Failed to subscribe: ' + (error.error || 'Unknown error'));
@@ -34,82 +36,162 @@ const Newsletter = () => {
     } catch (error) {
       console.error('Newsletter subscription error:', error);
       alert('Failed to subscribe. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Stay Updated
-          </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Subscribe to our newsletter and be the first to know about new products, 
-            exclusive offers, and tech trends.
-          </p>
-        </div>
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-0">
+            {/* Content Side */}
+            <div className="p-12 lg:p-16">
+              <div className="space-y-8">
+                {/* Header */}
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-100">
+                    <Star className="w-4 h-4 text-blue-500" />
+                    <span className="text-sm font-medium text-blue-700">Stay Connected</span>
+                  </div>
+                  
+                  <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                    Never Miss
+                    <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      a Great Deal
+                    </span>
+                  </h2>
+                  
+                  <p className="text-xl text-gray-600 leading-relaxed">
+                    Join our community of tech enthusiasts and get exclusive access to early releases, 
+                    special discounts, and insider tech insights delivered straight to your inbox.
+                  </p>
+                </div>
 
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-white focus:ring-opacity-50 text-gray-900 placeholder-gray-500"
-              required
-            />
-            <Button 
-              type="submit"
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-colors duration-300"
-            >
-              Subscribe
-            </Button>
-          </div>
-        </form>
+                {/* Benefits */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700 font-medium">Exclusive subscriber-only discounts</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                      <Bell className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700 font-medium">Early access to new product launches</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <Zap className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700 font-medium">Weekly tech trends and insights</span>
+                  </div>
+                </div>
 
-        {isSubscribed && (
-          <div className="mt-4 p-3 bg-green-500 text-white rounded-full animate-pulse">
-            🎉 Thank you for subscribing! Check your email for confirmation.
-          </div>
-        )}
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email address"
+                      required
+                      className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Subscribing...
+                      </>
+                    ) : (
+                      <>
+                        Subscribe Now
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
+                  </button>
+                </form>
 
-        <p className="mt-6 text-sm text-blue-200">
-          We respect your privacy. Unsubscribe at any time.
-        </p>
+                {/* Success Message */}
+                {isSubscribed && (
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-green-800 font-medium">
+                        Successfully subscribed! Check your email for confirmation.
+                      </span>
+                    </div>
+                  </div>
+                )}
 
-        {/* Benefits */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-full mb-3">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-              </svg>
+                {/* Privacy Notice */}
+                <p className="text-sm text-gray-500">
+                  By subscribing, you agree to our{' '}
+                  <a href="/privacy-policy" className="text-blue-600 hover:text-blue-700 underline">
+                    Privacy Policy
+                  </a>{' '}
+                  and{' '}
+                  <a href="/terms-of-use" className="text-blue-600 hover:text-blue-700 underline">
+                    Terms of Service
+                  </a>
+                  . You can unsubscribe at any time.
+                </p>
+              </div>
             </div>
-            <h3 className="text-white font-semibold mb-2">Exclusive Offers</h3>
-            <p className="text-blue-200 text-sm">Get access to subscriber-only discounts</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-full mb-3">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+
+            {/* Visual Side */}
+            <div className="bg-gradient-to-br from-blue-500 via-purple-600 to-cyan-500 p-12 lg:p-16 flex items-center justify-center relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
+                <div className="absolute top-1/4 right-0 w-24 h-24 bg-white rounded-full translate-x-12"></div>
+                <div className="absolute bottom-0 left-1/3 w-20 h-20 bg-white rounded-full translate-y-10"></div>
+              </div>
+              
+              {/* Content */}
+              <div className="relative text-center text-white space-y-6">
+                <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto">
+                  <Mail className="w-12 h-12" />
+                </div>
+                
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold">Join 50,000+ Tech Enthusiasts</h3>
+                  <p className="text-blue-100 leading-relaxed">
+                    Get the latest tech news, exclusive deals, and insider insights delivered to your inbox every week.
+                  </p>
+                </div>
+                
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-6 pt-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">50K+</div>
+                    <div className="text-sm text-blue-100">Subscribers</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">24/7</div>
+                    <div className="text-sm text-blue-100">Support</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">99%</div>
+                    <div className="text-sm text-blue-100">Satisfaction</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3 className="text-white font-semibold mb-2">Early Access</h3>
-            <p className="text-blue-200 text-sm">Be the first to know about new products</p>
-          </div>
-          
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-full mb-3">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <h3 className="text-white font-semibold mb-2">Tech Insights</h3>
-            <p className="text-blue-200 text-sm">Stay updated with the latest tech trends</p>
           </div>
         </div>
       </div>
