@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/types";
-import { Star } from "lucide-react";
+import { Star, Heart } from "lucide-react";
 import { useCart } from "./CartContext";
+import { useWishlist } from "./WishlistContext";
 import { toast } from "react-hot-toast";
 
 // Enhanced image mapping function using all available images
@@ -127,16 +128,44 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const discount = Math.round(
     ((product.originalPrice - product.price) / product.originalPrice) * 100
   );
+  
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     addToCart({ id: product.id, name: product.name, price: product.price, image: getLocalImage(product), category: product.category, slug: product.slug });
     toast.success("Added to cart!");
   };
+
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: getLocalImage(product),
+        category: product.category
+      });
+    }
+  };
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col hover:shadow-xl transition group">
+    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col hover:shadow-xl transition group relative">
+      <button
+        onClick={handleWishlistToggle}
+        className={`absolute top-2 right-2 p-2 rounded-full transition-colors z-10 ${
+          isInWishlist(product.id) 
+            ? 'bg-red-500 text-white' 
+            : 'bg-white/80 hover:bg-red-500 hover:text-white text-gray-600'
+        }`}
+        title={isInWishlist(product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
+      >
+        <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
+      </button>
       <Link href={`/product/${product.category.toLowerCase().replace(/\s+/g, '-')}/${product.slug}`}>
         <Image
           src={getLocalImage(product)}

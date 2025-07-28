@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import NexoraLogo from "@/components/NexoraLogo";
 import { useSession, signOut } from "next-auth/react";
 import { Toaster, toast } from "react-hot-toast";
+import { useWishlist } from "@/components/WishlistContext";
+import { useNotifications } from "@/components/NotificationContext";
 import { 
   Search, User, MapPin, ShoppingCart, Mic, ChevronDown, Menu, X, 
   Bell, Heart, Package, Zap, Grid, Gift, Star, TrendingUp,
@@ -25,15 +27,17 @@ const languageOptions = [
 ];
 
 const categories = [
-  { name: "Electronics", icon: Smartphone, subcategories: ["Smartphones", "Laptops", "Tablets", "Accessories"] },
-  { name: "Fashion", icon: User, subcategories: ["Men", "Women", "Kids", "Accessories"] },
-  { name: "Home", icon: Home, subcategories: ["Furniture", "Decor", "Kitchen", "Garden"] },
-  { name: "Sports", icon: TrendingUp, subcategories: ["Fitness", "Outdoor", "Team Sports", "Equipment"] },
-  { name: "Books", icon: Package, subcategories: ["Fiction", "Non-Fiction", "Academic", "Children"] },
-  { name: "Beauty", icon: Star, subcategories: ["Skincare", "Makeup", "Haircare", "Fragrances"] },
-  { name: "Toys", icon: Gamepad2, subcategories: ["Action Figures", "Board Games", "Educational", "Outdoor"] },
-  { name: "Automotive", icon: Car, subcategories: ["Car Care", "Accessories", "Tools", "Electronics"] }
+  { name: "Electronics", icon: Smartphone, subcategories: ["TV", "Computers", "Mobiles", "Appliances", "Accessories"], slug: "electronics" },
+  { name: "Fashion", icon: User, subcategories: ["Men's Fashion", "Women's Fashion", "Kids", "Accessories"], slug: "fashion" },
+  { name: "Home & Kitchen", icon: Home, subcategories: ["Furniture", "Decor", "Kitchen", "Garden"], slug: "home-kitchen" },
+  { name: "Sports & Outdoors", icon: TrendingUp, subcategories: ["Fitness", "Outdoor", "Team Sports", "Equipment"], slug: "sports-outdoors" },
+  { name: "Books", icon: Package, subcategories: ["Kindle E-Readers", "Audible Audiobooks", "Fiction", "Non-Fiction"], slug: "books" },
+  { name: "Beauty & Personal Care", icon: Star, subcategories: ["Skincare", "Makeup", "Haircare", "Fragrances"], slug: "beauty-personal-care" },
+  { name: "Toys & Games", icon: Gamepad2, subcategories: ["Action Figures", "Board Games", "Educational", "Outdoor"], slug: "toys-games" },
+  { name: "Automotive", icon: Car, subcategories: ["Car Care", "Accessories", "Tools", "Electronics"], slug: "automotive" }
 ];
+
+
 
 export function NexoraNavbar() {
   const { cartItems } = useCart();
@@ -51,12 +55,16 @@ export function NexoraNavbar() {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showWishlist, setShowWishlist] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState("");
   const [listening, setListening] = useState(false);
   const recognitionRef = useRef<any>(null);
   const { lang, setLang, t } = useLanguage();
+  const { wishlistItems, removeFromWishlist } = useWishlist();
+  const { notifications, markAsRead, markAllAsRead, unreadCount } = useNotifications();
+  
   const languageMap: Record<string, 'en' | 'hi' | 'bn'> = {
     English: "en",
     हिन्दी: "hi",
@@ -151,6 +159,10 @@ export function NexoraNavbar() {
     recognition.onresult = (event: any) => {
       const transcript = event.results[0][0].transcript;
       setSearch(transcript);
+      // Auto-search after voice input
+      setTimeout(() => {
+        handleSearch();
+      }, 500);
     };
     recognitionRef.current = recognition;
     recognition.start();
@@ -164,6 +176,18 @@ export function NexoraNavbar() {
   const handleSearch = () => {
     if (search.trim()) {
       router.push(`/shop?search=${encodeURIComponent(search.trim())}`);
+    }
+  };
+
+  const handleLanguageChange = (langName: string) => {
+    setSelectedLang(langName);
+    setShowLang(false);
+    if (languageMap[langName]) {
+      setLang(languageMap[langName]);
+      // Apply language change to the entire website
+      document.documentElement.lang = languageMap[langName];
+      // You can add more language-specific logic here
+      toast.success(`Language changed to ${langName}`);
     }
   };
 
@@ -213,7 +237,7 @@ export function NexoraNavbar() {
                 onClick={() => setShowCategoryMenu(!showCategoryMenu)}
                 onMouseEnter={() => setShowCategoryMenu(true)}
               >
-                                 <Grid className="size-5 group-hover:rotate-90 transition-transform duration-300" />
+                <Grid className="size-5 group-hover:rotate-90 transition-transform duration-300" />
                 <span className="font-medium">Categories</span>
                 <ChevronDown className={`size-4 transition-transform duration-200 ${showCategoryMenu ? 'rotate-180' : ''}`} />
               </button>
@@ -225,14 +249,20 @@ export function NexoraNavbar() {
                   onMouseLeave={() => setShowCategoryMenu(false)}
                 >
                   <div className="p-4">
-                                         <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                       <Grid className="size-5 text-purple-600" />
-                       All Categories
-                     </h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                      <Grid className="size-5 text-purple-600" />
+                      All Categories
+                    </h3>
                     <div className="grid grid-cols-2 gap-2">
                       {categories.map((cat) => (
                         <div key={cat.name} className="group">
-                          <button className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-left">
+                          <button 
+                            className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-purple-50 transition-colors text-left"
+                            onClick={() => {
+                              setShowCategoryMenu(false);
+                              router.push(`/product/${cat.slug}`);
+                            }}
+                          >
                             <cat.icon className="size-5 text-purple-600 group-hover:scale-110 transition-transform" />
                             <div>
                               <div className="font-medium text-gray-900">{cat.name}</div>
@@ -248,80 +278,75 @@ export function NexoraNavbar() {
             </div>
           </div>
 
-          {/* Center Section - Search */}
+          {/* Center Section - Search (Refactored for better grouping) */}
           <div className="flex-1 max-w-2xl mx-8">
-            <div className={`relative flex w-full rounded-2xl overflow-hidden transition-all duration-300 ${
-              isSearchFocused ? 'ring-4 ring-purple-400 shadow-2xl' : 'shadow-lg'
-            }`}>
+            <div className={`flex w-full rounded-2xl overflow-hidden transition-all duration-300 bg-white shadow-lg ${isSearchFocused ? 'ring-4 ring-purple-400 shadow-2xl' : ''}`}> 
               {/* Category Dropdown */}
-              <div className="relative">
-                <select
-                  className="h-14 px-4 bg-gradient-to-b from-gray-100 to-gray-200 text-gray-700 text-sm border-r border-gray-300 focus:outline-none focus:ring-0 cursor-pointer hover:bg-gray-200 transition-colors font-medium"
-                  value={category}
-                  onChange={e => {
-                    const selectedCat = e.target.value;
-                    setCategory(selectedCat);
-                    if (selectedCat !== "All Categories") {
-                      const categorySlug = selectedCat.toLowerCase().replace(/\s+/g, '-');
-                      router.push(`/product/${categorySlug}`);
-                    }
-                  }}
-                >
-                  <option value="All Categories">All Categories</option>
-                  <option value="Electronics">Electronics</option>
-                  <option value="Fashion">Fashion</option>
-                  <option value="Home">Home & Garden</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Books">Books</option>
-                  <option value="Beauty">Beauty</option>
-                  <option value="Toys">Toys & Games</option>
-                </select>
-              </div>
-
+              <select
+                className="h-14 px-4 bg-gradient-to-b from-gray-100 to-gray-200 text-gray-700 text-sm border-r border-gray-300 focus:outline-none focus:ring-0 cursor-pointer hover:bg-gray-200 transition-colors font-medium rounded-l-2xl"
+                value={category}
+                onChange={e => {
+                  const selectedCat = e.target.value;
+                  setCategory(selectedCat);
+                  if (selectedCat !== "All Categories") {
+                    const categoryMap: Record<string, string> = {
+                      "Electronics": "electronics",
+                      "Fashion": "fashion", 
+                      "Home & Kitchen": "home-kitchen",
+                      "Sports & Outdoors": "sports-outdoors",
+                      "Books": "books",
+                      "Beauty & Personal Care": "beauty-personal-care",
+                      "Toys & Games": "toys-games",
+                      "Automotive": "automotive"
+                    };
+                    const categorySlug = categoryMap[selectedCat] || selectedCat.toLowerCase().replace(/\s+/g, '-');
+                    router.push(`/product/${categorySlug}`);
+                  }
+                }}
+              >
+                <option value="All Categories">All Categories</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Home & Kitchen">Home & Kitchen</option>
+                <option value="Sports & Outdoors">Sports & Outdoors</option>
+                <option value="Books">Books</option>
+                <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                <option value="Toys & Games">Toys & Games</option>
+                <option value="Automotive">Automotive</option>
+              </select>
               {/* Search Input */}
-              <div className="flex-1 relative">
-                <input
-                  ref={searchInputRef}
-                  className="w-full h-14 px-6 text-gray-900 text-base focus:outline-none bg-white"
-                  placeholder="Search for products, brands and more..."
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                  onFocus={() => setIsSearchFocused(true)}
-                  onBlur={() => setIsSearchFocused(false)}
-                  onKeyPress={(e) => {
-                    if (e.key === 'Enter') {
-                      handleSearch();
-                    }
-                  }}
-                />
-              </div>
-
+              <input
+                ref={searchInputRef}
+                className="w-full h-14 px-6 text-gray-900 text-base focus:outline-none bg-white"
+                placeholder="Search for products, brands and more..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => setIsSearchFocused(false)}
+                onKeyPress={(e) => { if (e.key === 'Enter') { handleSearch(); } }}
+              />
+              {/* Mic Button (inline, not absolute) */}
+              <button
+                className={`h-14 px-5 flex items-center justify-center border-l border-r border-gray-200 transition-all duration-200 focus:outline-none ${listening ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg animate-pulse' : 'bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700'}`}
+                title="Voice Search"
+                onClick={listening ? stopVoiceSearch : startVoiceSearch}
+                tabIndex={0}
+                style={{ borderRadius: 0 }}
+              >
+                <Mic className="size-5" />
+              </button>
               {/* Search Button */}
               <button
-                className="h-14 px-8 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold transition-all duration-200 flex items-center justify-center group"
+                className="h-14 px-8 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold transition-all duration-200 flex items-center justify-center group rounded-r-2xl"
                 onClick={handleSearch}
               >
                 <Search className="size-6 group-hover:scale-110 transition-transform" />
               </button>
             </div>
-
-            {/* Voice Search Button */}
-            <button
-              className={`absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center size-12 rounded-full transition-all duration-200 ${
-                listening 
-                  ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg animate-pulse' 
-                  : 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white shadow-md hover:shadow-lg'
-              }`}
-              title="Voice Search"
-              onClick={listening ? stopVoiceSearch : startVoiceSearch}
-            >
-                              <Mic className="size-5" />
-            </button>
           </div>
 
-          {/* Right Section - User Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
-            
+          {/* Right Section - User Actions (even spacing, vertical centering) */}
+          <div className="hidden lg:flex items-center space-x-3">
             {/* Language Selector */}
             <div className="relative">
               <button 
@@ -342,11 +367,7 @@ export function NexoraNavbar() {
                       className={`px-4 py-3 cursor-pointer hover:bg-purple-50 transition-colors ${
                         selectedLang === langName ? 'font-bold bg-purple-100 text-purple-700' : ''
                       }`}
-                      onClick={() => {
-                        setSelectedLang(langName);
-                        setShowLang(false);
-                        if (languageMap[langName]) setLang(languageMap[langName]);
-                      }}
+                      onClick={() => handleLanguageChange(langName)}
                     >
                       {langName}
                     </div>
@@ -354,19 +375,117 @@ export function NexoraNavbar() {
                 </div>
               )}
             </div>
-
             {/* Notifications */}
-            <button className="relative p-3 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 group">
-              <Bell className="size-6 group-hover:scale-110 transition-transform" />
-              <span className="absolute -top-1 -right-1 size-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">
-                3
-              </span>
-            </button>
-
+            <div className="relative">
+              <button 
+                className="relative p-3 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 group"
+                onClick={() => setShowNotifications(!showNotifications)}
+              >
+                <Bell className="size-6 group-hover:scale-110 transition-transform" />
+                {unreadCount > 0 && (
+                  <span className="absolute -top-1 -right-1 size-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">
+                    {unreadCount}
+                  </span>
+                )}
+              </button>
+              
+              {/* Notifications Dropdown */}
+              {showNotifications && (
+                <div className="absolute right-0 mt-2 w-80 bg-white text-gray-900 rounded-xl shadow-xl z-50 border border-gray-200 max-h-96 overflow-y-auto">
+                  <div className="p-4 border-b border-gray-100">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold text-gray-900">Notifications</h3>
+                      <button 
+                        className="text-sm text-purple-600 hover:text-purple-700"
+                        onClick={markAllAsRead}
+                      >
+                        Mark all as read
+                      </button>
+                    </div>
+                  </div>
+                  <div className="p-2">
+                    {notifications.length === 0 ? (
+                      <div className="text-center py-8 text-gray-500">
+                        <Bell className="size-12 mx-auto mb-2 text-gray-300" />
+                        <p>No notifications yet</p>
+                      </div>
+                    ) : (
+                      notifications.map(notification => (
+                        <div 
+                          key={notification.id}
+                          className={`p-3 rounded-lg cursor-pointer transition-colors ${
+                            notification.read ? 'bg-gray-50' : 'bg-purple-50'
+                          } hover:bg-purple-100`}
+                          onClick={() => markAsRead(notification.id)}
+                        >
+                          <div className="flex items-start space-x-3">
+                            <div className={`w-2 h-2 rounded-full mt-2 ${
+                              notification.type === 'success' ? 'bg-green-500' :
+                              notification.type === 'warning' ? 'bg-yellow-500' :
+                              notification.type === 'error' ? 'bg-red-500' : 'bg-blue-500'
+                            }`} />
+                            <div className="flex-1">
+                              <div className="font-medium text-gray-900">{notification.title}</div>
+                              <div className="text-sm text-gray-600">{notification.message}</div>
+                              <div className="text-xs text-gray-400 mt-1">
+                                {new Date(notification.timestamp).toLocaleString()}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
             {/* Wishlist */}
-            <button className="p-3 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 group">
-              <Heart className="size-6 group-hover:scale-110 transition-transform" />
-            </button>
+            <div className="relative">
+              <button 
+                className="p-3 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 group"
+                onClick={() => setShowWishlist(!showWishlist)}
+              >
+                <Heart className="size-6 group-hover:scale-110 transition-transform" />
+                {wishlistItems.length > 0 && (
+                  <span className="absolute -top-1 -right-1 size-4 bg-pink-500 text-white text-xs rounded-full flex items-center justify-center">
+                    {wishlistItems.length}
+                  </span>
+                )}
+              </button>
+              
+              {/* Wishlist Dropdown */}
+              {showWishlist && (
+                <div className="absolute right-0 mt-2 w-80 bg-white text-gray-900 rounded-xl shadow-xl z-50 border border-gray-200 max-h-96 overflow-y-auto">
+                  <div className="p-4 border-b border-gray-100">
+                    <h3 className="font-semibold text-gray-900">Wishlist</h3>
+                  </div>
+                  <div className="p-2">
+                    {wishlistItems.length === 0 ? (
+                      <div className="text-center py-8 text-gray-500">
+                        <Heart className="size-12 mx-auto mb-2 text-gray-300" />
+                        <p>Your wishlist is empty</p>
+                      </div>
+                    ) : (
+                      wishlistItems.map(item => (
+                        <div key={item.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50">
+                          <img src={item.image} alt={item.name} className="w-12 h-12 rounded-lg object-cover" />
+                          <div className="flex-1">
+                            <div className="font-medium text-gray-900">{item.name}</div>
+                            <div className="text-sm text-gray-600">₹{item.price}</div>
+                          </div>
+                          <button 
+                            className="text-red-500 hover:text-red-700"
+                            onClick={() => removeFromWishlist(item.id)}
+                          >
+                            <X className="size-4" />
+                          </button>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* User Account */}
             <div className="relative group">
@@ -420,19 +539,43 @@ export function NexoraNavbar() {
                     </div>
                   </div>
                   <div className="p-2">
-                    <button className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => {
+                        setShowUserMenu(false);
+                        router.push('/profile');
+                      }}
+                      className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors"
+                    >
                       <UserCheck className="w-5 h-5" />
                       <span>Profile</span>
                     </button>
-                    <button className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => {
+                        setShowUserMenu(false);
+                        router.push('/orders');
+                      }}
+                      className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors"
+                    >
                       <Package className="w-5 h-5" />
                       <span>Orders</span>
                     </button>
-                    <button className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => {
+                        setShowUserMenu(false);
+                        router.push('/wishlist');
+                      }}
+                      className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors"
+                    >
                       <Heart className="w-5 h-5" />
                       <span>Wishlist</span>
                     </button>
-                    <button className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => {
+                        setShowUserMenu(false);
+                        router.push('/settings');
+                      }}
+                      className="w-full flex items-center space-x-3 px-3 py-2 text-gray-700 hover:bg-purple-50 rounded-lg transition-colors"
+                    >
                       <Settings className="w-5 h-5" />
                       <span>Settings</span>
                     </button>
@@ -495,12 +638,34 @@ export function NexoraNavbar() {
             <select
               className="h-14 px-4 bg-gradient-to-b from-gray-100 to-gray-200 text-gray-700 text-sm border-r border-gray-300 focus:outline-none"
               value={category}
-              onChange={e => setCategory(e.target.value)}
+              onChange={e => {
+                const selectedCat = e.target.value;
+                setCategory(selectedCat);
+                if (selectedCat !== "All Categories") {
+                  const categoryMap: { [key: string]: string } = {
+                    "Electronics": "electronics",
+                    "Fashion": "fashion", 
+                    "Home & Kitchen": "home-kitchen",
+                    "Sports & Outdoors": "sports-outdoors",
+                    "Books": "books",
+                    "Beauty & Personal Care": "beauty-personal-care",
+                    "Toys & Games": "toys-games",
+                    "Automotive": "automotive"
+                  };
+                  const categorySlug = categoryMap[selectedCat] || selectedCat.toLowerCase().replace(/\s+/g, '-');
+                  router.push(`/product/${categorySlug}`);
+                }
+              }}
             >
               <option value="All Categories">All</option>
               <option value="Electronics">Electronics</option>
               <option value="Fashion">Fashion</option>
-              <option value="Home">Home</option>
+              <option value="Home & Kitchen">Home & Kitchen</option>
+              <option value="Sports & Outdoors">Sports & Outdoors</option>
+              <option value="Books">Books</option>
+              <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+              <option value="Toys & Games">Toys & Games</option>
+              <option value="Automotive">Automotive</option>
             </select>
             <input
               className="flex-1 h-14 px-4 text-gray-900 text-base focus:outline-none"
@@ -546,21 +711,42 @@ export function NexoraNavbar() {
 
             {/* Mobile Navigation */}
             <div className="grid grid-cols-2 gap-4">
-              <button className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors">
+              <Link 
+                href="/cart"
+                className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors"
+              >
                 <ShoppingCart className="w-6 h-6 mb-2" />
                 <span className="text-sm">Cart ({cartCount})</span>
-              </button>
-              <button className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors">
+              </Link>
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  router.push('/wishlist');
+                }}
+                className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors"
+              >
                 <Heart className="w-6 h-6 mb-2" />
                 <span className="text-sm">Wishlist</span>
               </button>
-              <button className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors">
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  router.push('/orders');
+                }}
+                className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors"
+              >
                 <Package className="w-6 h-6 mb-2" />
                 <span className="text-sm">Orders</span>
               </button>
-              <button className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors">
-                <Bell className="w-6 h-6 mb-2" />
-                <span className="text-sm">Notifications</span>
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  router.push('/profile');
+                }}
+                className="flex flex-col items-center p-4 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-colors"
+              >
+                <UserCheck className="w-6 h-6 mb-2" />
+                <span className="text-sm">Profile</span>
               </button>
             </div>
 
@@ -571,6 +757,10 @@ export function NexoraNavbar() {
                 <button
                   key={cat.name}
                   className="w-full flex items-center space-x-3 p-3 text-white hover:bg-white/10 rounded-lg transition-colors"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    router.push(`/product/${cat.slug}`);
+                  }}
                 >
                   <cat.icon className="w-5 h-5" />
                   <span>{cat.name}</span>

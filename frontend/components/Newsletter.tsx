@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Bell, Zap, ArrowRight, CheckCircle, Star } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Mail, Bell, Zap, ArrowRight, CheckCircle, Star, ExternalLink } from 'lucide-react';
 
 const Newsletter = () => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -125,6 +127,17 @@ const Newsletter = () => {
                     )}
                   </button>
                 </form>
+
+                {/* View All Options Button */}
+                <div className="pt-4 border-t border-gray-200">
+                  <button
+                    onClick={() => router.push('/stay-updated')}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-3 text-blue-600 hover:text-blue-700 font-medium hover:bg-blue-50 rounded-xl transition-all duration-200"
+                  >
+                    <span>View All Stay Updated Options</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </button>
+                </div>
 
                 {/* Success Message */}
                 {isSubscribed && (

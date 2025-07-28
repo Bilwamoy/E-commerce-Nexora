@@ -1,8 +1,9 @@
 import { Product } from "@/types";
 import Image from "next/image";
 import { useCart } from "./CartContext";
+import { useWishlist } from "./WishlistContext";
 import { toast } from "react-hot-toast";
-import { Star } from "lucide-react";
+import { Star, Heart } from "lucide-react";
 
 // Same image mapping function as ProductCard
 function getLocalImage(product: Product): string {
@@ -139,6 +140,7 @@ interface ProductDetailProps {
 
 export default function ProductDetail({ product }: ProductDetailProps) {
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const discount = Math.round(
     ((product.originalPrice - product.price) / product.originalPrice) * 100
   );
@@ -155,6 +157,20 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     toast.success("Added to cart!");
   };
 
+  const handleWishlistToggle = () => {
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: getLocalImage(product),
+        category: product.category
+      });
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-8">
       <div className="shrink-0 flex flex-col items-center md:items-start">
@@ -165,12 +181,25 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           height={256}
           className="size-64 object-contain mb-4 rounded-lg" 
         />
-        <button 
-          onClick={handleAddToCart}
-          className="bg-amazon-yellow hover:bg-yellow-400 text-black font-bold py-3 px-8 rounded-lg w-full mt-4 transition-colors"
-        >
-          Add to Cart
-        </button>
+        <div className="flex gap-3 w-full mt-4">
+          <button 
+            onClick={handleAddToCart}
+            className="flex-1 bg-amazon-yellow hover:bg-yellow-400 text-black font-bold py-3 px-8 rounded-lg transition-colors"
+          >
+            Add to Cart
+          </button>
+          <button 
+            onClick={handleWishlistToggle}
+            className={`p-3 rounded-lg border-2 transition-colors ${
+              isInWishlist(product.id) 
+                ? 'border-red-500 bg-red-50 text-red-600' 
+                : 'border-gray-300 hover:border-red-500 text-gray-600 hover:text-red-600'
+            }`}
+            title={isInWishlist(product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
+          >
+            <Heart className={`w-5 h-5 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
+          </button>
+        </div>
       </div>
       <div className="flex-1">
         <h1 className="text-3xl font-bold mb-3 text-gray-900">{product.name}</h1>

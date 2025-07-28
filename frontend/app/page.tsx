@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Hero from '../components/Hero'
 import FeaturedCategories from '../components/FeaturedCategories'
 import Stats from '../components/Stats'
+import Newsletter from '../components/Newsletter'
 
 const Home: NextPage = () => {
   return (
@@ -33,6 +34,7 @@ const Home: NextPage = () => {
           </div>
         </div>
         <Stats />
+        <Newsletter />
       </main>
     </div>
   )

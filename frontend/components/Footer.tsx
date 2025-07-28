@@ -11,23 +11,23 @@ const footerLinks = [
     links: [
       { label: "About Nexora", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Press Releases", href: "#" },
-      { label: "Nexora Labs", href: "#" },
+      { label: "Press Releases", href: "/press-releases" },
+      { label: "Nexora Labs", href: "/nexora-labs" },
     ],
   },
   {
     heading: "Connect with Us",
     links: [
-      { label: "Facebook", href: "#" },
-      { label: "Twitter", href: "#" },
-      { label: "Instagram", href: "#" },
+      { label: "Facebook", href: "/facebook" },
+      { label: "Twitter", href: "/twitter" },
+      { label: "Instagram", href: "/instagram" },
     ],
   },
   {
     heading: "Make Money with Us",
     links: [
       { label: "Sell on Nexora", href: "/sell-on-nexora" },
-      { label: "Become an Affiliate", href: "#" },
+      { label: "Become an Affiliate", href: "/become-an-affiliate" },
       { label: "Advertise Your Products", href: "#" },
       { label: "Nexora Business", href: "#" },
     ],

@@ -14,10 +14,24 @@ interface CategoryPageProps {
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const resolvedParams = await params;
   const categorySlug = resolvedParams.category;
-  const categoryName = products.find(p => p.category.toLowerCase().replace(/\s+/g, '-') === categorySlug)?.category;
-  const allProducts = products.filter(p => p.category.toLowerCase().replace(/\s+/g, '-') === categorySlug);
   
-  if (!categoryName || allProducts.length === 0) {
+  // Map navbar slugs to actual product categories
+  const categoryMapping: { [key: string]: string[] } = {
+    'electronics': ['Electronics', 'TV', 'Computers', 'Mobiles', 'Appliances'],
+    'fashion': ['Fashion', "Men's Fashion", "Women's Fashion"],
+    'home-kitchen': ['Home & Kitchen'],
+    'sports-outdoors': ['Sports & Outdoors'],
+    'books': ['Books', 'Kindle E-Readers & eBooks', 'Audible Audiobooks'],
+    'beauty-personal-care': ['Beauty & Personal Care'],
+    'toys-games': ['Toys & Games'],
+    'automotive': ['Automotive']
+  };
+  
+  const targetCategories = categoryMapping[categorySlug] || [categorySlug.replace(/-/g, ' ')];
+  const allProducts = products.filter(p => targetCategories.includes(p.category));
+  const categoryName = targetCategories[0] || categorySlug.replace(/-/g, ' ');
+  
+  if (allProducts.length === 0) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
         <div className="mb-8">

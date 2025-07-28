@@ -10,6 +10,8 @@ import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import { CartProvider } from "@/components/CartContext";
 import { LanguageProvider } from "@/components/LanguageContext";
+import { WishlistProvider } from "@/components/WishlistContext";
+import { NotificationProvider } from "@/components/NotificationContext";
 import HelpAndSuggestions from "@/components/HelpAndSuggestions";
 import AuthSessionProvider from "@/components/AuthSessionProvider";
 import Footer from "@/components/Footer";
@@ -53,13 +55,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <LanguageProvider>
               <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                 <CartProvider>
-                  <div className="relative flex min-h-screen flex-col">
-                    <NexoraNavbar />
-                    <div className="flex-1">{children}</div>
-                    <Footer />
-                  </div>
-                  {/* <BotHub /> Removed to avoid conflicts with Pages Router */}
-                  <TailwindIndicator />
+                  <WishlistProvider>
+                    <NotificationProvider>
+                      <div className="relative flex min-h-screen flex-col">
+                        <NexoraNavbar />
+                        <div className="flex-1">{children}</div>
+                        <Footer />
+                      </div>
+                      {/* <BotHub /> Removed to avoid conflicts with Pages Router */}
+                      <TailwindIndicator />
+                    </NotificationProvider>
+                  </WishlistProvider>
                 </CartProvider>
               </ThemeProvider>
             </LanguageProvider>
