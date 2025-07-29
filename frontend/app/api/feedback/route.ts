@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { OAuth2Client } from 'google-auth-library';
-import * as nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 interface FeedbackData {
   name: string;
@@ -10,18 +9,7 @@ interface FeedbackData {
   suggestions: string;
 }
 
-const CLIENT_ID = process.env.GOOGLE_ID!;
-const CLIENT_SECRET = process.env.GOOGLE_SECRET!;
-const REDIRECT_URI = 'https://developers.google.com/oauthplayground'; // or your own
-const REFRESH_TOKEN = process.env.GMAIL_REFRESH_TOKEN!;
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL!;
-
-const oAuth2Client = new OAuth2Client(
-  CLIENT_ID,
-  CLIENT_SECRET,
-  REDIRECT_URI
-);
-oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -52,25 +40,12 @@ export async function POST(request: NextRequest) {
     console.log(`⏰ Submitted: ${new Date().toLocaleString()}`);
     console.log('=====================================');
 
-    // Send email using google-auth-library for OAuth2
+    // Send email using Resend
     try {
-      const accessToken = await oAuth2Client.getAccessToken();
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          type: 'OAuth2',
-          user: ADMIN_EMAIL,
-          clientId: CLIENT_ID,
-          clientSecret: CLIENT_SECRET,
-          refreshToken: REFRESH_TOKEN,
-          accessToken: accessToken.token,
-        },
-      });
-
-      // Email content
-      const mailOptions = {
-        from: ADMIN_EMAIL,
-        to: ADMIN_EMAIL,
+      // Send email to admin
+      await resend.emails.send({
+        from: 'NEXORA <noreply@nexora.com>',
+        to: [process.env.ADMIN_EMAIL || 'chakrabortybilwamoy@gmail.com'],
         subject: `🎉 New NEXORA Website Feedback - ${rating} Star Rating`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 10px;">
@@ -105,15 +80,14 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
         `,
-      };
+      });
 
-      await transporter.sendMail(mailOptions);
       console.log('✅ Email sent successfully to admin');
 
       // Send confirmation email to customer
-      const customerMailOptions = {
-        from: ADMIN_EMAIL,
-        to: email,
+      await resend.emails.send({
+        from: 'NEXORA <noreply@nexora.com>',
+        to: [email],
         subject: '🎉 Thank You for Your NEXORA Feedback!',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 10px;">
@@ -134,7 +108,7 @@ export async function POST(request: NextRequest) {
               </p>
             </div>
             <div style="text-align: center; margin-top: 30px;">
-              <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3004'}" 
+              <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001'}" 
                  style="display: inline-block; background: linear-gradient(135deg, #00ffff, #0066ff); color: white; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: bold;">
                 Visit NEXORA Again
               </a>
@@ -147,28 +121,15 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
         `,
-      };
+      });
 
-      await transporter.sendMail(customerMailOptions);
       console.log('✅ Confirmation email sent to customer');
-      console.log('🎉 All emails sent successfully via OAuth2!');
+      console.log('🎉 All emails sent successfully via Resend!');
+
     } catch (emailError) {
-      console.log('⚠️ OAuth2 email sending failed:');
-      if (emailError && typeof emailError === 'object') {
-        const err = emailError as { message?: string; code?: string; response?: any };
-        console.log('Error details:', err.message);
-        console.log('Error code:', err.code);
-        console.log('Error response:', err.response);
-        if (err.code === 'EAUTH') {
-          console.log('💡 OAuth2 Setup Required:');
-          console.log('1. You need to get Gmail OAuth2 tokens');
-          console.log('2. Add GMAIL_REFRESH_TOKEN to .env.local');
-          console.log('3. See OAuth2_SETUP.md for detailed instructions');
-        }
-      } else {
-        console.log('ℹ️ OAuth2 credentials not configured');
-        console.log('📝 Please configure OAuth2 credentials for Gmail');
-      }
+      console.log('⚠️ Resend email sending failed:');
+      console.log('Error details:', emailError);
+      console.log('💡 Make sure RESEND_API_KEY is set in your .env.local file');
     }
 
     return NextResponse.json(
