@@ -14,6 +14,9 @@ MONGODB_URI="mongodb+srv://chakrabortybilwamoy:4Fs5SqPSPDPm99aL@clusterbilwa.oxb
 GOOGLE_ID=your_google_client_id_here.apps.googleusercontent.com
 GOOGLE_SECRET=your_google_client_secret_here
 
+# Google Maps API (for location detection)
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+
 # Email Configuration (Resend - much simpler!)
 RESEND_API_KEY=re_your_resend_api_key_here
 ADMIN_EMAIL=chakrabortybilwamoy@gmail.com
@@ -31,17 +34,20 @@ OTP_EMAIL_PASS=xcai brbw cbmp klyg
 
 1. **`your_google_client_id_here`** - Your Google OAuth Client ID (for login)
 2. **`your_google_client_secret_here`** - Your Google OAuth Client Secret (for login)
-3. **`re_your_resend_api_key_here`** - Your Resend API Key (for emails)
+3. **`your_google_maps_api_key_here`** - Your Google Maps API Key (for location detection)
+4. **`re_your_resend_api_key_here`** - Your Resend API Key (for emails)
 
 ## 📝 **Setup Steps:**
 
 1. **For Google Login**: Follow the Google Cloud Console setup for OAuth
-2. **For Email**: Follow the Resend setup in `RESEND_SETUP.md`
-3. **Restart your server** after updating `.env.local`
+2. **For Google Maps**: Enable Maps JavaScript API and Geocoding API in Google Cloud Console
+3. **For Email**: Follow the Resend setup in `RESEND_SETUP.md`
+4. **Restart your server** after updating `.env.local`
 
 ## 🎉 **Benefits:**
 
 - ✅ **Simple email setup** with Resend
 - ✅ **No complex OAuth tokens** for emails
+- ✅ **Live location detection** for delivery tracking
 - ✅ **Better deliverability**
 - ✅ **Free tier available**

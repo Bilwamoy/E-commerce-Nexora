@@ -136,7 +136,6 @@ const CheckoutPage = () => {
       // Simulate order processing
       setTimeout(() => {
         toast.success('Payment successful! Order placed successfully.');
-        clearCart();
         setStep('success');
         setIsProcessing(false);
       }, 2000);
@@ -155,44 +154,13 @@ const CheckoutPage = () => {
     if (currentStep === targetStep) return 'bg-blue-600 text-white';
     if (targetStep === 'payment' && (currentStep === 'otp' || currentStep === 'success')) return 'bg-green-600 text-white';
     if (targetStep === 'otp' && currentStep === 'success') return 'bg-green-600 text-white';
+    if (targetStep === 'success' && currentStep === 'success') return 'bg-green-600 text-white';
     return 'bg-gray-200 text-gray-600';
   };
 
   if (cartItems.length === 0 && step !== 'success') {
     router.push('/cart');
     return null;
-  }
-
-  if (step === 'success') {
-    return (
-      <>
-        <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center">
-          <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-10 h-10 text-green-600" />
-            </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Payment Successful!</h1>
-            <p className="text-gray-600 mb-8">Your order has been placed successfully. You will receive a confirmation email shortly.</p>
-            <div className="space-y-4">
-              <button
-                onClick={() => router.push('/')}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Continue Shopping
-              </button>
-              <button
-                onClick={() => router.push('/orders')}
-                className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
-                View Orders
-              </button>
-            </div>
-          </div>
-        </div>
-        <Footer />
-        <ChatWidget />
-      </>
-    );
   }
 
   return (
@@ -229,6 +197,13 @@ const CheckoutPage = () => {
                     3
                   </div>
                   <span className="text-sm">Verify</span>
+                </div>
+                <div className="w-8 h-0.5 bg-gray-300"></div>
+                <div className="flex items-center space-x-2">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${getStepColor(step, 'success')}`}>
+                    4
+                  </div>
+                  <span className="text-sm">Success</span>
                 </div>
               </div>
             </div>
@@ -505,6 +480,53 @@ const CheckoutPage = () => {
                         Back to Payment
                       </button>
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {step === 'success' && (
+                <div className="bg-white rounded-lg shadow p-6 text-center">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-8 h-8 text-green-600" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h2>
+                    <p className="text-gray-600 mb-4">Your order has been placed successfully.</p>
+                    <p className="text-sm text-gray-500">Order ID: NEX-{Date.now().toString().slice(-6)}</p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <button
+                      onClick={() => router.push('/delivery')}
+                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105"
+                    >
+                      🚚 Track Your Delivery
+                    </button>
+                    
+                    <button
+                      onClick={() => router.push('/orders')}
+                      className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                    >
+                      📋 View All Orders
+                    </button>
+                    
+                    <button
+                      onClick={() => {
+                        clearCart();
+                        router.push('/');
+                      }}
+                      className="w-full text-gray-600 py-3 font-semibold hover:text-gray-800 transition-colors"
+                    >
+                      🏠 Continue Shopping
+                    </button>
+                  </div>
+
+                  <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Truck className="w-5 h-5 text-blue-600" />
+                      <span className="text-sm font-medium text-blue-800">Free Delivery</span>
+                    </div>
+                    <p className="text-xs text-blue-600">Your order will be delivered within 2-3 business days.</p>
                   </div>
                 </div>
               )}
