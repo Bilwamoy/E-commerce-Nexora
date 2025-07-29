@@ -166,7 +166,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       >
         <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
       </button>
-      <Link href={`/product/${product.category.toLowerCase().replace(/\s+/g, '-')}/${product.slug}`}>
+      <Link href={`/product/${product.id}`}>
         <Image
           src={getLocalImage(product)}
           alt={product.name}
