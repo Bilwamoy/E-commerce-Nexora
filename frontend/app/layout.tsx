@@ -12,9 +12,10 @@ import { CartProvider } from "@/components/CartContext";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { WishlistProvider } from "@/components/WishlistContext";
 import { NotificationProvider } from "@/components/NotificationContext";
-import HelpAndSuggestions from "@/components/HelpAndSuggestions";
+import BotHub from "@/components/BotHub";
 import AuthSessionProvider from "@/components/AuthSessionProvider";
 import Footer from "@/components/Footer";
+import SplashWrapper from "@/components/SplashWrapper";
 // import BotHub from "@/components/BotHub"; // Removed to avoid conflicts with Pages Router
 
 export const metadata: Metadata = {
@@ -23,16 +24,19 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
 }
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -57,13 +61,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <CartProvider>
                   <WishlistProvider>
                     <NotificationProvider>
-                      <div className="relative flex min-h-screen flex-col">
-                        <NexoraNavbar />
-                        <div className="flex-1">{children}</div>
-                        <Footer />
-                      </div>
-                      {/* <BotHub /> Removed to avoid conflicts with Pages Router */}
-                      <TailwindIndicator />
+                      <SplashWrapper>
+                        <div className="relative flex min-h-screen flex-col">
+                          <NexoraNavbar />
+                          <div className="flex-1">{children}</div>
+                          <Footer />
+                        </div>
+                        <BotHub />
+                        <TailwindIndicator />
+                      </SplashWrapper>
                     </NotificationProvider>
                   </WishlistProvider>
                 </CartProvider>

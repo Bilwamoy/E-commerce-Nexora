@@ -1,64 +1,74 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-import { MongoClient, Db, Collection } from 'mongodb';
 import bcrypt from 'bcryptjs';
+import { MongoClient } from 'mongodb';
 
-let cachedDb: Db | null = null;
-
-async function connectToDatabase() {
-  if (cachedDb) return cachedDb;
-  const client = await MongoClient.connect(process.env.MONGODB_URI!);
-  cachedDb = client.db();
-  return cachedDb;
-}
-
-interface User {
-  name: string;
-  email: string;
-  password: string;
-  verified: boolean;
-}
-
-async function getUserCollection(): Promise<Collection<User>> {
-  const db = await connectToDatabase();
-  return db.collection<User>('users');
-}
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.OTP_EMAIL_USER,
-    pass: process.env.OTP_EMAIL_PASS,
-  },
-});
-
-function generateCode() {
-  return Math.floor(100000 + Math.random() * 900000).toString();
-}
-
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const { name, email, password } = await req.json();
+    const { name, email, password } = await request.json();
+
     if (!name || !email || !password) {
-      return NextResponse.json({ success: false, message: 'All fields required.' }, { status: 400 });
+      return NextResponse.json(
+        { success: false, message: 'Name, email, and password are required' },
+        { status: 400 }
+      );
     }
-    const users = await getUserCollection();
-    const existing = await users.findOne({ email });
-    if (existing) {
-      return NextResponse.json({ success: false, message: 'User already exists.' }, { status: 400 });
+
+    if (password.length < 6) {
+      return NextResponse.json(
+        { success: false, message: 'Password must be at least 6 characters long' },
+        { status: 400 }
+      );
     }
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const code = generateCode();
-    await users.insertOne({ name, email, password: hashedPassword, verified: false });
-    await transporter.sendMail({
-      from: process.env.OTP_EMAIL_USER,
-      to: email,
-      subject: 'Verify your email',
-      text: `Your verification code is: ${code}`,
+
+    const client = await MongoClient.connect(process.env.MONGODB_URI!);
+    const db = client.db();
+
+    // Check if user already exists
+    const existingUser = await db.collection('users').findOne({ email: email.toLowerCase() });
+    if (existingUser) {
+      await client.close();
+      return NextResponse.json(
+        { success: false, message: 'User with this email already exists' },
+        { status: 409 }
+      );
+    }
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    // Create new user
+    const newUser = {
+      name,
+      email: email.toLowerCase(),
+      password: hashedPassword,
+      verified: true,
+      createdAt: new Date(),
+      lastLogin: new Date(),
+      orderHistory: [],
+      wishlist: [],
+      cart: [],
+      preferences: {
+        language: 'en',
+        theme: 'light',
+        notifications: true
+      }
+    };
+
+    const result = await db.collection('users').insertOne(newUser);
+
+    await client.close();
+
+    return NextResponse.json({
+      success: true,
+      message: 'Account created successfully',
+      userId: result.insertedId
     });
-    return NextResponse.json({ success: true });
-  } catch (err) {
-    console.error('Signup API error:', err);
-    return NextResponse.json({ success: false, message: 'Internal server error.' }, { status: 500 });
+
+  } catch (error) {
+    console.error('Signup error:', error);
+    return NextResponse.json(
+      { success: false, message: 'Internal server error' },
+      { status: 500 }
+    );
   }
 } 

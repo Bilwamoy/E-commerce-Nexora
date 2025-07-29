@@ -40,6 +40,7 @@ const footerLinks = [
       { label: "24x7 Customer Support", href: "#" },
       { label: "Order Protection", href: "#" },
       { label: "Download Nexora App", href: "/download-app" },
+      { label: "Rate Our Website", href: "/thank-you" },
     ],
   },
 ];
@@ -136,6 +137,7 @@ export default function Footer() {
             <Link href="/privacy-policy" className="hover:underline underline-offset-4">Privacy Policy</Link>
             <Link href="/terms-of-use" className="hover:underline underline-offset-4">Terms of Use</Link>
             <Link href="/sitemap" className="hover:underline underline-offset-4">Sitemap</Link>
+            <Link href="/thank-you" className="hover:underline underline-offset-4">Rate Us</Link>
             <Link href="/debug" className="hover:underline underline-offset-4">Debug</Link>
             <Link href="/admin-test" className="hover:underline underline-offset-4">Admin Test</Link>
             <Link href="/bot-test" className="hover:underline underline-offset-4">Bot Test</Link>

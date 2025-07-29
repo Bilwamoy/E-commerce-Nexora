@@ -35,14 +35,14 @@ const handler = NextAuth({
         }
         const client = await MongoClient.connect(process.env.MONGODB_URI!);
         const db = client.db();
-        const user = await db.collection('users').findOne({ email: credentials.email });
+        const user = await db.collection('users').findOne({ email: credentials.email.toLowerCase() });
         if (user && await bcrypt.compare(credentials.password, user.password)) {
           return { 
             id: user._id.toString(), 
             name: user.name, 
             email: user.email, 
             image: user.image || null,
-            isAdmin: user.email === adminEmail
+            isAdmin: user.email.toLowerCase() === adminEmail.toLowerCase()
           };
         }
         return null;
@@ -114,7 +114,7 @@ const handler = NextAuth({
           
           if (user) {
             (session.user as any).id = user._id.toString();
-            (session.user as any).isAdmin = user.email === adminEmail;
+            (session.user as any).isAdmin = user.email.toLowerCase() === adminEmail.toLowerCase();
             (session.user as any).orderHistory = user.orderHistory || [];
             (session.user as any).wishlist = user.wishlist || [];
             (session.user as any).cart = user.cart || [];
@@ -134,7 +134,7 @@ const handler = NextAuth({
     },
     async redirect({ url, baseUrl }) {
       // Check if user is admin and redirect to admin dashboard
-      if (url.includes('admin@nexora.com')) {
+      if (url.includes('admin@nexora.com') || url.includes('/admin')) {
         return `${baseUrl}/admin`;
       }
       // Handle redirect after successful authentication

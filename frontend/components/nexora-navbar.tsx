@@ -21,6 +21,7 @@ import {
   Smartphone, Laptop, Headphones, Watch, Camera, Gamepad2,
   Home, ShoppingBag, UserCheck, Settings, LogOut, Crown, Shield, Car
 } from "lucide-react";
+import { products } from '@/data/products';
 
 const languageOptions = [
   "English", "हिन्दी", "বাংলা", "தமிழ்", "తెలుగు", "మరాఠీ", "ગુજરાતી", "ಕನ್ನಡ", "മലയാളം", "ਪੰਜਾਬੀ", "Français", "Deutsch", "Español", "Italiano", "Português", "中文", "日本語", "한국어", "Русский", "العربية"
@@ -59,8 +60,6 @@ export function NexoraNavbar() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState("");
-  const [listening, setListening] = useState(false);
-  const recognitionRef = useRef<any>(null);
   const { lang, setLang, t } = useLanguage();
   const { wishlistItems, removeFromWishlist } = useWishlist();
   const { notifications, markAsRead, markAllAsRead, unreadCount } = useNotifications();
@@ -70,52 +69,162 @@ export function NexoraNavbar() {
     हिन्दी: "hi",
     বাংলা: "bn",
   };
+  
+  // Use NextAuth session instead of local storage
+  const { data: session, status } = useSession();
   const router = useRouter();
-  const [session, setSession] = useState<any>(null);
 
-  useEffect(() => {
-    const userSession = localStorage.getItem('userSession');
-    if (userSession) {
-      try {
-        setSession(JSON.parse(userSession));
-      } catch (error) {
-        console.error('Error parsing session:', error);
-      }
+  // Remove old session management
+  // const [session, setSession] = useState<any>(null);
+  // useEffect(() => {
+  //   const userSession = localStorage.getItem('userSession');
+  //   if (userSession) {
+  //     try {
+  //       setSession(JSON.parse(userSession));
+  //     } catch (error) {
+  //       console.error('Error parsing session:', error);
+  //     }
+  //   }
+  //   
+  //   // Listen for storage changes to update session when user logs in/out
+  //   const handleStorageChange = (e: StorageEvent) => {
+  //     if (e.key === 'userSession') {
+  //       if (e.newValue) {
+  //         try {
+  //           setSession(JSON.parse(e.newValue));
+  //         } catch (error) {
+  //           console.error('Error parsing session:', error);
+  //         }
+  //       } else {
+  //         setSession(null);
+  //       }
+  //     }
+  //   };
+  //   
+  //   window.addEventListener('storage', handleStorageChange);
+  //   
+  //   // Listen for custom events
+  //   const handleSessionChange = (e: CustomEvent) => {
+  //     if (e.detail) {
+  //       setSession(e.detail);
+  //       localStorage.setItem('userSession', JSON.stringify(e.detail));
+  //     } else {
+  //       setSession(null);
+  //       localStorage.removeItem('userSession');
+  //     }
+  //   };
+  //   
+  //   window.addEventListener('sessionChange', handleSessionChange as EventListener);
+  //   
+  //   return () => {
+  //     window.removeEventListener('storage', handleStorageChange);
+  //     window.removeEventListener('sessionChange', handleSessionChange as EventListener);
+  //   };
+  // }, []);
+
+  // Handle sign out
+  const handleSignOut = async () => {
+    try {
+      await signOut({ callbackUrl: '/' });
+      setShowUserMenu(false);
+    } catch (error) {
+      console.error('Error signing out:', error);
     }
+  };
+
+  // Handle sign in
+  const handleSignIn = () => {
+    router.push('/login');
+  };
+
+  // Remove trending/recommended state and dropdown logic
+  // const [trendingSearches, setTrendingSearches] = useState<string[]>([]);
+  // const [recommendedSearches, setRecommendedSearches] = useState<string[]>([]);
+  // const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+
+  // Remove useEffect for trending/recommended searches
+  // useEffect(() => {
+  //   if (!products || products.length === 0) {
+  //     setTrendingSearches([]);
+  //     setRecommendedSearches([]);
+  //     return;
+  //   }
+  //   // Trending: top 5 by reviews
+  //   const trending = [...products]
+  //     .sort((a, b) => (b.reviews || 0) - (a.reviews || 0))
+  //     .slice(0, 5)
+  //     .map(p => p.name);
+  //   setTrendingSearches(trending);
+  //   // Recommended: top 5 by rating
+  //   const recommended = [...products]
+  //     .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+  //     .slice(0, 5)
+  //     .map(p => p.name);
+  //   setRecommendedSearches(recommended);
+  // }, [products])
+
+  // useEffect(() => {
+  //   const userSession = localStorage.getItem('userSession');
+  //   if (userSession) {
+  //     try {
+  //       setSession(JSON.parse(userSession));
+  //     } catch (error) {
+  //       console.error('Error parsing session:', error);
+  //     }
+  //   }
     
-    // Listen for storage changes to update session when user logs in/out
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'userSession') {
-        if (e.newValue) {
-          try {
-            setSession(JSON.parse(e.newValue));
-          } catch (error) {
-            console.error('Error parsing session:', error);
-          }
-        } else {
-          setSession(null);
-        }
-      }
-    };
-    
-    window.addEventListener('storage', handleStorageChange);
-    
-    // Custom event listener for same-tab session changes
-    const handleSessionChange = (e: CustomEvent) => {
-      if (e.detail) {
-        setSession(e.detail);
-      } else {
-        setSession(null);
-      }
-    };
-    
-    window.addEventListener('sessionChange', handleSessionChange as EventListener);
-    
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('sessionChange', handleSessionChange as EventListener);
-    };
-  }, []);
+  //   // Listen for storage changes to update session when user logs in/out
+  //   const handleStorageChange = (e: StorageEvent) => {
+  //     if (e.key === 'userSession') {
+  //       if (e.newValue) {
+  //         try {
+  //           setSession(JSON.parse(e.newValue));
+  //         } catch (error) {
+  //           console.error('Error parsing session:', error);
+  //         }
+  //       } else {
+  //         setSession(null);
+  //       }
+  //     }
+  //   };
+  //   
+  //   window.addEventListener('storage', handleStorageChange);
+  //   
+  //   // Custom event listener for same-tab session changes
+  //   const handleSessionChange = (e: CustomEvent) => {
+  //     if (e.detail) {
+  //       setSession(e.detail);
+  //     } else {
+  //       setSession(null);
+  //     }
+  //   };
+  //   
+  //   window.addEventListener('sessionChange', handleSessionChange as EventListener);
+  //   
+  //   return () => {
+  //     window.removeEventListener('storage', handleStorageChange);
+  //     window.removeEventListener('sessionChange', handleSessionChange as EventListener);
+  //   };
+  // }, []);
+
+  // Simplified search handler - redirect to dedicated search page
+  const handleSearch = () => {
+    if (search.trim()) {
+      router.push(`/search?q=${encodeURIComponent(search.trim())}`);
+    } else {
+      router.push('/search');
+    }
+  };
+
+  // Handle search input focus - redirect to search page
+  const handleSearchFocus = () => {
+    router.push('/search');
+  };
+
+  // Handle search input click - redirect to search page
+  const handleSearchClick = () => {
+    router.push('/search');
+  };
 
   async function detectLocation() {
     setLocationLoading(true);
@@ -142,42 +251,6 @@ export function NexoraNavbar() {
       setLocationLoading(false);
     });
   }
-
-  function startVoiceSearch() {
-    if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
-      alert('Voice recognition is not supported in this browser.');
-      return;
-    }
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognition.lang = selectedLang === 'English' ? 'en-US' : 'hi-IN';
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-    recognition.onstart = () => setListening(true);
-    recognition.onend = () => setListening(false);
-    recognition.onerror = () => setListening(false);
-    recognition.onresult = (event: any) => {
-      const transcript = event.results[0][0].transcript;
-      setSearch(transcript);
-      // Auto-search after voice input
-      setTimeout(() => {
-        handleSearch();
-      }, 500);
-    };
-    recognitionRef.current = recognition;
-    recognition.start();
-  }
-
-  function stopVoiceSearch() {
-    recognitionRef.current?.stop();
-    setListening(false);
-  }
-
-  const handleSearch = () => {
-    if (search.trim()) {
-      router.push(`/shop?search=${encodeURIComponent(search.trim())}`);
-    }
-  };
 
   const handleLanguageChange = (langName: string) => {
     setSelectedLang(langName);
@@ -223,7 +296,7 @@ export function NexoraNavbar() {
         <div className="flex items-center justify-between h-20">
           
           {/* Left Section - Logo and Categories */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-6">
             {/* Logo */}
             <div className="shrink-0 cursor-pointer hover:scale-105 transition-transform duration-200" 
                  onClick={() => router.push("/")}>
@@ -276,14 +349,16 @@ export function NexoraNavbar() {
                 </div>
               )}
             </div>
+            {/* Divider for visual separation */}
+            <div className="h-10 w-px bg-white/20 mx-2 hidden lg:block" />
           </div>
 
           {/* Center Section - Search (Refactored for better grouping) */}
-          <div className="flex-1 max-w-2xl mx-8">
-            <div className={`flex w-full rounded-2xl overflow-hidden transition-all duration-300 bg-white shadow-lg ${isSearchFocused ? 'ring-4 ring-purple-400 shadow-2xl' : ''}`}> 
+          <div className="flex-1 min-w-[300px] max-w-2xl mx-4">
+            <div className={`relative flex w-full rounded-full overflow-visible transition-all duration-300 bg-white shadow-lg border-2 ${isSearchFocused ? 'border-purple-500 ring-4 ring-purple-300/30 shadow-2xl' : 'border-transparent'}`}> 
               {/* Category Dropdown */}
               <select
-                className="h-14 px-4 bg-gradient-to-b from-gray-100 to-gray-200 text-gray-700 text-sm border-r border-gray-300 focus:outline-none focus:ring-0 cursor-pointer hover:bg-gray-200 transition-colors font-medium rounded-l-2xl"
+                className="h-14 w-40 px-4 bg-gradient-to-b from-gray-100 to-gray-200 text-gray-700 text-sm border-r border-gray-300 focus:outline-none focus:ring-0 cursor-pointer hover:bg-gray-200 transition-colors font-medium rounded-l-full"
                 value={category}
                 onChange={e => {
                   const selectedCat = e.target.value;
@@ -315,33 +390,22 @@ export function NexoraNavbar() {
                 <option value="Automotive">Automotive</option>
               </select>
               {/* Search Input */}
-              <input
-                ref={searchInputRef}
-                className="w-full h-14 px-6 text-gray-900 text-base focus:outline-none bg-white"
-                placeholder="Search for products, brands and more..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setIsSearchFocused(false)}
-                onKeyPress={(e) => { if (e.key === 'Enter') { handleSearch(); } }}
-              />
-              {/* Mic Button (inline, not absolute) */}
-              <button
-                className={`h-14 px-5 flex items-center justify-center border-l border-r border-gray-200 transition-all duration-200 focus:outline-none ${listening ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg animate-pulse' : 'bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700'}`}
-                title="Voice Search"
-                onClick={listening ? stopVoiceSearch : startVoiceSearch}
-                tabIndex={0}
-                style={{ borderRadius: 0 }}
-              >
-                <Mic className="size-5" />
-              </button>
-              {/* Search Button */}
-              <button
-                className="h-14 px-8 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold transition-all duration-200 flex items-center justify-center group rounded-r-2xl"
-                onClick={handleSearch}
-              >
-                <Search className="size-6 group-hover:scale-110 transition-transform" />
-              </button>
+              <div className="relative flex-1">
+                <input
+                  ref={searchInputRef}
+                  className="w-full h-14 px-6 text-gray-900 text-base focus:outline-none bg-white rounded-r-full cursor-pointer"
+                  placeholder="Search for products, brands and more..."
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  onFocus={handleSearchFocus}
+                  onClick={handleSearchClick}
+                  onKeyPress={(e) => { if (e.key === 'Enter') { handleSearch(); } }}
+                  aria-label="Search"
+                  autoComplete="off"
+                  style={{ background: 'white', zIndex: 10 }}
+                  readOnly
+                />
+              </div>
             </div>
           </div>
 
@@ -506,14 +570,14 @@ export function NexoraNavbar() {
                     </div>
                   )}
                   <div className="flex flex-col">
-                    <span className="text-sm opacity-90">Hello, {session.user.name?.split(' ')[0] || 'User'}</span>
+                    <span className="text-sm opacity-90">Hello, {session.user?.name?.split(' ')[0] || 'User'}</span>
                     <span className="text-sm font-medium">Account</span>
                   </div>
                   <ChevronDown className="size-4" />
                 </div>
               ) : (
                 <div className="flex items-center space-x-3 px-4 py-2 text-white hover:bg-white/10 rounded-xl transition-colors duration-200 cursor-pointer"
-                     onClick={() => router.push("/login")}>
+                     onClick={handleSignIn}>
                   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-blue-500">
                     <User className="w-5 h-5 text-white" />
                   </div>
@@ -521,11 +585,12 @@ export function NexoraNavbar() {
                     <span className="text-sm opacity-90">Hello, sign in</span>
                     <span className="text-sm font-medium">Account</span>
                   </div>
+                  <ChevronDown className="size-4" />
                 </div>
               )}
               
               {/* User Menu Dropdown */}
-              {showUserMenu && session && (
+              {showUserMenu && session && session.user && (
                 <div className="absolute right-0 mt-2 w-64 bg-white text-gray-900 rounded-xl shadow-xl z-50 border border-gray-200">
                   <div className="p-4 border-b border-gray-100">
                     <div className="flex items-center space-x-3">
@@ -533,8 +598,8 @@ export function NexoraNavbar() {
                         <User className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-900">{session.user.name}</div>
-                        <div className="text-sm text-gray-500">{session.user.email}</div>
+                        <div className="font-semibold text-gray-900">{session.user?.name || 'User'}</div>
+                        <div className="text-sm text-gray-500">{session.user?.email || ''}</div>
                       </div>
                     </div>
                   </div>
@@ -582,14 +647,7 @@ export function NexoraNavbar() {
                     <div className="border-t border-gray-100 my-2"></div>
                     <button 
                       className="w-full flex items-center space-x-3 px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                      onClick={() => {
-                        localStorage.removeItem('userSession');
-                        setSession(null);
-                        setShowUserMenu(false);
-                        // Dispatch custom event to update navbar
-                        window.dispatchEvent(new CustomEvent('sessionChange', { detail: null }));
-                        router.push('/');
-                      }}
+                      onClick={handleSignOut}
                     >
                       <LogOut className="w-5 h-5" />
                       <span>Sign Out</span>
@@ -702,7 +760,7 @@ export function NexoraNavbar() {
                 <div className="text-gray-300 text-sm">Get personalized recommendations</div>
               </div>
               <button 
-                onClick={() => router.push("/login")}
+                onClick={handleSignIn}
                 className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium"
               >
                 Sign In

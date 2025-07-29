@@ -21,32 +21,103 @@ const SupportBot = ({ embedMode = false }: SupportBotProps) => {
   const [userEmail, setUserEmail] = useState('');
   const [escalateMsg, setEscalateMsg] = useState('');
 
-  function isSmallIssue(text: string) {
-    const smallIssues = [
-      'cannot find', 'can&apos;t find', 'can not find', 'search', 'product', 'item', 'where is', 'how to buy', 'add to cart', 'remove from cart', 'order status', 'track order', 'return', 'refund', 'cancel order'
+  // Only redirect shopping-related queries to Joy
+  function shouldRedirectToJoy(text: string) {
+    const shoppingQueries = [
+      'find product', 'search for', 'looking for', 'where to buy', 'how to buy',
+      'add to cart', 'remove from cart', 'show me products', 'product recommendations',
+      'what products', 'best products', 'new products', 'trending products'
     ];
-    return smallIssues.some(issue => text.toLowerCase().includes(issue));
+    return shoppingQueries.some(query => text.toLowerCase().includes(query));
+  }
+
+  // Handle support-specific issues
+  function handleSupportIssue(text: string) {
+    const lowerText = text.toLowerCase();
+    
+    // Refund requests
+    if (lowerText.includes('refund') || lowerText.includes('money back')) {
+      return {
+        response: "I understand you'd like a refund. To process your refund, I'll need some information:\n\n1. Your order number\n2. The reason for the refund\n3. Your contact details\n\nWould you like me to escalate this to our refund team?",
+        shouldEscalate: true
+      };
+    }
+    
+    // Return requests
+    if (lowerText.includes('return') || lowerText.includes('send back')) {
+      return {
+        response: "I can help you with your return request. Our return policy allows returns within 30 days of delivery.\n\nTo process your return:\n1. Please provide your order number\n2. Reason for return\n3. Whether the item is in original condition\n\nShould I connect you with our returns team?",
+        shouldEscalate: true
+      };
+    }
+    
+    // Complaints
+    if (lowerText.includes('complaint') || lowerText.includes('issue') || lowerText.includes('problem')) {
+      return {
+        response: "I'm sorry to hear you're experiencing an issue. I'm here to help resolve this for you.\n\nCould you please provide:\n1. Details of the problem\n2. Your order number (if applicable)\n3. When this issue occurred\n\nI'll make sure this gets the attention it deserves.",
+        shouldEscalate: true
+      };
+    }
+    
+    // Order status/tracking
+    if (lowerText.includes('order status') || lowerText.includes('track order') || lowerText.includes('where is my order')) {
+      return {
+        response: "I can help you track your order. Please provide your order number, and I'll check the current status for you.",
+        shouldEscalate: false
+      };
+    }
+    
+    // Account issues
+    if (lowerText.includes('account') || lowerText.includes('login') || lowerText.includes('password')) {
+      return {
+        response: "I can help you with account-related issues. Please let me know what specific problem you're facing with your account.",
+        shouldEscalate: false
+      };
+    }
+    
+    return null;
   }
 
   async function sendMessage() {
     if (!input.trim()) return;
-    setMessages((msgs) => [...msgs, { from: 'user', text: input }]);
+    
+    const userMessage = input.trim();
+    setMessages((msgs) => [...msgs, { from: 'user', text: userMessage }]);
     setLoading(true);
     setInput('');
-    // Try to solve small issues or redirect to Joy
-    if (isSmallIssue(input)) {
+
+    // Check if this should be redirected to Joy (shopping queries only)
+    if (shouldRedirectToJoy(userMessage)) {
       setMessages((msgs) => [
         ...msgs,
-        { from: 'support', text: 'This looks like something Joy can help you with! Redirecting you to Joy...' }
+        { from: 'support', text: "This looks like a shopping question! Let me connect you with Joy, our shopping assistant who can help you find products and manage your cart." }
       ]);
       setLoading(false);
       setTimeout(() => {
         window.dispatchEvent(new CustomEvent('open-joy-chatbot'));
-      }, 1200);
+      }, 2000);
       return;
     }
-    // For big issues, show escalation form
-    setEscalateMsg(input);
+
+    // Handle support-specific issues
+    const supportIssue = handleSupportIssue(userMessage);
+    if (supportIssue) {
+      setMessages((msgs) => [...msgs, { from: 'support', text: supportIssue.response }]);
+      setLoading(false);
+      
+      if (supportIssue.shouldEscalate) {
+        setEscalateMsg(userMessage);
+        setShowEscalateForm(true);
+      }
+      
+      setTimeout(() => {
+        chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+
+    // For other issues, show escalation form
+    setEscalateMsg(userMessage);
     setShowEscalateForm(true);
     setLoading(false);
     setTimeout(() => {
@@ -54,17 +125,37 @@ const SupportBot = ({ embedMode = false }: SupportBotProps) => {
     }, 100);
   }
 
-  function handleEscalate() {
+  async function handleEscalate() {
     if (!userName.trim() || !userEmail.trim() || !escalateMsg.trim()) {
       alert('Please fill in all fields');
       return;
     }
-    setEscalated(true);
-    setMessages((msgs) => [
-      ...msgs,
-      { from: 'support', text: `Thank you ${userName}! Your issue has been escalated. We&apos;ll contact you at ${userEmail} within 24 hours.` }
-    ]);
-    setShowEscalateForm(false);
+    setLoading(true);
+    try {
+      const res = await fetch('/api/support', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: userName,
+          email: userEmail,
+          subject: 'Support Request from ' + userName,
+          message: escalateMsg
+        })
+      });
+      if (!res.ok) throw new Error('Failed to submit support request');
+      setEscalated(true);
+      setMessages((msgs) => [
+        ...msgs,
+        { from: 'support', text: `Thank you ${userName}! Your issue has been escalated to our support team. We'll contact you at ${userEmail} within 24 hours with a resolution.` }
+      ]);
+      setShowEscalateForm(false);
+    } catch (err) {
+      setMessages((msgs) => [
+        ...msgs,
+        { from: 'support', text: 'There was an error submitting your request. Please try again later or contact us directly.' }
+      ]);
+    }
+    setLoading(false);
     setTimeout(() => {
       chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' });
     }, 100);

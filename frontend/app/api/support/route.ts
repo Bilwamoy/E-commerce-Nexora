@@ -1,54 +1,47 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
     const { name, email, subject, message } = await request.json();
-    
-    // Validate required fields
     if (!name || !email || !subject || !message) {
-      return NextResponse.json({ 
-        error: 'All fields are required' 
-      }, { status: 400 });
+      return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
     }
-
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json({ 
-        error: 'Invalid email format' 
-      }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
     }
-
-    // Simulate support request processing
-    console.log('Support request received:', {
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
-      action: 'support_request'
+    // Send email to admin
+    const adminEmail = process.env.ADMIN_EMAIL;
+    if (!adminEmail) {
+      return NextResponse.json({ error: 'Admin email not configured' }, { status: 500 });
+    }
+    const transporter = nodemailer.createTransport({
+      service: 'gmail', // or your email provider
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
     });
-
-    // In a production environment, you would:
-    // 1. Save the support request to your database
-    // 2. Send an email to admin using a service like SendGrid, Mailgun, or AWS SES
-    // 3. Send a confirmation email to the customer
-    // 4. Create a support ticket in your system
-
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: adminEmail,
+      subject: `[Support Request] ${subject}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
+    await transporter.sendMail(mailOptions);
     // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
+    await new Promise(resolve => setTimeout(resolve, 500));
     const successResponse = {
       message: 'Support request submitted successfully!',
       ticketId: `SUP-${Date.now()}`,
       submittedAt: new Date().toISOString(),
       note: 'We will get back to you within 24 hours.'
     };
-
     return NextResponse.json(successResponse, { status: 200 });
   } catch (error) {
     console.error('Support request error:', error);
-    return NextResponse.json({ 
+    return NextResponse.json({
       error: 'Failed to submit support request',
       details: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });

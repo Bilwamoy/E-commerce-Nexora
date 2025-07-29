@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 
 interface CarouselProps {
@@ -14,9 +13,9 @@ const Carousel: React.FC<CarouselProps> = ({ children, autoPlay = true, interval
     setCurrentIndex((prevIndex) => (prevIndex + 1) % children.length);
   }, [children.length]);
 
-  const prevSlide = useCallback(() => {
+  const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + children.length) % children.length);
-  }, [children.length]);
+  };
 
   useEffect(() => {
     if (autoPlay) {
@@ -32,7 +31,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, autoPlay = true, interval
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {children.map((child, index) => (
-          <div key={index} className="w-full shrink-0">
+          <div key={index} className="w-full flex-shrink-0">
             {child}
           </div>
         ))}
@@ -40,19 +39,19 @@ const Carousel: React.FC<CarouselProps> = ({ children, autoPlay = true, interval
 
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 transition"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full hover:bg-opacity-60 transition"
         aria-label="Previous Slide"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="size-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 transition"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full hover:bg-opacity-60 transition"
         aria-label="Next Slide"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="size-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -62,7 +61,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, autoPlay = true, interval
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`size-3 rounded-full transition-all ${
+            className={`w-3 h-3 rounded-full transition-all ${
               currentIndex === index ? 'bg-white' : 'bg-gray-400'
             }`}
           ></button>
@@ -72,4 +71,4 @@ const Carousel: React.FC<CarouselProps> = ({ children, autoPlay = true, interval
   );
 };
 
-export default Carousel;
+export default Carousel; 

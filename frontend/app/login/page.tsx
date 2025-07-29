@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import '@/styles/login-signup.css';
+import { toast } from 'react-hot-toast';
 
 const LoginSignup = () => {
     const [isSignUpActive, setIsSignUpActive] = useState(false);
@@ -69,7 +70,7 @@ const LoginSignup = () => {
     const handleSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.email || !formData.password) {
-            alert('Please fill in all fields');
+            toast.error('Please fill in all fields');
             return;
         }
 
@@ -82,7 +83,7 @@ const LoginSignup = () => {
             });
 
             if (result?.error) {
-                alert('Invalid email or password');
+                toast.error('Invalid email or password');
             } else {
                 // Get user data from the session
                 const response = await fetch('/api/auth/login', {
@@ -109,7 +110,7 @@ const LoginSignup = () => {
                 }
             }
         } catch (error) {
-            alert('Login failed. Please try again.');
+            toast.error('Login failed. Please try again.');
         } finally {
             setIsLoading(false);
         }
@@ -118,15 +119,15 @@ const LoginSignup = () => {
     const handleSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
-            alert('Please fill in all fields');
+            toast.error('Please fill in all fields');
             return;
         }
         if (formData.password !== formData.confirmPassword) {
-            alert('Passwords do not match');
+            toast.error('Passwords do not match');
             return;
         }
         if (formData.password.length < 6) {
-            alert('Password must be at least 6 characters');
+            toast.error('Password must be at least 6 characters');
             return;
         }
 
@@ -145,14 +146,14 @@ const LoginSignup = () => {
             const data = await response.json();
 
             if (data.success) {
-                alert('Account created! Please check your email for verification.');
+                toast.success('Account created! Please check your email for verification.');
                 setIsSignUpActive(false);
                 setFormData({ name: '', email: '', password: '', confirmPassword: '' });
             } else {
-                alert(data.message || 'Signup failed');
+                toast.error(data.message || 'Signup failed');
             }
         } catch (error) {
-            alert('Signup failed. Please try again.');
+            toast.error('Signup failed. Please try again.');
         } finally {
             setIsLoading(false);
         }
@@ -166,7 +167,7 @@ const LoginSignup = () => {
                 redirect: true
             });
         } catch (error) {
-            alert('Google sign-in failed');
+            toast.error('Google sign-in failed');
             setIsLoading(false);
         }
     };
@@ -189,12 +190,12 @@ const LoginSignup = () => {
                 {/* Sign Up Form */}
                 <div className="form-container sign-up-container">
                     <form onSubmit={handleSignUp}>
-                        <h1>Create Account</h1>
+                        <h1>signUp</h1>
                         <div className="input-group">
                             <input 
                                 type="text" 
                                 name="name"
-                                placeholder="Full Name" 
+                                placeholder="namePlaceholder" 
                                 value={formData.name}
                                 onChange={handleInputChange}
                                 required 
@@ -227,7 +228,7 @@ const LoginSignup = () => {
                             <input 
                                 type="password" 
                                 name="confirmPassword"
-                                placeholder="Confirm Password" 
+                                placeholder="confirmPasswordPlaceholder" 
                                 value={formData.confirmPassword}
                                 onChange={handleInputChange}
                                 required 
@@ -235,7 +236,7 @@ const LoginSignup = () => {
                             <i className="fas fa-lock"></i>
                         </div>
                         <button type="submit" disabled={isLoading}>
-                            {isLoading ? 'Creating Account...' : 'Sign Up'}
+                            {isLoading ? 'Creating Account...' : 'SIGNUP'}
                         </button>
                         
                         {/* Google Sign Up Button */}
@@ -262,7 +263,7 @@ const LoginSignup = () => {
                 {/* Sign In Form */}
                 <div className="form-container sign-in-container">
                     <form onSubmit={handleSignIn}>
-                        <h1>Sign In</h1>
+                        <h1>welcomeBack</h1>
                         <div className="input-group">
                             <input 
                                 type="email" 
@@ -287,7 +288,7 @@ const LoginSignup = () => {
                         </div>
                         <a href="#">Forgot your password?</a>
                         <button type="submit" disabled={isLoading}>
-                            {isLoading ? 'Signing In...' : 'Sign In'}
+                            {isLoading ? 'Signing In...' : 'SIGNIN'}
                         </button>
                         
                         {/* Google Sign In Button */}
@@ -315,14 +316,14 @@ const LoginSignup = () => {
                 <div className="overlay-container">
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">
-                            <h1>Welcome Back!</h1>
-                            <p>To keep connected with us please login with your personal info</p>
-                            <button className="ghost" onClick={handleSignInClick}>Sign In</button>
+                            <h1>welcomeBack</h1>
+                            <p>join.Community</p>
+                            <button className="ghost" onClick={handleSignInClick}>SIGNIN</button>
                         </div>
                         <div className="overlay-panel overlay-right">
                             <h1>Hello, Friend!</h1>
                             <p>Enter your personal details and start your journey with us</p>
-                            <button className="ghost" onClick={handleSignUpClick}>Sign Up</button>
+                            <button className="ghost" onClick={handleSignUpClick}>SIGNUP</button>
                         </div>
                     </div>
                 </div>

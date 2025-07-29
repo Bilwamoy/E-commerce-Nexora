@@ -2,18 +2,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { useCart } from './CartContext';
 import { JoyLogo, BotContainerLogo } from './BotLogos';
+import { products as allProducts } from '@/data/products';
 
 interface JoyChatbotProps {
   embedMode?: boolean;
-}
-
-// Mock: fetch products
-async function fetchProducts() {
-  return [
-    { id: 1, name: 'iPhone 15 Pro', price: 999, description: 'Latest smartphone with advanced features' },
-    { id: 2, name: 'MacBook Pro', price: 1999, description: 'Professional laptop for creators' },
-    { id: 3, name: 'AirPods Pro', price: 249, description: 'Wireless earbuds with noise cancellation' },
-  ];
 }
 
 // Mock: fetch orders for the user
@@ -39,14 +31,19 @@ const JoyChatbot = ({ embedMode = false }: JoyChatbotProps) => {
   // Fetch products on open
   useEffect(() => {
     if (open && products.length === 0) {
-      fetchProducts().then(setProducts);
+      setProducts(allProducts);
     }
   }, [open, products.length]);
 
   // Suggest products based on user input
   function suggestProducts(query: string) {
     const q = query.toLowerCase();
-    const found = products.filter(p => p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
+    // Match by name, category, or description
+    const found = products.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      (p.category && p.category.toLowerCase().includes(q)) ||
+      (p.description && p.description.toLowerCase().includes(q))
+    );
     setSuggested(found.slice(0, 3));
     return found;
   }
@@ -163,7 +160,7 @@ const JoyChatbot = ({ embedMode = false }: JoyChatbotProps) => {
         const suggestions = found.slice(0, 3).map(p => `- ${p.name}: $${p.price}`).join('\n');
         setMessages((msgs) => [...msgs, { from: 'joy', text: `I found these products for you:\n${suggestions}\n\nWould you like me to add any of these to your cart?` }]);
       } else {
-        setMessages((msgs) => [...msgs, { from: 'joy', text: 'I couldn&apos;t find any products matching your search. Could you try a different keyword?' }]);
+        setMessages((msgs) => [...msgs, { from: 'joy', text: "I couldn't find any products matching your search. Could you try a different keyword?" }]);
       }
       setLoading(false);
       setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
@@ -172,7 +169,7 @@ const JoyChatbot = ({ embedMode = false }: JoyChatbotProps) => {
 
     // Default response
     setTimeout(() => {
-      setMessages((msgs) => [...msgs, { from: 'joy', text: 'I&apos;m here to help you with shopping! You can ask me to find products, add items to cart, check order status, or just chat about what you&apos;re looking for.' }]);
+      setMessages((msgs) => [...msgs, { from: 'joy', text: "I'm here to help you with shopping! You can ask me to find products, add items to cart, check order status, or just chat about what you're looking for." }]);
       setLoading(false);
       setTimeout(() => { chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' }); }, 100);
     }, 1000);

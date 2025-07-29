@@ -1,14 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Create transporter
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+// Create transporter with proper error handling
+const createTransporter = () => {
+  const emailUser = process.env.EMAIL_USER;
+  const emailPass = process.env.EMAIL_PASS;
+  
+  if (!emailUser || !emailPass) {
+    console.warn('Email credentials not configured. Welcome emails will be skipped.');
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: emailUser,
+      pass: emailPass,
+    },
+  });
+};
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,6 +29,17 @@ export async function POST(req: NextRequest) {
         { success: false, message: 'Invalid user data' },
         { status: 400 }
       );
+    }
+
+    const transporter = createTransporter();
+    
+    // If email is not configured, return success but skip sending
+    if (!transporter) {
+      console.log('Skipping welcome email - email not configured');
+      return NextResponse.json({
+        success: true,
+        message: 'Welcome email skipped - email not configured'
+      });
     }
 
     // Welcome email template
@@ -159,7 +180,7 @@ export async function POST(req: NextRequest) {
               </div>
               
               <div style="text-align: center;">
-                <a href="${process.env.NEXTAUTH_URL}" class="cta-button">
+                <a href="${process.env.NEXTAUTH_URL || 'http://localhost:3001'}" class="cta-button">
                   Start Shopping Now
                 </a>
               </div>
