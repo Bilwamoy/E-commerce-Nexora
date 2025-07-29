@@ -42,9 +42,13 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     try {
+      console.log('🚀 Starting email sending process...');
+      console.log('📧 Admin Email:', process.env.ADMIN_EMAIL);
+      console.log('🔑 Resend API Key exists:', !!process.env.RESEND_API_KEY);
+      
       // Send email to admin
-      await resend.emails.send({
-        from: 'NEXORA <noreply@nexora.com>',
+      const adminEmailResult = await resend.emails.send({
+        from: 'onboarding@resend.dev',
         to: [process.env.ADMIN_EMAIL || 'chakrabortybilwamoy@gmail.com'],
         subject: `🎉 New NEXORA Website Feedback - ${rating} Star Rating`,
         html: `
@@ -83,10 +87,11 @@ export async function POST(request: NextRequest) {
       });
 
       console.log('✅ Email sent successfully to admin');
+      console.log('📊 Admin email result:', adminEmailResult);
 
       // Send confirmation email to customer
-      await resend.emails.send({
-        from: 'NEXORA <noreply@nexora.com>',
+      const customerEmailResult = await resend.emails.send({
+        from: 'onboarding@resend.dev',
         to: [email],
         subject: '🎉 Thank You for Your NEXORA Feedback!',
         html: `
@@ -124,6 +129,7 @@ export async function POST(request: NextRequest) {
       });
 
       console.log('✅ Confirmation email sent to customer');
+      console.log('📧 Customer email result:', customerEmailResult);
       console.log('🎉 All emails sent successfully via Resend!');
 
     } catch (emailError) {
