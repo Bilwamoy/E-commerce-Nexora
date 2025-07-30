@@ -10,7 +10,20 @@ import {
 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
-const facebookPosts = [
+const facebookPosts: Array<{
+  id: number;
+  content: string;
+  author: string;
+  authorAvatar: string;
+  timestamp: string;
+  likes: number;
+  comments: number;
+  shares: number;
+  image: string | null;
+  isLiked: boolean;
+  isBookmarked: boolean;
+  type: string;
+}> = [
   {
     id: 1,
     content: "🎉 Exciting news! Nexora has reached 2 million happy customers! Thank you for your trust and support. We're committed to bringing you the best shopping experience. #Nexora #Milestone #HappyCustomers",

@@ -24,24 +24,7 @@ import {
 } from 'lucide-react';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
-
-interface Product {
-  id: number;
-  name: string;
-  slug: string;
-  category: string;
-  image: string;
-  price: number;
-  originalPrice: number;
-  rating: number;
-  reviews: number;
-  features: string[];
-  description: string;
-  user_manual: string;
-  offers: Record<string, string>;
-  specs: Record<string, string>;
-  relatedSlugs: string[];
-}
+import { Product } from '@/types';
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -57,7 +40,7 @@ export default function ProductDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (params.id) {
+    if (params?.id) {
       const productId = parseInt(params.id as string);
       const foundProduct = products.find(p => p.id === productId);
       
@@ -72,7 +55,7 @@ export default function ProductDetailPage() {
       }
       setIsLoading(false);
     }
-  }, [params.id]);
+  }, [params?.id]);
 
   const handleQuantityChange = (newQuantity: number) => {
     if (newQuantity >= 1 && newQuantity <= 10) {
@@ -88,7 +71,7 @@ export default function ProductDetailPage() {
         price: product.price,
         image: product.image,
         category: product.category,
-        quantity: quantity
+        slug: product.slug
       });
       toast.success(`${product.name} added to cart!`);
     }
@@ -96,14 +79,15 @@ export default function ProductDetailPage() {
 
   const handleWishlistToggle = () => {
     if (product) {
-      const isInWishlist = wishlistItems.some(item => item.id === product.id);
+      const productIdString = product.id.toString();
+      const isInWishlist = wishlistItems.some(item => item.id === productIdString);
       
       if (isInWishlist) {
-        removeFromWishlist(product.id);
+        removeFromWishlist(productIdString);
         toast.success('Removed from wishlist');
       } else {
         addToWishlist({
-          id: product.id,
+          id: productIdString,
           name: product.name,
           price: product.price,
           image: product.image,
@@ -167,7 +151,7 @@ export default function ProductDetailPage() {
     );
   }
 
-  const isInWishlist = wishlistItems.some(item => item.id === product.id);
+  const isInWishlist = wishlistItems.some(item => item.id === product.id.toString());
 
   return (
     <>
@@ -410,7 +394,9 @@ export default function ProductDetailPage() {
 
               {activeTab === 'manual' && (
                 <div className="prose max-w-none">
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-line">{product.user_manual}</p>
+                  <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                    {product.description || 'User manual information will be available soon.'}
+                  </p>
                 </div>
               )}
             </div>
@@ -425,7 +411,7 @@ export default function ProductDetailPage() {
                   <div
                     key={relatedProduct.id}
                     className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow cursor-pointer"
-                    onClick={() => router.push(`/product/${relatedProduct.id}`)}
+                    onClick={() => router.push(`/product/id/${relatedProduct.id}`)}
                   >
                     <div className="aspect-square relative">
                       <Image
@@ -460,4 +446,4 @@ export default function ProductDetailPage() {
       <ChatWidget />
     </>
   );
-}
+} 

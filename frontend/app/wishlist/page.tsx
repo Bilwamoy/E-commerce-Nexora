@@ -12,8 +12,8 @@ interface WishlistItem {
   price: number;
   image: string;
   category: string;
-  originalPrice?: number;
   discount?: number;
+  originalPrice?: number;
 }
 
 export default function WishlistPage() {
@@ -40,11 +40,12 @@ export default function WishlistPage() {
 
   const handleAddToCart = (item: WishlistItem) => {
     addToCart({
-      id: item.id,
+      id: Number(item.id),
       name: item.name,
       price: item.price,
       image: item.image,
-      quantity: 1
+      category: item.category,
+      slug: ''
     });
     toast.success(`${item.name} added to cart!`);
   };
@@ -55,19 +56,19 @@ export default function WishlistPage() {
   };
 
   const handleViewProduct = (item: WishlistItem) => {
-    // Navigate to product detail page
-    const categorySlug = item.category.toLowerCase().replace(/\s+/g, '-');
-    router.push(`/product/${categorySlug}/${item.id}`);
+    // Navigate to product detail page using ID-based route
+    router.push(`/product/id/${item.id}`);
   };
 
   const handleMoveAllToCart = () => {
     wishlistItems.forEach(item => {
       addToCart({
-        id: item.id,
+        id: Number(item.id),
         name: item.name,
         price: item.price,
         image: item.image,
-        quantity: 1
+        category: item.category,
+        slug: ''
       });
     });
     toast.success('All items moved to cart!');
@@ -197,7 +198,7 @@ export default function WishlistPage() {
                       <Trash2 className="w-4 h-4 text-red-600" />
                     </button>
                   </div>
-                  {item.discount && (
+                  {typeof item.discount === 'number' && (
                     <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
                       -{item.discount}%
                     </div>
@@ -219,7 +220,7 @@ export default function WishlistPage() {
                       <span className="text-lg font-bold text-gray-900">
                         ₹{item.price.toLocaleString()}
                       </span>
-                      {item.originalPrice && item.originalPrice > item.price && (
+                      {typeof item.originalPrice === 'number' && item.originalPrice > item.price && (
                         <span className="text-sm text-gray-500 line-through">
                           ₹{item.originalPrice.toLocaleString()}
                         </span>

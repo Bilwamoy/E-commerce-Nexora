@@ -10,7 +10,19 @@ import {
 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
-const instagramPosts = [
+const instagramPosts: Array<{
+  id: number;
+  content: string;
+  author: string;
+  authorAvatar: string;
+  timestamp: string;
+  likes: number;
+  comments: number;
+  image: string | null;
+  isLiked: boolean;
+  isSaved: boolean;
+  type: string;
+}> = [
   {
     id: 1,
     content: "🎉 2 MILLION customers milestone! Thank you for your trust and support. We're committed to bringing you the best shopping experience. #Nexora #Milestone #HappyCustomers #Shopping #Ecommerce",

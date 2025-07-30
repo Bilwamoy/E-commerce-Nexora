@@ -9,7 +9,7 @@ import ProductCard from '@/components/ProductCard';
 const SearchPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
+  const [searchQuery, setSearchQuery] = useState(searchParams?.get('q') || '');
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
@@ -122,7 +122,7 @@ const SearchPage = () => {
 
   // Perform search when query changes from URL
   useEffect(() => {
-    const query = searchParams.get('q');
+    const query = searchParams?.get('q');
     if (query) {
       setSearchQuery(query);
       performSearch(query);
