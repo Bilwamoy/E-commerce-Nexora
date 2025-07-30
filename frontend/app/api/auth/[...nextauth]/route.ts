@@ -8,9 +8,8 @@ const adminEmail = 'admin@nexora.com';
 
 const googleId = process.env.GOOGLE_ID;
 const googleSecret = process.env.GOOGLE_SECRET;
-if (!googleId || !googleSecret) {
-  throw new Error('Missing GOOGLE_ID or GOOGLE_SECRET in .env.local');
-}
+// Make Google OAuth optional for deployment
+const hasGoogleAuth = googleId && googleSecret;
 
 let cachedDb: any = null;
 
@@ -48,10 +47,11 @@ const handler = NextAuth({
         return null;
       },
     }),
-    GoogleProvider({
+    // Only add Google provider if credentials are available
+    ...(hasGoogleAuth ? [GoogleProvider({
       clientId: googleId!,
       clientSecret: googleSecret!,
-    }),
+    })] : []),
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
