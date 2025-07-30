@@ -158,11 +158,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   };
 
   const handleWishlistToggle = () => {
-    if (isInWishlist(product.id)) {
-      removeFromWishlist(product.id);
+    const productIdString = product.id.toString();
+    if (isInWishlist(productIdString)) {
+      removeFromWishlist(productIdString);
     } else {
       addToWishlist({
-        id: product.id,
+        id: productIdString,
         name: product.name,
         price: product.price,
         image: getLocalImage(product),
@@ -191,13 +192,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <button 
             onClick={handleWishlistToggle}
             className={`p-3 rounded-lg border-2 transition-colors ${
-              isInWishlist(product.id) 
+              isInWishlist(product.id.toString()) 
                 ? 'border-red-500 bg-red-50 text-red-600' 
                 : 'border-gray-300 hover:border-red-500 text-gray-600 hover:text-red-600'
             }`}
-            title={isInWishlist(product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
+            title={isInWishlist(product.id.toString()) ? 'Remove from wishlist' : 'Add to wishlist'}
           >
-            <Heart className={`w-5 h-5 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
+            <Heart className={`w-5 h-5 ${isInWishlist(product.id.toString()) ? 'fill-current' : ''}`} />
           </button>
         </div>
       </div>

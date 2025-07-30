@@ -141,11 +141,12 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const handleWishlistToggle = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (isInWishlist(product.id)) {
-      removeFromWishlist(product.id);
+    const productIdString = product.id.toString();
+    if (isInWishlist(productIdString)) {
+      removeFromWishlist(productIdString);
     } else {
       addToWishlist({
-        id: product.id,
+        id: productIdString,
         name: product.name,
         price: product.price,
         image: getLocalImage(product),
@@ -158,13 +159,13 @@ export default function ProductCard({ product }: ProductCardProps) {
       <button
         onClick={handleWishlistToggle}
         className={`absolute top-2 right-2 p-2 rounded-full transition-colors z-10 ${
-          isInWishlist(product.id) 
+          isInWishlist(product.id.toString()) 
             ? 'bg-red-500 text-white' 
             : 'bg-white/80 hover:bg-red-500 hover:text-white text-gray-600'
         }`}
-        title={isInWishlist(product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
+        title={isInWishlist(product.id.toString()) ? 'Remove from wishlist' : 'Add to wishlist'}
       >
-        <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
+        <Heart className={`w-4 h-4 ${isInWishlist(product.id.toString()) ? 'fill-current' : ''}`} />
       </button>
       <Link href={`/product/id/${product.id}`}>
         <Image
