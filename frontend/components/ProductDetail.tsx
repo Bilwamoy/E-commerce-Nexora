@@ -10,128 +10,78 @@ function getLocalImage(product: Product): string {
   const name = product.name.toLowerCase();
   const category = product.category.toLowerCase();
   const desc = (product.description || '').toLowerCase();
-  const productId = product.id;
   
-  // Create an array of all available images
-  const allImages = [
-    // Category-specific images
-    "/gaming tools.png", "/home accessories.png", "/fashion trending.png", "/fashion trending - Copy.png",
-    "/best selling games.png", "/covers.png", "/clothings.png", "/Untitled design (1).png",
-    "/movies.png", "/decoration.png", "/daily life .png", "/seasons best.png",
-    "/beauty products.png", "/sports accessories.png", "/gaming accessories.png",
-    "/usa.jpeg", "/beauty.jpeg", "/personal care.jpg", "/furniture.jpg",
-    "/laptops.jpg", "/family.jpg", "/homes.jpg", "/more of games.jpg",
-    "/this season.jpg", "/most wished gaimg.jpg", "/shoes.jpg", "/welcoming.jpg",
-    "/marchendise.jpg", "/smart watches.jpg", "/hero3.jpg", "/hero2.jpg",
-    "/trendig fashions.jpg", "/toys.jpg", "/electronis.jpg", "/pcs.jpg",
-    "/fashion.jpg", "/refresh.jpg", "/game.jpg", "/hero.jpg",
-    // Gemini generated images for variety
-    "/Gemini_Generated_Image_swef9xswef9xswef.png", "/Gemini_Generated_Image_ndx101ndx101ndx1.png",
-    "/Gemini_Generated_Image_3rmejm3rmejm3rme.png", "/Gemini_Generated_Image_fyku0ufyku0ufyku.png",
-    "/Gemini_Generated_Image_nhvkefnhvkefnhvk.png", "/Gemini_Generated_Image_pkkcr4pkkcr4pkkc.png",
-    "/Gemini_Generated_Image_ql2bqjql2bqjql2b.png", "/Gemini_Generated_Image_1h26q91h26q91h26.png",
-    "/Gemini_Generated_Image_nc8pmsnc8pmsnc8p.png", "/Gemini_Generated_Image_g19ilbg19ilbg19i.png",
-    "/Gemini_Generated_Image_y0r1f1y0r1f1y0r1.png", "/Gemini_Generated_Image_kf0f2zkf0f2zkf0f.png",
-    "/Gemini_Generated_Image_q9z852q9z852q9z8.png", "/Gemini_Generated_Image_dr1x34dr1x34dr1x.png",
-    "/Gemini_Generated_Image_waho6iwaho6iwaho.png", "/Gemini_Generated_Image_31vpgx31vpgx31vp.png",
-    "/Gemini_Generated_Image_qe0n8dqe0n8dqe0n.png", "/Gemini_Generated_Image_l70zael70zael70z.png",
-    "/Gemini_Generated_Image_xhjznaxhjznaxhjz.png", "/Gemini_Generated_Image_gv204ggv204ggv20.png",
-    "/Gemini_Generated_Image_1r21ky1r21ky1r21.png", "/Gemini_Generated_Image_sb4jpysb4jpysb4j.png",
-    "/Gemini_Generated_Image_5aa4ub5aa4ub5aa4.png", "/Gemini_Generated_Image_ntq58ontq58ontq5.png",
-    "/Gemini_Generated_Image_fgpburfgpburfgpb.png", "/Gemini_Generated_Image_92r3lz92r3lz92r3.png",
-    "/Gemini_Generated_Image_hpo2ihpo2ihpo2ih.png", "/Gemini_Generated_Image_kz3u3nkz3u3nkz3u.png",
-    "/Gemini_Generated_Image_ml1r2dml1r2dml1r.png", "/Gemini_Generated_Image_s818qgs818qgs818.png",
-    "/Gemini_Generated_Image_qebue5qebue5qebu.png", "/Gemini_Generated_Image_nnihpvnnihpvnnih.png",
-    "/Gemini_Generated_Image_k4aveak4aveak4av.png", "/Gemini_Generated_Image_fitz5qfitz5qfitz.png",
-    "/Gemini_Generated_Image_5j4kuq5j4kuq5j4k.png", "/Gemini_Generated_Image_vh3ocxvh3ocxvh3o.png",
-    "/Gemini_Generated_Image_rrxz6nrrxz6nrrxz.png", "/Gemini_Generated_Image_woyy91woyy91woyy.png",
-    "/Gemini_Generated_Image_h55mqrh55mqrh55m.png", "/Gemini_Generated_Image_uy66y7uy66y7uy66.png",
-    "/Gemini_Generated_Image_oivmr2oivmr2oivm.png", "/Gemini_Generated_Image_jigal0jigal0jiga.png",
-    "/Gemini_Generated_Image_95zjtp95zjtp95zj.png", "/Gemini_Generated_Image_y96swhy96swhy96s.png",
-    "/Gemini_Generated_Image_se2u1rse2u1rse2u.png", "/Gemini_Generated_Image_q9dc3eq9dc3eq9dc.png",
-    "/Gemini_Generated_Image_9taf2l9taf2l9taf.png", "/Gemini_Generated_Image_k6p9ckk6p9ckk6p9.png"
+  // Specific product mappings
+  if (name.includes('auraglow')) return '/Auraglow.png';
+  if (name.includes('soundcore') || name.includes('liberty air')) return '/earpods.png';
+  if (name.includes('instapot') || name.includes('cooker')) return '/cooking.png';
+  if (name.includes('kindle')) return '/kindel books.png';
+  if (name.includes('sony') && name.includes('headphone')) return '/bluetooth headset.png';
+  if (name.includes('alexa') || name.includes('echo')) return '/amazon echo.png';
+  if (name.includes('galaxy s24')) return '/galaxys-24.png';
+  if (name.includes('pixel')) return '/google pixel.png';
+  if (name.includes('oneplus')) return '/oneplus.png';
+  if (name.includes('gaming mouse')) return '/gaming mouse.png';
+  if (name.includes('vacuum') || name.includes('cleaner')) return '/vaccuam cleaner.png';
+  if (name.includes('coffee')) return '/coffeeMaker.png';
+  if (name.includes('speaker')) return '/bluetooth speaker.png';
+  if (name.includes('ipad') || name.includes('tablet')) return '/tab,ipad.png';
+  if (name.includes('mx player')) return '/mx player.png';
+  if (name.includes('handbag')) return '/handbags.png';
+  if (name.includes('t-shirt') || name.includes('tshirt')) return '/Tshirt.png';
+  if (name.includes('jeans')) return '/geans.png';
+  if (name.includes('sports shoe')) return '/sports shoe.png';
+  if (name.includes('lenovo laptop')) return '/lenovo laptop.png';
+  if (name.includes('foldable laptop')) return '/foldable laptop.png';
+  if (name.includes('laptop')) return '/laptop.png';
+  if (name.includes('artwork')) return '/Artwork.png';
+  if (name.includes('prime')) return '/amazon prime.png';
+  if (name.includes('smart tv')) return '/SmartTv.png';
+  if (name.includes('herbal tea')) return '/herbaltee.png';
+  if (name.includes('alchemist')) return '/the alchemiest book.png';
+  if (name.includes('webcam')) return '/web cam.png';
+  if (name.includes('makeup')) return '/makeup.png';
+  if (name.includes('facial')) return '/faciallotion.png';
+  if (name.includes('hair dryer')) return '/hairdryer.png';
+  if (name.includes('backpack')) return '/bagpack.png';
+  if (name.includes('drinks')) return '/drinks.png';
+  if (name.includes('car washer')) return '/carwasher.png';
+  if (name.includes('tyre')) return '/tyre.png';
+  if (name.includes('wiper')) return '/wiper.png';
+  if (name.includes('card game')) return '/cardgame.png';
+  if (name.includes('spacecraft')) return '/spacecrafttoy.png';
+  if (name.includes('fridge')) return '/fridge.png';
+  if (name.includes('dish')) return '/dishtub.png';
+
+  // Category-based mappings
+  if (category.includes('ladies') || category.includes('women')) {
+    if (name.includes('fashion')) return '/ladiesfashion.png';
+    return '/LADIES WEAR.png';
+  }
+
+  // Generic category fallbacks
+  if (category.includes('gaming')) return '/gaming accessories.png';
+  if (category.includes('electronics')) return '/electronis.jpg';
+  if (category.includes('fashion')) return '/fashion trending.png';
+  if (category.includes('books')) return '/kindel books.png';
+  if (category.includes('home')) return '/home accessories.png';
+  if (category.includes('beauty')) return '/beauty products.png';
+  if (category.includes('sports')) return '/sports accessories.png';
+  if (category.includes('toys')) return '/toys.jpg';
+  if (category.includes('kitchen')) return '/cooking.png';
+  if (category.includes('mobile')) return '/smart watches.jpg';
+  if (category.includes('laptop')) return '/laptops.jpg';
+  if (category.includes('accessories')) return '/home accessories.png';
+
+  // Default fallback images based on product ID
+  const defaultImages = [
+    '/hero.jpg',
+    '/hero2.jpg',
+    '/hero3.jpg',
+    '/electronis.jpg',
+    '/fashion.jpg'
   ];
-
-  // Smart category-based image selection
-  let selectedImage = "";
-  
-  // Laptops and Computers
-  if (category.includes('laptop') || name.includes('laptop') || name.includes('macbook') || name.includes('dell') || name.includes('hp')) {
-    const laptopImages = ["/laptops.jpg", "/pcs.jpg", "/electronis.jpg"];
-    selectedImage = laptopImages[productId % laptopImages.length];
-  }
-  // Mobile Phones
-  else if (category.includes('mobile') || name.includes('phone') || name.includes('pixel') || name.includes('galaxy') || name.includes('oneplus') || name.includes('iphone')) {
-    const mobileImages = ["/smart watches.jpg", "/hero3.jpg", "/hero2.jpg"];
-    selectedImage = mobileImages[productId % mobileImages.length];
-  }
-  // Fashion and Clothing
-  else if (category.includes('fashion') || name.includes('jeans') || name.includes('shirt') || name.includes('dress') || name.includes('t-shirt')) {
-    const fashionImages = ["/fashion.jpg", "/fashion trending.png", "/fashion trending - Copy.png", "/trendig fashions.jpg", "/clothings.png"];
-    selectedImage = fashionImages[productId % fashionImages.length];
-  }
-  // Gaming
-  else if (category.includes('game') || name.includes('game') || desc.includes('game')) {
-    const gamingImages = ["/game.jpg", "/gaming tools.png", "/best selling games.png", "/gaming accessories.png", "/more of games.jpg", "/most wished gaimg.jpg"];
-    selectedImage = gamingImages[productId % gamingImages.length];
-  }
-  // Beauty and Personal Care
-  else if (category.includes('beauty') || name.includes('beauty') || name.includes('care') || name.includes('cream') || name.includes('lotion')) {
-    const beautyImages = ["/beauty products.png", "/beauty.jpeg", "/personal care.jpg"];
-    selectedImage = beautyImages[productId % beautyImages.length];
-  }
-  // Home and Furniture
-  else if (category.includes('home') || name.includes('furniture') || name.includes('chair') || name.includes('table') || name.includes('sofa')) {
-    const homeImages = ["/homes.jpg", "/furniture.jpg", "/home accessories.png", "/decoration.png"];
-    selectedImage = homeImages[productId % homeImages.length];
-  }
-  // Toys
-  else if (category.includes('toy') || name.includes('toy')) {
-    selectedImage = "/toys.jpg";
-  }
-  // Sports
-  else if (category.includes('sport') || name.includes('sport')) {
-    selectedImage = "/sports accessories.png";
-  }
-  // Shoes
-  else if (name.includes('shoe') || name.includes('sneaker')) {
-    selectedImage = "/shoes.jpg";
-  }
-  // TV and Electronics
-  else if (category.includes('tv') || name.includes('tv') || name.includes('television')) {
-    selectedImage = "/hero3.jpg";
-  }
-  // Books
-  else if (category.includes('book') || name.includes('book')) {
-    selectedImage = "/covers.png";
-  }
-  // Movies and Entertainment
-  else if (category.includes('movie') || name.includes('movie') || name.includes('dvd')) {
-    selectedImage = "/movies.png";
-  }
-  // Kitchen and Appliances
-  else if (category.includes('kitchen') || name.includes('cook') || name.includes('coffee') || name.includes('blender')) {
-    selectedImage = "/home accessories.png";
-  }
-  // Seasonal and Trending
-  else if (name.includes('season') || name.includes('trend')) {
-    const seasonalImages = ["/seasons best.png", "/this season.jpg", "/daily life .png"];
-    selectedImage = seasonalImages[productId % seasonalImages.length];
-  }
-  // Family and Lifestyle
-  else if (name.includes('family') || name.includes('life')) {
-    selectedImage = "/family.jpg";
-  }
-  // Welcome and General
-  else if (name.includes('welcome') || name.includes('new')) {
-    selectedImage = "/welcoming.jpg";
-  }
-  // Default: Use product ID to cycle through all images
-  else {
-    selectedImage = allImages[productId % allImages.length];
-  }
-
-  return selectedImage;
+  return defaultImages[product.id % defaultImages.length];
 }
 
 interface ProductDetailProps {
